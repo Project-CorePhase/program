@@ -44,7 +44,7 @@ public class roadPiece
 		set;
 	}
 
-	public virtual roadPiece getNext()
+	public roadPiece getNext()
 	{
         if (NextArray == null)
         {
@@ -54,12 +54,12 @@ public class roadPiece
         {
             return NextArray[0];
         }
-        return NextArray[Randomizer.Next(0, NextArray.Length-1)];
+        return NextArray[Randomize(0, NextArray.Length - 1)];
 	}
 
-	public virtual void Randomize()
+	public int Randomize(int min, int max)
 	{
-		throw new System.NotImplementedException();
+        return Randomizer.Next(min, max);
 	}
 
 	public virtual System.Drawing.Point GetCoordinates()

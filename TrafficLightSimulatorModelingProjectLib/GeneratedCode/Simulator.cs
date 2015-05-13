@@ -8,80 +8,82 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-public class Simulator
+namespace TrafficLightSimulatorProgram
 {
-	public virtual Grid Grid
-	{
-		get;
-		set;
-	}
+    public class Simulator
+    {
+        public virtual Grid Grid
+        {
+            get;
+            set;
+        }
 
-	public virtual List<MovingObject> MovingObjects
-	{
-		get;
-		set;
-	}
+        public virtual List<MovingObject> MovingObjects
+        {
+            get;
+            set;
+        }
 
-    public virtual List<RoadObject> RoadObjects
-	{
-		get;
-		set;
-	}
+        public virtual List<RoadObject> RoadObjects
+        {
+            get;
+            set;
+        }
 
-	public virtual System.Timers.Timer UpdateTimer
-	{
-		get;
-		set;
-	}
-    /// <summary>
-    /// WHAT THE HELL IS THIS
-    /// </summary>
-	public virtual IEnumerable<RoadObject> RoadObject
-	{
-		get;
-		set;
-	}
+        public virtual System.Timers.Timer UpdateTimer
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// WHAT THE HELL IS THIS
+        /// </summary>
+        public virtual IEnumerable<RoadObject> RoadObject
+        {
+            get;
+            set;
+        }
 
-	public virtual void AddCrossing()
-	{
-		throw new System.NotImplementedException();
-	}
+        public virtual void AddCrossing()
+        {
+            throw new System.NotImplementedException();
+        }
 
-	public virtual void RemoveCrossing()
-	{
-		throw new System.NotImplementedException();
-	}
+        public virtual void RemoveCrossing()
+        {
+            throw new System.NotImplementedException();
+        }
 
-	public virtual void MoveCrossing()
-	{
-		throw new System.NotImplementedException();
-	}
+        public virtual void MoveCrossing()
+        {
+            throw new System.NotImplementedException();
+        }
 
-	public virtual void Save()
-	{
-		throw new System.NotImplementedException();
-	}
+        public virtual void Save()
+        {
+            throw new System.NotImplementedException();
+        }
 
-	public virtual void Load()
-	{
-		throw new System.NotImplementedException();
-	}
+        public virtual void Load()
+        {
+            throw new System.NotImplementedException();
+        }
 
-	public virtual void SetTimerInterval(int duration)
-	{
-		throw new System.NotImplementedException();
-	}
+        public virtual void SetTimerInterval(int duration)
+        {
+            throw new System.NotImplementedException();
+        }
 
-	public virtual void Rest()
-	{
-		throw new System.NotImplementedException();
-	}
+        public virtual void Rest()
+        {
+            throw new System.NotImplementedException();
+        }
 
-	public virtual void updateGraphic()
-	{
-		throw new System.NotImplementedException();
-	}
+        public virtual void updateGraphic()
+        {
+            throw new System.NotImplementedException();
+        }
+
+    }
 
 }
-
