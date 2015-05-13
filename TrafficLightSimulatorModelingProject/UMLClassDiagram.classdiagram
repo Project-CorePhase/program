@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="daf91973-d65a-48d2-9677-e79a4b34d137" name="UMLClassDiagram" linkedPackageId="c6ed429c-1f47-4c56-95eb-31aeee76280b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="daf91973-d65a-48d2-9677-e79a4b34d137" name="UMLClassDiagram" linkedPackageId="c6ed429c-1f47-4c56-95eb-31aeee76280b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
     <comment Id="692f2807-4718-4b11-bf65-b7ab912c6dce">
       <elementDefinition Id="5e40d503-a77c-41fd-9514-8f9db0b324f1" />
@@ -1011,24 +1011,6 @@ The constructor will Describe what type of MovingObject it is.</body>
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <elementDefinition Id="f7799e77-c550-4a77-be73-5f6294df81a9" />
-        <targetEnds>
-          <association Id="39083178-1e99-4fac-92e9-0d5665360dd4" isDerived="false" sourceEndRoleName="MovingObject" targetEndRoleName="path" isLeaf="false" isAbstract="false">
-            <classMoniker Id="fec336d8-8cc1-413f-b4e3-dedd57c2772e" LastKnownName="roadPiece" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="386a5ff4-439a-4208-b853-5ec5182020ee" name="MovingObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="c062885d-2046-4c1a-a923-c4125a6b519f" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="f1c91065-713b-41e6-bc66-a6d264d11d17" name="path" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="dc07607b-5c8b-4ac9-a667-00549a56af2f" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="05780f97-8588-4465-850e-0e5fe2aa7336" />
-          </association>
-        </targetEnds>
         <ownedAttributesInternal>
           <property Id="653da417-e0a0-466a-9326-2d1113d875ff" name="coordinateInRoadPiece" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
@@ -2697,6 +2679,32 @@ The constructor will Describe what type of MovingObject it is.</body>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="eb492877-f334-4276-9006-58acde8acdae" />
           </association>
+          <association Id="8eade6e5-3c10-461c-ba93-ce440bf317f8" isDerived="false" sourceEndRoleName="roadPiece" targetEndRoleName="MovingObject" isLeaf="false" isAbstract="false">
+            <classMoniker Id="0e2c73c6-9d1e-4bd4-b438-429b5748d5ab" LastKnownName="MovingObject" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a51edf6c-b52f-4200-a187-64212a444e89" name="roadPiece" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a99a2739-75bb-4af7-bd99-85691ec581c7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="73a5756a-abe9-4e12-a91c-fd9919e98314" name="MovingObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="91d9e5fa-8a16-4a6c-81e6-ed1137ff018e" name="Lower" value="n">
+                      <elementDefinition Id="de80696c-8d30-4f6c-aa78-4ad004a63553" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="f96b10f5-0018-4ef4-b713-29088b279382" name="Upper" value="n">
+                      <elementDefinition Id="c95955e2-2686-4008-b8b8-5a44c47d46ec" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="d6e7de47-30ea-4d6f-a819-f56533739f38" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a339b015-dac5-4f21-b868-1e9de9520e03" />
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property Id="c43d67a9-44f6-4cbe-b5da-069bc827a09d" name="trafficlightRefrence" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -3124,6 +3132,9 @@ The constructor will Describe what type of MovingObject it is.</body>
               </stereotypeInstance>
             </appliedStereotypesInternal>
             <elementDefinition Id="3f1e6fcd-e294-495c-b5bd-1a5713ffa434" />
+          </operation>
+          <operation Id="649d32a9-36bd-4126-aaa3-a5c732fa426f" name="getMovingObjectCoordonate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ffd31473-659f-4999-b717-13a5f2ffde7c" />
           </operation>
         </ownedOperationsInternal>
       </class>

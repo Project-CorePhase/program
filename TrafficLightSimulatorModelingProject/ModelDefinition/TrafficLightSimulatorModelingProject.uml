@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="bad978aa-802c-415e-92a7-bb77dd01cf6f"
   name="TrafficLightSimulatorModelingProject" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -1361,47 +1361,6 @@ The constructor will Describe what type of MovingObject it is.</body>
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
-        <targetEnds>
-          <association
-            Id="05780f97-8588-4465-850e-0e5fe2aa7336"
-            isDerived="false"
-            sourceEndRoleName="MovingObject"
-            targetEndRoleName="path"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="f0378d07-656d-412a-be90-dc4d9ce07eb0"
-              LastKnownName="roadPiece"
-              LastKnownLocation="TrafficLightSimulatorModelingProject.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="c062885d-2046-4c1a-a923-c4125a6b519f"
-                  name="MovingObject"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="dc07607b-5c8b-4ac9-a667-00549a56af2f"
-                  name="path"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="477043e4-4ed8-4e6d-8636-8912e334d928"
@@ -3695,6 +3654,58 @@ The constructor will Describe what type of MovingObject it is.</body>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="a339b015-dac5-4f21-b868-1e9de9520e03"
+            isDerived="false"
+            sourceEndRoleName="roadPiece"
+            targetEndRoleName="MovingObject"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f7799e77-c550-4a77-be73-5f6294df81a9"
+              LastKnownName="MovingObject"
+              LastKnownLocation="TrafficLightSimulatorModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a99a2739-75bb-4af7-bd99-85691ec581c7"
+                  name="roadPiece"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d6e7de47-30ea-4d6f-a819-f56533739f38"
+                  name="MovingObject"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="de80696c-8d30-4f6c-aa78-4ad004a63553"
+                      name="Lower"
+                      value="n" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="c95955e2-2686-4008-b8b8-5a44c47d46ec"
+                      name="Upper"
+                      value="n" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -4263,6 +4274,14 @@ The constructor will Describe what type of MovingObject it is.</body>
               </stereotypeInstance>
             </appliedStereotypesInternal>
           </operation>
+          <operation
+            Id="ffd31473-659f-4999-b717-13a5f2ffde7c"
+            name="getMovingObjectCoordonate"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>

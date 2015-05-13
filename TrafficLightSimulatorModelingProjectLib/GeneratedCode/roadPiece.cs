@@ -54,6 +54,24 @@ public class roadPiece
         Sensor = null;
     }
 
+    public roadPiece(roadPiece next)
+    {
+        Randomizer = new Random();
+        coordinate = new System.Drawing.Point();
+        trafficlightRefrence = null;
+        NextArray = new roadPiece[1];
+        NextArray[0] = next;
+        Sensor = null;
+    }
+
+    public roadPiece(roadPiece[] nexts)
+    {
+        Randomizer = new Random();
+        coordinate = new System.Drawing.Point();
+        trafficlightRefrence = null;
+        NextArray = nexts;
+        Sensor = null;
+    }
 
 	public roadPiece getNext()
 	{
