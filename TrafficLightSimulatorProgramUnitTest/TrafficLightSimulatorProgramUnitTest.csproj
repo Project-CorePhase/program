@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8D58865F-D5E3-4F91-A4B0-8F4511E13CCB}</ProjectGuid>
+    <ProjectGuid>{74136902-B8B5-4616-9C16-8835467CE554}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TrafficLightUnitTesting</RootNamespace>
-    <AssemblyName>TrafficLightUnitTesting</AssemblyName>
+    <RootNamespace>TrafficLightSimulatorProgramUnitTest</RootNamespace>
+    <AssemblyName>TrafficLightSimulatorProgramUnitTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
