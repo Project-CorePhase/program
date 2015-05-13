@@ -8,6 +8,7 @@ using System.Text;
 
 public class roadPiece
 {
+
 	public TrafficLight trafficlightRefrence
 	{
 		get;
@@ -44,6 +45,16 @@ public class roadPiece
 		set;
 	}
 
+    public roadPiece()
+    {
+        Randomizer = new Random();
+        coordinate = new System.Drawing.Point();
+        trafficlightRefrence = null;
+        NextArray = null;
+        Sensor = null;
+    }
+
+
 	public roadPiece getNext()
 	{
         if (NextArray == null)
@@ -62,14 +73,16 @@ public class roadPiece
         return Randomizer.Next(min, max);
 	}
 
-	public virtual System.Drawing.Point GetCoordinates()
+	public System.Drawing.Point GetCoordinates()
 	{
-		throw new System.NotImplementedException();
+        return coordinate;
 	}
 
-	public virtual void PushSensorButton()
+	public void PushSensorButton()
 	{
-		throw new System.NotImplementedException();
+		if (Sensor != null) {
+            Sensor.SetState(true);
+        }
 	}
 
 }
