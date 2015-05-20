@@ -8,7 +8,7 @@ using System.Text;
 
 public class roadPiece
 {
-
+    public Oriention orientation { get; set; }
 	public TrafficLight trafficlightRefrence
 	{
 		get;
@@ -52,6 +52,7 @@ public class roadPiece
         trafficlightRefrence = null;
         NextArray = null;
         Sensor = null;
+        orientation = Oriention.Degree0;
     }
 
     public roadPiece(roadPiece next)
@@ -59,6 +60,7 @@ public class roadPiece
         Randomizer = new Random();
         coordinate = new System.Drawing.Point();
         trafficlightRefrence = null;
+        orientation = Oriention.Degree0;
         NextArray = new roadPiece[1];
         NextArray[0] = next;
         Sensor = null;
@@ -68,6 +70,7 @@ public class roadPiece
     {
         Randomizer = new Random();
         coordinate = new System.Drawing.Point();
+        orientation = Oriention.Degree0;
         trafficlightRefrence = null;
         NextArray = nexts;
         Sensor = null;
