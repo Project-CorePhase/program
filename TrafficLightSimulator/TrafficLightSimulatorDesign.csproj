@@ -44,7 +44,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="TrafficComponentsLibrary">
-      <HintPath>..\..\TrafficControlApplication1\TrafficControlApplication1\TrafficComponentsLibrary.dll</HintPath>
+      <HintPath>..\..\..\Documents\Fontys\Year2-Q4\ProjectCorePhase\FramWork\TrafficControlApplication_2003\TrafficControlApplication\TrafficComponentsLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
