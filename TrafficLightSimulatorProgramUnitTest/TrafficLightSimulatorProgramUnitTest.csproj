@@ -51,12 +51,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="movingObjectTest.cs" />
+    <Compile Include="MovingObjectUnitTest.cs" />
     <Compile Include="roadPieceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sensor.cs" />
-    <Compile Include="TrafficController.cs" />
-    <Compile Include="TrafficLight.cs" />
+    <Compile Include="SensorUnitTest.cs" />
+    <Compile Include="TrafficControllerUnitTest.cs" />
+    <Compile Include="TrafficLightUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TrafficLightSimulatorModelingProjectLib\TrafficLightSimulatorProgram.csproj">

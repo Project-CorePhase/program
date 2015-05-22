@@ -8,7 +8,7 @@ using System.Text;
 namespace TrafficLightSimulatorProgramUnitTest
 {
     [TestClass]
-    public class movingObjectTest
+    public class MovingObjectUnitTest
     {
         [TestMethod]
         public void Update() {
