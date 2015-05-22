@@ -6,12 +6,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TrafficLightSimulatorProgramUnitTest
 {
     /// <summary>
-    /// Summary description for Sensor
+    /// Summary description for TrafficLight
     /// </summary>
     [TestClass]
-    public class Sensor
+    public class TrafficLightUnitTest
     {
-        public Sensor()
+        public TrafficLightUnitTest()
         {
             //
             // TODO: Add constructor logic here

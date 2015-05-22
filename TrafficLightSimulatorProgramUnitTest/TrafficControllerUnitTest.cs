@@ -9,9 +9,9 @@ namespace TrafficLightSimulatorProgramUnitTest
     /// Summary description for TrafficController
     /// </summary>
     [TestClass]
-    public class TrafficController
+    public class TrafficControllerUnitTest
     {
-        public TrafficController()
+        public TrafficControllerUnitTest()
         {
             //
             // TODO: Add constructor logic here
