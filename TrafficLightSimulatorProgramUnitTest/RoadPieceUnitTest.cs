@@ -5,7 +5,7 @@ using TrafficLightSimulatorProgram;
 namespace TrafficLightSimulatorProgramUnitTest
 {
     [TestClass]
-    public class roadPieceTest
+    public class RoadPieceUnitTest
     {
         [TestMethod]
         public void Randomize()
