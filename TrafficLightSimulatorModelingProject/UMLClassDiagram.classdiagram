@@ -1972,7 +1972,7 @@ The constructor will Describe what type of MovingObject it is.</body>
               <referencedTypeMoniker Id="dd4c45a0-f8af-43ec-944b-39e0d7ffa8ff" LastKnownName="RoadObject" />
             </type_NamedElement>
           </property>
-          <property Id="0f676d56-d659-42bb-b090-fc5abdf958d7" name="ReferencePath" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="0f676d56-d659-42bb-b090-fc5abdf958d7" name="ReferencePath[]" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="4a480e77-8fa9-40a3-ba62-a78673aedbc3" name="property" profile="CSharpProfile">
                 <elementDefinition Id="07ab08cc-b01c-4a3a-b3be-88ffd008ea3d" />
@@ -2190,6 +2190,18 @@ The constructor will Describe what type of MovingObject it is.</body>
             <elementDefinition Id="f4c767b6-668d-421b-8c44-07ea91ae10c6" />
             <type_NamedElement>
               <referencedTypeMoniker Id="bbd678d4-a8b8-4a2e-b266-7c6b94d0fdf3" LastKnownName="System.Drawing.Image" />
+            </type_NamedElement>
+          </property>
+          <property Id="b4479513-15e4-4062-bdf4-b2d91839eafd" name="endPoint" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6b0e936b-172a-4557-a1a7-13d5e4ef7b43" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="581acce2-4466-41d0-a9fb-aab2c00bb76d" LastKnownName="roadObject[]" />
+            </type_NamedElement>
+          </property>
+          <property Id="94b3d49c-369d-4ba2-bb7e-799c05a66e17" name="pedestrianStartPoint" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="30fa2368-ede3-4387-8bb3-39173d88e41d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="13572836-91d8-486f-a3c2-d38c0b836a55" LastKnownName="RoadObject[]" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -3627,6 +3639,16 @@ The constructor will Describe what type of MovingObject it is.</body>
     <packageHasNamedElement>
       <referencedType Id="bbd678d4-a8b8-4a2e-b266-7c6b94d0fdf3" name="System.Drawing.Image" isAbstract="false" isLeaf="false" cachedFullName="System.Drawing.Image">
         <elementDefinition Id="095e81f7-02b4-4b09-b15d-cb44c94c456c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="581acce2-4466-41d0-a9fb-aab2c00bb76d" name="roadObject[]" isAbstract="false" isLeaf="false" cachedFullName="roadObject[]">
+        <elementDefinition Id="d3370904-7cf0-4047-aa27-5b00519af880" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="13572836-91d8-486f-a3c2-d38c0b836a55" name="RoadObject[]" isAbstract="false" isLeaf="false" cachedFullName="RoadObject[]">
+        <elementDefinition Id="e535783c-a3b8-4f23-9b7c-f775deb29114" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

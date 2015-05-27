@@ -8,6 +8,19 @@ namespace TrafficLightSimulatorProgramUnitTest
     public class RoadPieceUnitTest
     {
         [TestMethod]
+        public void addNextRoadPieceTest()
+        {
+            roadPiece roadPiece = new roadPiece();
+            roadPiece obtToAdd = new roadPiece();
+            roadPiece obtToAdd2 = new roadPiece();
+            roadPiece.addNextRoadPiece(obtToAdd);
+            Assert.AreSame(roadPiece.getNext(), obtToAdd);
+            roadPiece.addNextRoadPiece(obtToAdd2);
+            roadPiece ret = roadPiece.getNext();
+            Assert.IsTrue(ret == obtToAdd || ret == obtToAdd2);
+        }
+
+        [TestMethod]
         public void Randomize()
         {
             roadPiece roadPiece = new roadPiece();

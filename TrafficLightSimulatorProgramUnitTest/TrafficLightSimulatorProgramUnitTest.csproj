@@ -57,6 +57,7 @@
     <Compile Include="SensorUnitTest.cs" />
     <Compile Include="TrafficControllerUnitTest.cs" />
     <Compile Include="TrafficLightUnitTest.cs" />
+    <Compile Include="CrossingTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TrafficLightSimulatorModelingProjectLib\TrafficLightSimulatorProgram.csproj">

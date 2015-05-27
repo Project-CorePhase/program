@@ -17,12 +17,10 @@ public abstract class RoadObject
 		set;
 	}
 
-	public virtual roadPiece ReferencePath
-	{
-		get;
-		set;
-	}
-
+    public roadPiece[] ReferencePath;
+    public roadPiece[] endPoints;
+    public roadPiece[] pedestrianStartPoint = null;
+ 
 	public virtual int cellIndexInGrid
 	{
 		get;

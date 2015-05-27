@@ -27,6 +27,8 @@ public class roadPiece
 		set;
 	}
 
+    public roadPiece[] endPoints = new roadPiece[4];
+
 	public System.Drawing.Point coordinate
 	{
 		get;
@@ -74,6 +76,25 @@ public class roadPiece
         trafficlightRefrence = null;
         NextArray = nexts;
         Sensor = null;
+    }
+
+    public void addNextRoadPiece(roadPiece n) {
+        if (NextArray == null)
+        {
+            NextArray = new roadPiece[1];
+            NextArray[0] = n;
+            return;
+        }
+
+        roadPiece[] newArray = new roadPiece[NextArray.Length + 1];
+        int i;
+        for (i = 0; i < NextArray.Length; i++)
+        {// Copy the old array
+            newArray[i] = NextArray[i];
+        }
+        newArray[i] = n;
+        // Push the new element on the array
+
     }
 
 	public roadPiece getNext()

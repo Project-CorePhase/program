@@ -27,7 +27,7 @@ namespace TrafficLightSimulatorProgramUnitTest
             roadPiece piece3 = new roadPiece(piece2);
             MovingObject car = new MovingObject(false, piece3);
             Assert.AreEqual(car.path, piece3);
-            // piece3 -> piece2 -> piece1
+            // piece3 -> piece2 -> piece1v
             // The moving object is on piece3
 
             // First I want to test the animation

@@ -9,8 +9,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public enum LaneType : int
+public enum CrossingType : int
 {
 	Straigh,
 	Curved,
+    CrossingWithPedestrian,
+    CrossingWithoutPedestrian
 }

@@ -41,10 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeneratedCode\CrossingWithoutPedstrian.cs" />
-    <Compile Include="GeneratedCode\CrossingWithPedstrian.cs" />
+    <Compile Include="GeneratedCode\Crossing.cs" />
     <Compile Include="GeneratedCode\Grid.cs" />
-    <Compile Include="GeneratedCode\Lane.cs" />
     <Compile Include="GeneratedCode\LaneType.cs" />
     <Compile Include="GeneratedCode\MovingObject.cs" />
     <Compile Include="GeneratedCode\Oriention.cs" />
