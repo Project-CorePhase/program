@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace TrafficLightSimulator
 {
-    public partial class Form1 : Form
+    public partial class TrafficLightSimulator : Form
     {
         PictureBox[,] imageGrid = null;
-        public Form1()
+        public TrafficLightSimulator()
         {
             InitializeComponent();
             DrawGridArray(9,5);
@@ -37,23 +37,10 @@ namespace TrafficLightSimulator
                     imageGrid[i, j].BringToFront();
                     this.Controls.Add(imageGrid[i, j]);
                     imageGrid[i, j].AllowDrop = true;
-                    imageGrid[i, j].DragEnter += new System.Windows.Forms.DragEventHandler(image_DragEnter);
-                    imageGrid[i, j].DragDrop += new System.Windows.Forms.DragEventHandler(image_DragDrop);
+                  //  imageGrid[i, j].DragEnter += new System.Windows.Forms.DragEventHandler(image_DragEnter);
+                    //imageGrid[i, j].DragDrop += new System.Windows.Forms.DragEventHandler(image_DragDrop);
                 }
             }
-        }
-        private void image_DragDrop(object sender , DragEventArgs e)
-        {
-
-        }
-        private void image_DragEnter(object sender, DragEventArgs e)
-        {
-
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-
         }
 
     }
