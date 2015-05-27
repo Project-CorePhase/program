@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="daf91973-d65a-48d2-9677-e79a4b34d137" name="UMLClassDiagram" linkedPackageId="c6ed429c-1f47-4c56-95eb-31aeee76280b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="daf91973-d65a-48d2-9677-e79a4b34d137" name="UMLClassDiagram" linkedPackageId="c6ed429c-1f47-4c56-95eb-31aeee76280b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
     <comment Id="692f2807-4718-4b11-bf65-b7ab912c6dce">
       <elementDefinition Id="5e40d503-a77c-41fd-9514-8f9db0b324f1" />
@@ -138,32 +138,6 @@ The constructor will Describe what type of MovingObject it is.</body>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="77194d19-497f-428d-b569-cce98bf1f966" />
-          </association>
-          <association Id="2b938a41-ece3-43d8-8c59-fe662db88943" isDerived="false" sourceEndRoleName="Simulator" targetEndRoleName="RoadObject" isLeaf="false" isAbstract="false">
-            <classMoniker Id="33f1536d-5166-4b1b-a4e8-aa5a5517db87" LastKnownName="RoadObject" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="88a59466-53ba-47e5-9311-99bf5887d59e" name="Simulator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="a4db2072-cc76-4907-b088-8141a8d51672" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="3a152583-e705-45f3-8f94-746ca9c8e5ac" name="RoadObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
-                  <lowerValueInternal>
-                    <literalString Id="e6b72d7e-4a2d-4cf5-834d-af7fcc4dbafe" name="Lower" value="0">
-                      <elementDefinition Id="09c831b1-4fe4-4ccc-be91-f0a6a90203d8" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="251f74d7-bf6b-481f-b1cd-f8ef713f9695" name="Upper" value="*">
-                      <elementDefinition Id="5648a4b6-f0a0-4bec-8ca3-9fffef2e0f4e" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="74084763-a309-4893-be54-213f4458e080" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="884fee78-4b2d-44c6-800d-67336baf2bde" />
           </association>
         </targetEnds>
         <ownedAttributesInternal>
@@ -817,6 +791,34 @@ The constructor will Describe what type of MovingObject it is.</body>
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <elementDefinition Id="2bd4f8fd-de74-430b-b4a2-2d43a2852b4f" />
+        <targetEnds>
+          <association Id="5105883f-0f36-485e-a85f-c99ff8d25b61" isDerived="false" sourceEndRoleName="Grid" targetEndRoleName="RoadObject" isLeaf="false" isAbstract="false">
+            <classMoniker Id="33f1536d-5166-4b1b-a4e8-aa5a5517db87" LastKnownName="RoadObject" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="54541b10-d55d-4d97-a5c9-522afbe78a70" name="Grid" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="acb3f621-27af-44f1-bc48-23225e001df6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="afc908f8-82c2-4bc0-991d-d58bc87e84e3" name="RoadObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="5743fd54-6d0e-4659-b05b-19ffe19b6681" name="Lower" value="0">
+                      <elementDefinition Id="1482f558-3fe9-4d3e-83b8-72535aabbb68" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="3eb0ef14-320c-43bb-9629-b52811323ad0" name="Upper" value="*">
+                      <elementDefinition Id="7c8e83ba-f612-4af7-a5dc-f3b129c94412" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="e4a5f804-d4a6-4498-97ed-1f6448661ed4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="98fd8b8d-8157-4aa5-bbd8-f2f561a61af3" />
+          </association>
+        </targetEnds>
         <ownedOperationsInternal>
           <operation Id="7a5eea5b-6852-4cfe-845a-f5c3e0108d04" name="CreateAndDrawGrid" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <appliedStereotypesInternal>
@@ -1340,55 +1342,7 @@ The constructor will Describe what type of MovingObject it is.</body>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="2f022924-20d8-43e2-858d-97e6540718d9" name="Lane" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <appliedStereotypesInternal>
-          <stereotypeInstance Id="6bc82a0c-cc3a-45cd-a5b7-738929cd84e7" name="class" profile="CSharpProfile">
-            <elementDefinition Id="92b149a2-a4a0-43ee-907d-dff0811d3bca" />
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="d5feca65-af1f-468c-8e43-7f799b17869e">
-                <propertyInstance Id="3e495de1-e833-44e4-ba92-3999d47eb187" name="ClrAttributes">
-                  <elementDefinition Id="f8732f72-ed7b-412b-8de3-e8f4d1c84184" />
-                </propertyInstance>
-                <elementDefinition Id="a9967266-cd59-4edf-bd94-e673a23616ee" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="54338dab-c81c-4865-81bb-e871208a25c4">
-                <propertyInstance Id="36a9584e-d693-4d78-a028-489f401d5297" name="IsPartial" value="false">
-                  <elementDefinition Id="a33df9cf-e954-4a29-85bf-576c2cd3a38e" />
-                </propertyInstance>
-                <elementDefinition Id="80de4cdf-c663-4cf9-926c-c14152d67c1d" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="fbeefbfa-cd88-4d69-9f0e-b1c5cbabe092">
-                <propertyInstance Id="f81b435f-473d-4fac-8723-4bbccc654893" name="IsStatic" value="false">
-                  <elementDefinition Id="125e3ff8-9fb2-481d-b566-aee808c9bec8" />
-                </propertyInstance>
-                <elementDefinition Id="14425f19-3de3-4012-94cf-b88be2a4036f" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="48a31ecf-b2e6-4790-8dfe-dac818bc066c">
-                <propertyInstance Id="262334ac-4a20-4368-b737-223105ae0bbc" name="IsUnsafe" value="false">
-                  <elementDefinition Id="055b4c9b-9052-428f-8100-ce20264ca228" />
-                </propertyInstance>
-                <elementDefinition Id="b0dad685-921c-4e15-9d67-6d221863501d" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="d04f6ebe-d74f-4f6a-b312-9a30ae4a76af">
-                <propertyInstance Id="d40734d7-9d0a-4cf5-8a8e-49c083599a29" name="PackageVisibility" value="internal">
-                  <elementDefinition Id="832f3b38-e81d-4ed9-b81d-c03b06cf5290" />
-                </propertyInstance>
-                <elementDefinition Id="ced54cd6-00af-43ea-8a8e-413371d7012a" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <elementDefinition Id="882881af-d2d1-4589-84b3-8bade1c85720" />
-        <generalsInternal>
-          <generalization Id="6523a90e-97d5-4680-abb4-afa9c6c3d1d3" isSubstitutable="false">
-            <classMoniker Id="33f1536d-5166-4b1b-a4e8-aa5a5517db87" LastKnownName="RoadObject" />
-            <elementDefinition Id="fc57a072-5aa2-476a-9ac1-e1b92f27f98c" />
-          </generalization>
-        </generalsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <enumeration Id="a895d788-19cc-4bf4-afd8-6db14d9f803f" name="LaneType" isAbstract="false" isLeaf="false">
+      <enumeration Id="a895d788-19cc-4bf4-afd8-6db14d9f803f" name="CrossingType" isAbstract="false" isLeaf="false">
         <appliedStereotypesInternal>
           <stereotypeInstance Id="40f9b52c-9369-4ee3-9390-5a0c25bf6b52" name="enum" profile="CSharpProfile">
             <elementDefinition Id="28401d1d-90c0-4bc3-8990-cc871571e4f7" />
@@ -1415,24 +1369,6 @@ The constructor will Describe what type of MovingObject it is.</body>
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <elementDefinition Id="05645c27-864f-442d-99c9-8111fd0c74b7" />
-        <targetEnds>
-          <association Id="562206c8-6ff9-40a2-8030-953af2d99375" isDerived="false" sourceEndRoleName="LaneType" targetEndRoleName="Lane" isLeaf="false" isAbstract="false">
-            <classMoniker Id="2f022924-20d8-43e2-858d-97e6540718d9" LastKnownName="Lane" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="f7b7c7b3-4616-45c2-bd6b-0abf14520076" name="LaneType" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="3db97955-f635-4d35-bed6-db0325c1324d" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="1ceac78d-0545-460b-a305-8a664d5544f5" name="Lane" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="5eb9b6f2-35a7-421d-bf36-c1d6f2c04cbc" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="81df63a2-b0ae-4494-876f-2a91429cda16" />
-          </association>
-        </targetEnds>
         <ownedLiterals>
           <enumerationLiteral Id="8fc15f0e-7ec8-417b-8554-99a8fc6a4189" name="Straigh">
             <elementDefinition Id="1cb87a56-c430-4597-aa45-23efa72034e8" />
@@ -1440,11 +1376,17 @@ The constructor will Describe what type of MovingObject it is.</body>
           <enumerationLiteral Id="c5002653-b258-46c9-bd7e-a2242b6c066d" name="Curved">
             <elementDefinition Id="eb61fd97-3132-43e7-b091-c9da91bcc13a" />
           </enumerationLiteral>
+          <enumerationLiteral Id="f3922f38-f5d2-41ed-861c-62976a4f6e99" name="CrossignWithPedstrain">
+            <elementDefinition Id="1c0d91c1-d5f2-4e63-b42b-f0fe1a725364" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="bfd1efad-013f-4fae-b4ec-86bcbd3a86fa" name="CrossingWithoutPedstrian">
+            <elementDefinition Id="d2e20f63-e7d1-449c-899b-212b8a15e0a3" />
+          </enumerationLiteral>
         </ownedLiterals>
       </enumeration>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="4414d2ef-5e55-4709-95d3-412d3d4ece71" name="CrossingWithoutPedstrian" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="4414d2ef-5e55-4709-95d3-412d3d4ece71" name="Crossing" isAbstract="false" isLeaf="false" isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance Id="1174ac1e-b146-4ded-85f1-05c1a8ce2d31" name="class" profile="CSharpProfile">
             <elementDefinition Id="783b63b3-325e-4815-b808-a81538d2659f" />
@@ -1489,54 +1431,24 @@ The constructor will Describe what type of MovingObject it is.</body>
             <elementDefinition Id="2269c45a-6d1c-4bf4-bf37-c58685912d2b" />
           </generalization>
         </generalsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="2592af82-b52a-4a0b-9770-b0e3b9da57cc" name="CrossingWithPedstrian" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <appliedStereotypesInternal>
-          <stereotypeInstance Id="327210a9-5b0a-40f5-8cc4-0d186e3f0f96" name="class" profile="CSharpProfile">
-            <elementDefinition Id="ce837b03-a330-4c83-91a0-456a734b7693" />
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="7302ed4e-553e-41bf-b6f7-d95a9471670e">
-                <propertyInstance Id="89033e76-1e35-4f71-ae96-02374e620823" name="ClrAttributes">
-                  <elementDefinition Id="ace550af-bb50-48f8-9515-fd726474dbb6" />
-                </propertyInstance>
-                <elementDefinition Id="f82d31f9-95ca-439f-adc2-dbf96744c90c" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="20c855b7-838e-449b-8904-24d75c40768d">
-                <propertyInstance Id="1139adf8-b25e-4915-9315-e3fb3561939c" name="IsPartial" value="false">
-                  <elementDefinition Id="68439e5e-4a3f-4ef8-8144-d8259deae4a8" />
-                </propertyInstance>
-                <elementDefinition Id="e2a4331d-0635-44df-a2e8-e0cfbabf5df1" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="c007b673-74b2-4cf0-a459-5985792700c2">
-                <propertyInstance Id="698ec180-ae5a-4fac-bc74-9c9b9e123071" name="IsStatic" value="false">
-                  <elementDefinition Id="df975c7e-2734-4935-b099-c33d03967bac" />
-                </propertyInstance>
-                <elementDefinition Id="06bab2ba-e445-42ab-a952-5665a675b347" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="e9d712c8-6c3e-46cf-8e2d-7b0b4a639d25">
-                <propertyInstance Id="7e998420-cc77-466d-aebf-76a83f1b1158" name="IsUnsafe" value="false">
-                  <elementDefinition Id="eb06016f-8368-4340-a913-18b44b573527" />
-                </propertyInstance>
-                <elementDefinition Id="4851b573-14de-49a9-be49-3e26f143ac7e" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances Id="61e95bda-9e35-4adb-a835-50071ef94f91">
-                <propertyInstance Id="68f83a0a-0d79-47e0-a26c-b36a8ae4e3d2" name="PackageVisibility" value="internal">
-                  <elementDefinition Id="f968d4d1-3bbf-47be-8466-f4e75a479d96" />
-                </propertyInstance>
-                <elementDefinition Id="b9125151-ee5e-4a28-a4db-1375265fd532" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <elementDefinition Id="e5279d7d-9dee-4214-9cc0-f35e545d6594" />
-        <generalsInternal>
-          <generalization Id="90277841-fc46-43be-a60e-9dc5000bb54d" isSubstitutable="false">
-            <classMoniker Id="33f1536d-5166-4b1b-a4e8-aa5a5517db87" LastKnownName="RoadObject" />
-            <elementDefinition Id="389effd5-344b-4069-9160-064720dce28e" />
-          </generalization>
-        </generalsInternal>
+        <targetEnds>
+          <association Id="00b5b878-73a9-49c9-babb-6d57d1680038" isDerived="false" sourceEndRoleName="Crossing" targetEndRoleName="CrossingType" isLeaf="false" isAbstract="false">
+            <enumerationMoniker Id="a895d788-19cc-4bf4-afd8-6db14d9f803f" LastKnownName="CrossingType" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f6045be6-d176-4d98-9de9-a624266d7d34" name="Crossing" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1565abf1-5edc-4119-b450-139fc2fc0062" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="82bf5eef-6c32-4d8b-bd58-96e6ecddcf80" name="CrossingType" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="99e2fb63-d3d8-49f0-940a-0f77ab2053c6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="290c473e-5c62-44c0-887f-86e900bba939" />
+          </association>
+        </targetEnds>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -1987,22 +1899,6 @@ The constructor will Describe what type of MovingObject it is.</body>
         </appliedStereotypesInternal>
         <elementDefinition Id="219f36a1-5a74-4f2b-bd33-4c4a4c18ab14" />
         <targetEnds>
-          <association Id="0e50cf50-f4c7-4136-979b-c17989dc11e3" isDerived="false" sourceEndRoleName="RoadObject" targetEndRoleName="Oriention" isLeaf="false" isAbstract="false">
-            <enumerationMoniker Id="ac7c2fd5-ba1d-4a8e-8011-efbd16804776" LastKnownName="Oriention" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="e5d4834d-aec5-43cd-aea6-9cb6975b1032" name="RoadObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="f448079a-fab0-4500-96a1-45aa5e7e105d" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="58191ffb-7842-48a7-8c63-0e59231f5b82" name="Oriention" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="09b8f34e-f038-444c-84f9-4e26d6e3876c" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="4b9fbd3b-4c89-42ca-bbfa-e08c8947ae46" />
-          </association>
           <association Id="40e05a9d-3283-4021-82bd-3336391085c8" isDerived="false" sourceEndRoleName="RoadObject" targetEndRoleName="TrafficController" isLeaf="false" isAbstract="false">
             <classMoniker Id="010d5350-74c6-44fc-94c4-e22633bdf238" LastKnownName="TrafficController" />
             <relationshipOwnedElementsInternal>
@@ -2293,7 +2189,7 @@ The constructor will Describe what type of MovingObject it is.</body>
             </appliedStereotypesInternal>
             <elementDefinition Id="f4c767b6-668d-421b-8c44-07ea91ae10c6" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="93a4d277-4cab-40ae-9206-9c2c1c86aa71" LastKnownName="System.Drawing.PictureBox" />
+              <referencedTypeMoniker Id="bbd678d4-a8b8-4a2e-b266-7c6b94d0fdf3" LastKnownName="System.Drawing.Image" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -3729,8 +3625,8 @@ The constructor will Describe what type of MovingObject it is.</body>
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="93a4d277-4cab-40ae-9206-9c2c1c86aa71" name="System.Drawing.PictureBox" isAbstract="false" isLeaf="false" cachedFullName="System.Drawing.PictureBox">
-        <elementDefinition Id="191dddfb-2edb-4a5f-b945-0471c6397d26" />
+      <referencedType Id="bbd678d4-a8b8-4a2e-b266-7c6b94d0fdf3" name="System.Drawing.Image" isAbstract="false" isLeaf="false" cachedFullName="System.Drawing.Image">
+        <elementDefinition Id="095e81f7-02b4-4b09-b15d-cb44c94c456c" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

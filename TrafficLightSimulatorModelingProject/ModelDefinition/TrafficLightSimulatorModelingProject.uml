@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="bad978aa-802c-415e-92a7-bb77dd01cf6f"
   name="TrafficLightSimulatorModelingProject" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -208,58 +208,6 @@ The constructor will Describe what type of MovingObject it is.</body>
                   isDerivedUnion="false"
                   aggregation="None"
                   isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="884fee78-4b2d-44c6-800d-67336baf2bde"
-            isDerived="false"
-            sourceEndRoleName="Simulator"
-            targetEndRoleName="RoadObject"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="219f36a1-5a74-4f2b-bd33-4c4a4c18ab14"
-              LastKnownName="RoadObject"
-              LastKnownLocation="TrafficLightSimulatorModelingProject.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="a4db2072-cc76-4907-b088-8141a8d51672"
-                  name="Simulator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Composite"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="74084763-a309-4893-be54-213f4458e080"
-                  name="RoadObject"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="true">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="09c831b1-4fe4-4ccc-be91-f0a6a90203d8"
-                      name="Lower"
-                      value="0" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="5648a4b6-f0a0-4bec-8ca3-9fffef2e0f4e"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -1114,6 +1062,60 @@ The constructor will Describe what type of MovingObject it is.</body>
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="98fd8b8d-8157-4aa5-bbd8-f2f561a61af3"
+            isDerived="false"
+            sourceEndRoleName="Grid"
+            targetEndRoleName="RoadObject"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="219f36a1-5a74-4f2b-bd33-4c4a4c18ab14"
+              LastKnownName="RoadObject"
+              LastKnownLocation="TrafficLightSimulatorModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="acb3f621-27af-44f1-bc48-23225e001df6"
+                  name="Grid"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e4a5f804-d4a6-4498-97ed-1f6448661ed4"
+                  name="RoadObject"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="1482f558-3fe9-4d3e-83b8-72535aabbb68"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7c8e83ba-f612-4af7-a5dc-f3b129c94412"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedOperationsInternal>
           <operation
             Id="508adea0-7ea5-4c11-8f36-2a417658de34"
@@ -1800,71 +1802,9 @@ The constructor will Describe what type of MovingObject it is.</body>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <class
-        Id="882881af-d2d1-4589-84b3-8bade1c85720"
-        name="Lane"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
-        <appliedStereotypesInternal>
-          <stereotypeInstance
-            Id="92b149a2-a4a0-43ee-907d-dff0811d3bca"
-            name="class"
-            profile="CSharpProfile">
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="a9967266-cd59-4edf-bd94-e673a23616ee">
-                <propertyInstance
-                  Id="f8732f72-ed7b-412b-8de3-e8f4d1c84184"
-                  name="ClrAttributes" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="80de4cdf-c663-4cf9-926c-c14152d67c1d">
-                <propertyInstance
-                  Id="a33df9cf-e954-4a29-85bf-576c2cd3a38e"
-                  name="IsPartial"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="14425f19-3de3-4012-94cf-b88be2a4036f">
-                <propertyInstance
-                  Id="125e3ff8-9fb2-481d-b566-aee808c9bec8"
-                  name="IsStatic"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="b0dad685-921c-4e15-9d67-6d221863501d">
-                <propertyInstance
-                  Id="055b4c9b-9052-428f-8100-ce20264ca228"
-                  name="IsUnsafe"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="ced54cd6-00af-43ea-8a8e-413371d7012a">
-                <propertyInstance
-                  Id="832f3b38-e81d-4ed9-b81d-c03b06cf5290"
-                  name="PackageVisibility"
-                  value="internal" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <generalsInternal>
-          <generalization
-            Id="fc57a072-5aa2-476a-9ac1-e1b92f27f98c"
-            isSubstitutable="false">
-            <classMoniker
-              Id="219f36a1-5a74-4f2b-bd33-4c4a4c18ab14"
-              LastKnownName="RoadObject"
-              LastKnownLocation="TrafficLightSimulatorModelingProject.uml" />
-          </generalization>
-        </generalsInternal>
-      </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <enumeration
         Id="05645c27-864f-442d-99c9-8111fd0c74b7"
-        name="LaneType"
+        name="CrossingType"
         isAbstract="false"
         isLeaf="false">
         <appliedStereotypesInternal>
@@ -1896,47 +1836,6 @@ The constructor will Describe what type of MovingObject it is.</body>
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
-        <targetEnds>
-          <association
-            Id="81df63a2-b0ae-4494-876f-2a91429cda16"
-            isDerived="false"
-            sourceEndRoleName="LaneType"
-            targetEndRoleName="Lane"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="882881af-d2d1-4589-84b3-8bade1c85720"
-              LastKnownName="Lane"
-              LastKnownLocation="TrafficLightSimulatorModelingProject.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="3db97955-f635-4d35-bed6-db0325c1324d"
-                  name="LaneType"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="5eb9b6f2-35a7-421d-bf36-c1d6f2c04cbc"
-                  name="Lane"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
         <ownedLiterals>
           <enumerationLiteral
             Id="1cb87a56-c430-4597-aa45-23efa72034e8"
@@ -1944,13 +1843,19 @@ The constructor will Describe what type of MovingObject it is.</body>
           <enumerationLiteral
             Id="eb61fd97-3132-43e7-b091-c9da91bcc13a"
             name="Curved" />
+          <enumerationLiteral
+            Id="1c0d91c1-d5f2-4e63-b42b-f0fe1a725364"
+            name="CrossignWithPedstrain" />
+          <enumerationLiteral
+            Id="d2e20f63-e7d1-449c-899b-212b8a15e0a3"
+            name="CrossingWithoutPedstrian" />
         </ownedLiterals>
       </enumeration>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
         Id="e1106035-3afd-4366-b132-527d9fe7c63f"
-        name="CrossingWithoutPedstrian"
+        name="Crossing"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -2007,68 +1912,47 @@ The constructor will Describe what type of MovingObject it is.</body>
               LastKnownLocation="TrafficLightSimulatorModelingProject.uml" />
           </generalization>
         </generalsInternal>
-      </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="e5279d7d-9dee-4214-9cc0-f35e545d6594"
-        name="CrossingWithPedstrian"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
-        <appliedStereotypesInternal>
-          <stereotypeInstance
-            Id="ce837b03-a330-4c83-91a0-456a734b7693"
-            name="class"
-            profile="CSharpProfile">
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="f82d31f9-95ca-439f-adc2-dbf96744c90c">
-                <propertyInstance
-                  Id="ace550af-bb50-48f8-9515-fd726474dbb6"
-                  name="ClrAttributes" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="e2a4331d-0635-44df-a2e8-e0cfbabf5df1">
-                <propertyInstance
-                  Id="68439e5e-4a3f-4ef8-8144-d8259deae4a8"
-                  name="IsPartial"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="06bab2ba-e445-42ab-a952-5665a675b347">
-                <propertyInstance
-                  Id="df975c7e-2734-4935-b099-c33d03967bac"
-                  name="IsStatic"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="4851b573-14de-49a9-be49-3e26f143ac7e">
-                <propertyInstance
-                  Id="eb06016f-8368-4340-a913-18b44b573527"
-                  name="IsUnsafe"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="b9125151-ee5e-4a28-a4db-1375265fd532">
-                <propertyInstance
-                  Id="f968d4d1-3bbf-47be-8466-f4e75a479d96"
-                  name="PackageVisibility"
-                  value="internal" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <generalsInternal>
-          <generalization
-            Id="389effd5-344b-4069-9160-064720dce28e"
-            isSubstitutable="false">
-            <classMoniker
-              Id="219f36a1-5a74-4f2b-bd33-4c4a4c18ab14"
-              LastKnownName="RoadObject"
+        <targetEnds>
+          <association
+            Id="290c473e-5c62-44c0-887f-86e900bba939"
+            isDerived="false"
+            sourceEndRoleName="Crossing"
+            targetEndRoleName="CrossingType"
+            isLeaf="false"
+            isAbstract="false">
+            <enumerationMoniker
+              Id="05645c27-864f-442d-99c9-8111fd0c74b7"
+              LastKnownName="CrossingType"
               LastKnownLocation="TrafficLightSimulatorModelingProject.uml" />
-          </generalization>
-        </generalsInternal>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1565abf1-5edc-4119-b450-139fc2fc0062"
+                  name="Crossing"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="99e2fb63-d3d8-49f0-940a-0f77ab2053c6"
+                  name="CrossingType"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2679,45 +2563,6 @@ The constructor will Describe what type of MovingObject it is.</body>
         </appliedStereotypesInternal>
         <targetEnds>
           <association
-            Id="4b9fbd3b-4c89-42ca-bbfa-e08c8947ae46"
-            isDerived="false"
-            sourceEndRoleName="RoadObject"
-            targetEndRoleName="Oriention"
-            isLeaf="false"
-            isAbstract="false">
-            <enumerationMoniker
-              Id="0650eb2b-7c67-4251-9872-a8105892dd7c"
-              LastKnownName="Oriention"
-              LastKnownLocation="TrafficLightSimulatorModelingProject.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="f448079a-fab0-4500-96a1-45aa5e7e105d"
-                  name="RoadObject"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="09b8f34e-f038-444c-84f9-4e26d6e3876c"
-                  name="Oriention"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
             Id="a29ee754-7910-4eec-9630-e1204530fcad"
             isDerived="false"
             sourceEndRoleName="RoadObject"
@@ -3127,8 +2972,8 @@ The constructor will Describe what type of MovingObject it is.</body>
             </appliedStereotypesInternal>
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="191dddfb-2edb-4a5f-b945-0471c6397d26"
-                LastKnownName="System.Drawing.PictureBox"
+                Id="095e81f7-02b4-4b09-b15d-cb44c94c456c"
+                LastKnownName="System.Drawing.Image"
                 LastKnownLocation="TrafficLightSimulatorModelingProject.uml" />
             </type_NamedElement>
           </property>
@@ -5060,6 +4905,18 @@ The constructor will Describe what type of MovingObject it is.</body>
       <undefinedType
         Id="191dddfb-2edb-4a5f-b945-0471c6397d26"
         name="System.Drawing.PictureBox" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="095e81f7-02b4-4b09-b15d-cb44c94c456c"
+        name="System.Drawing.Image" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="8f31ca87-882b-4080-a8c6-4a61f43dc809"
+        name="Enumeration2"
+        isAbstract="false"
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
