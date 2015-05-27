@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeneratedCode\Cell.cs" />
     <Compile Include="GeneratedCode\Crossing.cs" />
     <Compile Include="GeneratedCode\Grid.cs" />
     <Compile Include="GeneratedCode\LaneType.cs" />

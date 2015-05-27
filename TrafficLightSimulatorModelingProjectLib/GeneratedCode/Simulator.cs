@@ -84,6 +84,24 @@ namespace TrafficLightSimulatorProgram
             throw new System.NotImplementedException();
         }
 
+        private void addConnections()
+        {
+            List<Cell> allCells = Grid.GetCellsWithRoadObject();
+            int x, y;
+            foreach (Cell cell in allCells)
+            {
+                x = cell.GetCellX();
+                y = cell.GetCellY();
+
+                foreach (Cell neighbour in allCells)
+                {
+                    if (neighbour != cell)
+                    {
+                        
+                    }
+                }
+            }
+        }
     }
 
 }

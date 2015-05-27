@@ -6,25 +6,77 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
 public class Grid
 {
-	public virtual void CreateAndDrawGrid(int row,int column)
-	{
-		throw new System.NotImplementedException();
-	}
+    public Cell[] cells { get; private set; }
+    public const int CellSize = 150;
 
-	public virtual void Reset()
-	{
-		throw new System.NotImplementedException();
-	}
 
-	public virtual void GetCellSelected()
-	{
-		throw new System.NotImplementedException();
-	}
+    public Grid(int gridSize)
+    {
+        cells = new Cell[gridSize];
+    }
 
+    public void AddCell(Cell newCell, int index)
+    {
+        cells[index] = newCell;
+    }
+
+    public void RemoveRoadObjectFromCell(int x, int y)
+    {
+        Cell temp = GetCell(x, y);
+
+        foreach (Cell item in cells)
+        {
+            if (item == temp)
+            {
+                item.SetRoadObject(null);
+            }
+        }
+    }
+    public List<Cell> GetCellsWithRoadObject()
+    {
+        List<Cell> allCellsWithRoadObject = new List<Cell>();
+        foreach (Cell t in cells)
+        {
+            if (t.GetRoadObject() != null)
+            {
+                allCellsWithRoadObject.Add(t);
+            }
+        }
+        return allCellsWithRoadObject;
+    }
+    public void ClearAllCells()
+    {
+        foreach (Cell t in cells)
+        {
+            t.SetRoadObject(null);
+        }
+    }
+    public Cell GetCell(int x, int y)
+    {
+        foreach (Cell item in cells)
+        {
+            if (item.GetCellX() == x && item.GetCellY() == y)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+    public void DrawGrid(Graphics gr)
+    {
+        foreach (Cell t in cells)
+        {
+            if (t.GetRoadObject() != null)
+            {
+                t.DrawCell(gr);
+            }
+        }
+    }
 }
 
