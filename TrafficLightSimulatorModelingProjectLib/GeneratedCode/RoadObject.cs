@@ -33,7 +33,7 @@ public abstract class RoadObject
 		set;
 	}
 
-	public virtual System.Windows.Forms.PictureBox Image
+	public virtual System.Drawing.Image Image
 	{
 		get;
 		set;

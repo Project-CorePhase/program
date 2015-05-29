@@ -54,7 +54,7 @@ using System.Windows.Forms;
         /// <param name="gr"></param>
         public void DrawCell(Graphics gr)
         {
-            //gr.DrawImage(GetRoadObject().GetImage(), new Point((int)this.topLeftCornerX, (int)this.topLeftCornerY));
+            gr.DrawImage(GetRoadObject().Image, new Point((int)this.topLeftCornerX, (int)this.topLeftCornerY));
         }
 
         public TextBox[] SpawnTextBoxes()

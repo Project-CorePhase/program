@@ -363,105 +363,6 @@ The constructor will Describe what type of MovingObject it is.</body>
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="483a224b-b7ba-45d2-8d30-c43be7f95f1e" name="AddCrossing" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance Id="11a305d5-7d5c-4cd6-b8bb-115955164aa7" name="method" profile="CSharpProfile">
-                <elementDefinition Id="440fbf03-a2d5-44d7-bfe9-407274bf73eb" />
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="e3c5fdf0-5460-4acd-b67a-1b631ba20355">
-                    <propertyInstance Id="0ceea715-7dee-4c17-8b90-4507ba6e5a3f" name="ClrAttributes">
-                      <elementDefinition Id="302a4140-b460-4d18-973d-462869241956" />
-                    </propertyInstance>
-                    <elementDefinition Id="221c4e5e-436a-4b1a-96b1-1c0280abb83b" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="f8d6f392-665f-4910-8ef1-f72ba17a5d38">
-                    <propertyInstance Id="efa20916-0350-4029-a39a-3a1db5945b19" name="IsPartial" value="false">
-                      <elementDefinition Id="47a65cfe-2b47-4804-afcc-f0ae672c555b" />
-                    </propertyInstance>
-                    <elementDefinition Id="e7ce4c5e-38a2-4c9b-8ace-758c40845bdf" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="1da5c3fe-27af-4f22-b289-43901f3d6320">
-                    <propertyInstance Id="514791ef-d9fc-4630-b68c-44d52afffbf5" name="IsUnsafe" value="false">
-                      <elementDefinition Id="0d34cc0b-3ea6-4dc8-9429-4ab14c1ea9b8" />
-                    </propertyInstance>
-                    <elementDefinition Id="06f60854-19b1-4aa7-8f57-500621df1a96" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="b8982e17-e98e-4158-b8cb-38a390b149b8">
-                    <propertyInstance Id="cdf8a1c3-cb4a-4768-9df2-6b142bc6773d" name="Inheritance" value="none">
-                      <elementDefinition Id="ad5ceea7-105e-4b7d-a1cb-1aca93034080" />
-                    </propertyInstance>
-                    <elementDefinition Id="39ad2488-da52-4c4c-b946-529bcd49bf4a" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="06875616-c55d-4b0b-8657-df0c2ce30a49">
-                    <propertyInstance Id="5d8841e0-73d9-435c-ae24-a3ce82b454aa" name="PackageVisibility" value="internal">
-                      <elementDefinition Id="066605b8-7d1a-4f25-8102-f8d97680d515" />
-                    </propertyInstance>
-                    <elementDefinition Id="6b761072-f93e-4908-813f-f2b18d0ec504" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="a12afb63-5ee0-48f4-8a25-62c2761e689f">
-                    <propertyInstance Id="4c157e84-a7a6-4dda-8edd-99bc0ac67692" name="params" value="false">
-                      <elementDefinition Id="68f7b898-8f83-4909-8292-4f290e783768" />
-                    </propertyInstance>
-                    <elementDefinition Id="dc1507db-1ca3-4b0f-a364-89c22bd8b515" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <elementDefinition Id="579ecbab-34db-44cd-8e2a-e36887570fa4" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="673c15ff-10e4-4faf-b98c-bd72cbdf0e8a" direction="Return">
-                  <elementDefinition Id="8aaec6e8-b7b6-4dc2-88b5-dcb3b9b42397" />
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="4b949b81-9d0a-4f22-baec-c7b115eb926d" name="RemoveCrossing" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance Id="fab5a3d4-be15-43e3-9cce-c061ff2acc19" name="method" profile="CSharpProfile">
-                <elementDefinition Id="70784c18-3123-4c87-9175-ca0ddadceab5" />
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="532102ec-d0ae-4234-851d-28db4dcb5d7e">
-                    <propertyInstance Id="bafd0747-c3de-43af-b7e4-dcd68affd4b5" name="ClrAttributes">
-                      <elementDefinition Id="90650440-82f3-45ef-9519-1a2661e1e934" />
-                    </propertyInstance>
-                    <elementDefinition Id="26f75295-a50b-44b5-9b99-868ac39aaf61" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="5cc32c97-ce58-4ae6-876d-ee04873ed0b8">
-                    <propertyInstance Id="0140cbcf-e996-41e1-ad57-4c203b8841a3" name="IsPartial" value="false">
-                      <elementDefinition Id="2fc14141-8faa-4bba-816a-4ec432248986" />
-                    </propertyInstance>
-                    <elementDefinition Id="efb72092-b59e-40da-9e37-88d2a6efec2b" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="d3cb4476-e47d-4369-afa3-2eca7c54894b">
-                    <propertyInstance Id="8d821f06-b134-493e-8ffe-547a3832b7a4" name="IsUnsafe" value="false">
-                      <elementDefinition Id="3342a884-9cd8-4b3f-86aa-29da58f4ed81" />
-                    </propertyInstance>
-                    <elementDefinition Id="21c01867-d777-4433-b75c-81392b292852" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="4534a8da-6acc-46b2-9126-07d25a79e046">
-                    <propertyInstance Id="f40b85bd-8458-4d53-8c73-11e1a5b4b5da" name="Inheritance" value="none">
-                      <elementDefinition Id="94d6c1c4-ff84-4900-b7ba-abc4fcf9c6e0" />
-                    </propertyInstance>
-                    <elementDefinition Id="ac3477a3-4827-4d9d-b947-57be3faffdd1" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="9409e094-448c-4621-8d21-07e99d2a48d7">
-                    <propertyInstance Id="97ccbd1c-f16c-4049-b5be-a78917cf5930" name="PackageVisibility" value="internal">
-                      <elementDefinition Id="29371750-a0c5-426f-96d3-e14d14e6fbb6" />
-                    </propertyInstance>
-                    <elementDefinition Id="8a984e9c-356f-4308-b73f-1e098061d153" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="e9125308-0f11-479d-bfdd-0910074a7673">
-                    <propertyInstance Id="b8c3a892-6e9a-4fe1-ac83-6ddb96ef5730" name="params" value="false">
-                      <elementDefinition Id="8d963183-beb5-471a-9c61-3b9ef32afcba" />
-                    </propertyInstance>
-                    <elementDefinition Id="c78ca155-836c-4011-b2ce-664becd4a03e" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <elementDefinition Id="9646d85f-5e49-4e19-b469-515a13168417" />
-          </operation>
           <operation Id="15c66028-da4c-40b8-a59f-9636b14b1843" name="MoveCrossing" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="69b2e738-57d8-475f-a93d-04d785c6cb07" name="method" profile="CSharpProfile">
@@ -969,6 +870,12 @@ The constructor will Describe what type of MovingObject it is.</body>
               </stereotypeInstance>
             </appliedStereotypesInternal>
             <elementDefinition Id="0171d2b2-2f58-4b5a-8bab-45b1192543b2" />
+          </operation>
+          <operation Id="090d986a-1c91-438b-b642-f1bfdda1e883" name="AddCrossing" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="693d1f41-a290-4e8e-9777-5a34ea300aa7" />
+          </operation>
+          <operation Id="50714d78-0717-405c-a6be-62a6bcffb19e" name="RemoveCrossing" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9d275dc1-d917-4c62-bd48-e01ecd46fafd" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1972,7 +1879,7 @@ The constructor will Describe what type of MovingObject it is.</body>
               <referencedTypeMoniker Id="dd4c45a0-f8af-43ec-944b-39e0d7ffa8ff" LastKnownName="RoadObject" />
             </type_NamedElement>
           </property>
-          <property Id="0f676d56-d659-42bb-b090-fc5abdf958d7" name="ReferencePath[]" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="0f676d56-d659-42bb-b090-fc5abdf958d7" name="ReferencePath" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="4a480e77-8fa9-40a3-ba62-a78673aedbc3" name="property" profile="CSharpProfile">
                 <elementDefinition Id="07ab08cc-b01c-4a3a-b3be-88ffd008ea3d" />
@@ -2190,18 +2097,6 @@ The constructor will Describe what type of MovingObject it is.</body>
             <elementDefinition Id="f4c767b6-668d-421b-8c44-07ea91ae10c6" />
             <type_NamedElement>
               <referencedTypeMoniker Id="bbd678d4-a8b8-4a2e-b266-7c6b94d0fdf3" LastKnownName="System.Drawing.Image" />
-            </type_NamedElement>
-          </property>
-          <property Id="b4479513-15e4-4062-bdf4-b2d91839eafd" name="endPoint" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="6b0e936b-172a-4557-a1a7-13d5e4ef7b43" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="581acce2-4466-41d0-a9fb-aab2c00bb76d" LastKnownName="roadObject[]" />
-            </type_NamedElement>
-          </property>
-          <property Id="94b3d49c-369d-4ba2-bb7e-799c05a66e17" name="pedestrianStartPoint" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="30fa2368-ede3-4387-8bb3-39173d88e41d" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="13572836-91d8-486f-a3c2-d38c0b836a55" LastKnownName="RoadObject[]" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -3639,16 +3534,6 @@ The constructor will Describe what type of MovingObject it is.</body>
     <packageHasNamedElement>
       <referencedType Id="bbd678d4-a8b8-4a2e-b266-7c6b94d0fdf3" name="System.Drawing.Image" isAbstract="false" isLeaf="false" cachedFullName="System.Drawing.Image">
         <elementDefinition Id="095e81f7-02b4-4b09-b15d-cb44c94c456c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="581acce2-4466-41d0-a9fb-aab2c00bb76d" name="roadObject[]" isAbstract="false" isLeaf="false" cachedFullName="roadObject[]">
-        <elementDefinition Id="d3370904-7cf0-4047-aa27-5b00519af880" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="13572836-91d8-486f-a3c2-d38c0b836a55" name="RoadObject[]" isAbstract="false" isLeaf="false" cachedFullName="RoadObject[]">
-        <elementDefinition Id="e535783c-a3b8-4f23-9b7c-f775deb29114" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

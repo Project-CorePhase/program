@@ -12,36 +12,57 @@ namespace TrafficLightSimulator
 {
     public partial class TrafficLightSimulator : Form
     {
-        PictureBox[,] imageGrid = null;
         public TrafficLightSimulator()
         {
             InitializeComponent();
-            DrawGridArray(9,5);
         }
 
-        public void DrawGridArray(int rows, int coloums)
+        private void pictureBox_Grid_Paint(object sender, PaintEventArgs e)
         {
-            imageGrid = new System.Windows.Forms.PictureBox[rows, coloums];
-            // Row 
-            for (int i = 0; i < rows; i++)
+            Graphics gr = e.Graphics;
+            int SquareSize = 150;
+            for (int i = 0; i < 4; i++)
             {
-                // Coloum
-                for (int j = 0; j < coloums; j++)
-                {
-                    imageGrid[i, j] = new System.Windows.Forms.PictureBox();
-                    imageGrid[i, j].Location = new Point(i * 101 + 370, j * 101 + 60);
-                    imageGrid[i, j].Width = 101;
-                    imageGrid[i, j].Height = 101;
-                    imageGrid[i, j].Visible = true;
-                    imageGrid[i, j].BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-                    imageGrid[i, j].BringToFront();
-                    this.Controls.Add(imageGrid[i, j]);
-                    imageGrid[i, j].AllowDrop = true;
-                  //  imageGrid[i, j].DragEnter += new System.Windows.Forms.DragEventHandler(image_DragEnter);
-                    //imageGrid[i, j].DragDrop += new System.Windows.Forms.DragEventHandler(image_DragDrop);
-                }
+                gr.DrawLine(Pens.Black, 0, i * SquareSize, 6 * SquareSize, i * SquareSize);
+            }
+            for (int j = 0; j < 7; j++)
+            {
+                 gr.DrawLine(Pens.LightGray, j * SquareSize, 0, j * SquareSize, 4 * SquareSize);
             }
         }
+
+        private void pictureBoxGrid_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Emeric Programmed this");
+        }
+
+        private void pictureBoxGrid_DragDrop(object sender, DragEventArgs e)
+        {
+
+        }
+        private void pictureBoxGrid_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Bitmap))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None; ;
+            }
+        }
+
+        private void TrafficLightSimulator_MouseMove(object sender, MouseEventArgs e)
+        {
+            label_MouseLocation.Text = e.Location.X + "," + e.Location.Y;
+        }
+
+        private void pictureBoxGrid_MouseMove(object sender, MouseEventArgs e)
+        {
+            label_MouseLocation.Text = e.Location.X + "," + e.Location.Y;
+        }
+
+   
 
     }
 }

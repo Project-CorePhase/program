@@ -516,131 +516,6 @@ The constructor will Describe what type of MovingObject it is.</body>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="579ecbab-34db-44cd-8e2a-e36887570fa4"
-            name="AddCrossing"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="440fbf03-a2d5-44d7-bfe9-407274bf73eb"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="221c4e5e-436a-4b1a-96b1-1c0280abb83b">
-                    <propertyInstance
-                      Id="302a4140-b460-4d18-973d-462869241956"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="e7ce4c5e-38a2-4c9b-8ace-758c40845bdf">
-                    <propertyInstance
-                      Id="47a65cfe-2b47-4804-afcc-f0ae672c555b"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="06f60854-19b1-4aa7-8f57-500621df1a96">
-                    <propertyInstance
-                      Id="0d34cc0b-3ea6-4dc8-9429-4ab14c1ea9b8"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="39ad2488-da52-4c4c-b946-529bcd49bf4a">
-                    <propertyInstance
-                      Id="ad5ceea7-105e-4b7d-a1cb-1aca93034080"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="6b761072-f93e-4908-813f-f2b18d0ec504">
-                    <propertyInstance
-                      Id="066605b8-7d1a-4f25-8102-f8d97680d515"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="dc1507db-1ca3-4b0f-a364-89c22bd8b515">
-                    <propertyInstance
-                      Id="68f7b898-8f83-4909-8292-4f290e783768"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="8aaec6e8-b7b6-4dc2-88b5-dcb3b9b42397"
-                  direction="Return" />
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
-            Id="9646d85f-5e49-4e19-b469-515a13168417"
-            name="RemoveCrossing"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="70784c18-3123-4c87-9175-ca0ddadceab5"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="26f75295-a50b-44b5-9b99-868ac39aaf61">
-                    <propertyInstance
-                      Id="90650440-82f3-45ef-9519-1a2661e1e934"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="efb72092-b59e-40da-9e37-88d2a6efec2b">
-                    <propertyInstance
-                      Id="2fc14141-8faa-4bba-816a-4ec432248986"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="21c01867-d777-4433-b75c-81392b292852">
-                    <propertyInstance
-                      Id="3342a884-9cd8-4b3f-86aa-29da58f4ed81"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="ac3477a3-4827-4d9d-b947-57be3faffdd1">
-                    <propertyInstance
-                      Id="94d6c1c4-ff84-4900-b7ba-abc4fcf9c6e0"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="8a984e9c-356f-4308-b73f-1e098061d153">
-                    <propertyInstance
-                      Id="29371750-a0c5-426f-96d3-e14d14e6fbb6"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="c78ca155-836c-4011-b2ce-664becd4a03e">
-                    <propertyInstance
-                      Id="8d963183-beb5-471a-9c61-3b9ef32afcba"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-          </operation>
-          <operation
             Id="1aeb3c76-b3af-4ec3-aaf2-a4f341615b36"
             name="MoveCrossing"
             isLeaf="false"
@@ -1310,6 +1185,22 @@ The constructor will Describe what type of MovingObject it is.</body>
               </stereotypeInstance>
             </appliedStereotypesInternal>
           </operation>
+          <operation
+            Id="693d1f41-a290-4e8e-9777-5a34ea300aa7"
+            name="AddCrossing"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="9d275dc1-d917-4c62-bd48-e01ecd46fafd"
+            name="RemoveCrossing"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>

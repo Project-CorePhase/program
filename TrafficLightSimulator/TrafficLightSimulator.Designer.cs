@@ -47,20 +47,26 @@
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label_HowManyCars = new System.Windows.Forms.Label();
             this.textBox_InputCars = new System.Windows.Forms.TextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox_CurvedLane = new System.Windows.Forms.PictureBox();
+            this.pictureBox_StrightLane = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CrossingB = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CrossingA = new System.Windows.Forms.PictureBox();
+            this.pictureBoxGrid = new System.Windows.Forms.PictureBox();
+            this.label_MouseLocation = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CurvedLane)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_StrightLane)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CrossingB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CrossingA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -73,7 +79,7 @@
             this.MenuItem_AboutUS});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1301, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1061, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -117,13 +123,13 @@
             // MenuItem_Utilities_Undo
             // 
             this.MenuItem_Utilities_Undo.Name = "MenuItem_Utilities_Undo";
-            this.MenuItem_Utilities_Undo.Size = new System.Drawing.Size(152, 22);
+            this.MenuItem_Utilities_Undo.Size = new System.Drawing.Size(103, 22);
             this.MenuItem_Utilities_Undo.Text = "Undo";
             // 
             // MenuItem_Utilities_Redo
             // 
             this.MenuItem_Utilities_Redo.Name = "MenuItem_Utilities_Redo";
-            this.MenuItem_Utilities_Redo.Size = new System.Drawing.Size(152, 22);
+            this.MenuItem_Utilities_Redo.Size = new System.Drawing.Size(103, 22);
             this.MenuItem_Utilities_Redo.Text = "Redo";
             // 
             // type3ToolStripMenuItem
@@ -139,13 +145,13 @@
             this.MenuItem_Help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.subTypeToolStripMenuItem5});
             this.MenuItem_Help.Name = "MenuItem_Help";
-            this.MenuItem_Help.Size = new System.Drawing.Size(152, 22);
+            this.MenuItem_Help.Size = new System.Drawing.Size(124, 22);
             this.MenuItem_Help.Text = "sub-Type";
             // 
             // subTypeToolStripMenuItem5
             // 
             this.subTypeToolStripMenuItem5.Name = "subTypeToolStripMenuItem5";
-            this.subTypeToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.subTypeToolStripMenuItem5.Size = new System.Drawing.Size(124, 22);
             this.subTypeToolStripMenuItem5.Text = "sub-Type";
             // 
             // MenuItem_AboutUS
@@ -165,7 +171,7 @@
             this.toolStripSeparator2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1301, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1061, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -212,12 +218,16 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label_HowManyCars);
             this.groupBox2.Controls.Add(this.textBox_InputCars);
-            this.groupBox2.Controls.Add(this.pictureBox4);
-            this.groupBox2.Controls.Add(this.pictureBox3);
-            this.groupBox2.Controls.Add(this.pictureBox2);
-            this.groupBox2.Controls.Add(this.pictureBox1);
+            this.groupBox2.Controls.Add(this.pictureBox_CurvedLane);
+            this.groupBox2.Controls.Add(this.pictureBox_StrightLane);
+            this.groupBox2.Controls.Add(this.pictureBox_CrossingB);
+            this.groupBox2.Controls.Add(this.pictureBox_CrossingA);
             this.groupBox2.Location = new System.Drawing.Point(12, 52);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(125, 532);
@@ -225,10 +235,46 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Components";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 377);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "label4";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 255);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "label3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 140);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "label1";
+            // 
             // label_HowManyCars
             // 
             this.label_HowManyCars.AutoSize = true;
-            this.label_HowManyCars.Location = new System.Drawing.Point(5, 470);
+            this.label_HowManyCars.Location = new System.Drawing.Point(6, 492);
             this.label_HowManyCars.Name = "label_HowManyCars";
             this.label_HowManyCars.Size = new System.Drawing.Size(75, 13);
             this.label_HowManyCars.TabIndex = 4;
@@ -236,75 +282,94 @@
             // 
             // textBox_InputCars
             // 
-            this.textBox_InputCars.Location = new System.Drawing.Point(9, 486);
+            this.textBox_InputCars.Location = new System.Drawing.Point(10, 508);
             this.textBox_InputCars.Name = "textBox_InputCars";
             this.textBox_InputCars.Size = new System.Drawing.Size(104, 20);
             this.textBox_InputCars.TabIndex = 5;
             this.textBox_InputCars.Text = "77";
             // 
-            // pictureBox4
+            // pictureBox_CurvedLane
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(6, 325);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(107, 96);
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
+            this.pictureBox_CurvedLane.Location = new System.Drawing.Point(6, 393);
+            this.pictureBox_CurvedLane.Name = "pictureBox_CurvedLane";
+            this.pictureBox_CurvedLane.Size = new System.Drawing.Size(107, 96);
+            this.pictureBox_CurvedLane.TabIndex = 7;
+            this.pictureBox_CurvedLane.TabStop = false;
             // 
-            // pictureBox3
+            // pictureBox_StrightLane
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(6, 223);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(107, 96);
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
+            this.pictureBox_StrightLane.Location = new System.Drawing.Point(6, 269);
+            this.pictureBox_StrightLane.Name = "pictureBox_StrightLane";
+            this.pictureBox_StrightLane.Size = new System.Drawing.Size(107, 96);
+            this.pictureBox_StrightLane.TabIndex = 6;
+            this.pictureBox_StrightLane.TabStop = false;
             // 
-            // pictureBox2
+            // pictureBox_CrossingB
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(6, 121);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(107, 96);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
+            this.pictureBox_CrossingB.Location = new System.Drawing.Point(6, 156);
+            this.pictureBox_CrossingB.Name = "pictureBox_CrossingB";
+            this.pictureBox_CrossingB.Size = new System.Drawing.Size(107, 96);
+            this.pictureBox_CrossingB.TabIndex = 5;
+            this.pictureBox_CrossingB.TabStop = false;
             // 
-            // pictureBox1
+            // pictureBox_CrossingA
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 96);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox_CrossingA.Image = global::TrafficLightSimulator.Properties.Resources.open131;
+            this.pictureBox_CrossingA.Location = new System.Drawing.Point(6, 45);
+            this.pictureBox_CrossingA.Name = "pictureBox_CrossingA";
+            this.pictureBox_CrossingA.Size = new System.Drawing.Size(107, 96);
+            this.pictureBox_CrossingA.TabIndex = 4;
+            this.pictureBox_CrossingA.TabStop = false;
             // 
-            // panel1
+            // pictureBoxGrid
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel1.Location = new System.Drawing.Point(143, 54);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1146, 525);
-            this.panel1.TabIndex = 4;
+            this.pictureBoxGrid.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBoxGrid.Location = new System.Drawing.Point(143, 24);
+            this.pictureBoxGrid.Name = "pictureBoxGrid";
+            this.pictureBoxGrid.Size = new System.Drawing.Size(901, 601);
+            this.pictureBoxGrid.TabIndex = 12;
+            this.pictureBoxGrid.TabStop = false;
+            this.pictureBoxGrid.Click += new System.EventHandler(this.pictureBoxGrid_Click);
+            this.pictureBoxGrid.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxGrid_DragDrop);
+            this.pictureBoxGrid.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxGrid_DragEnter);
+            this.pictureBoxGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Grid_Paint);
+            this.pictureBoxGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxGrid_MouseMove);
+            // 
+            // label_MouseLocation
+            // 
+            this.label_MouseLocation.AutoSize = true;
+            this.label_MouseLocation.Location = new System.Drawing.Point(12, 612);
+            this.label_MouseLocation.Name = "label_MouseLocation";
+            this.label_MouseLocation.Size = new System.Drawing.Size(13, 13);
+            this.label_MouseLocation.TabIndex = 13;
+            this.label_MouseLocation.Text = ":-";
             // 
             // TrafficLightSimulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1301, 591);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1061, 633);
+            this.Controls.Add(this.label_MouseLocation);
+            this.Controls.Add(this.pictureBoxGrid);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "TrafficLightSimulator";
             this.Text = "Traffic Light Simulator";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TrafficLightSimulator_MouseMove);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CurvedLane)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_StrightLane)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CrossingB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CrossingA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,12 +397,17 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label_HowManyCars;
         private System.Windows.Forms.TextBox textBox_InputCars;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox_CurvedLane;
+        private System.Windows.Forms.PictureBox pictureBox_StrightLane;
+        private System.Windows.Forms.PictureBox pictureBox_CrossingB;
+        private System.Windows.Forms.PictureBox pictureBox_CrossingA;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_Utilities_Redo;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBoxGrid;
+        private System.Windows.Forms.Label label_MouseLocation;
     }
 }
 
