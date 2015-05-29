@@ -47,10 +47,10 @@
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelCurvedLane = new System.Windows.Forms.Label();
+            this.label_StrighLane = new System.Windows.Forms.Label();
+            this.label_CrossingB = new System.Windows.Forms.Label();
+            this.label_CrossingType1 = new System.Windows.Forms.Label();
             this.label_HowManyCars = new System.Windows.Forms.Label();
             this.textBox_InputCars = new System.Windows.Forms.TextBox();
             this.pictureBox_CurvedLane = new System.Windows.Forms.PictureBox();
@@ -218,10 +218,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.labelCurvedLane);
+            this.groupBox2.Controls.Add(this.label_StrighLane);
+            this.groupBox2.Controls.Add(this.label_CrossingB);
+            this.groupBox2.Controls.Add(this.label_CrossingType1);
             this.groupBox2.Controls.Add(this.label_HowManyCars);
             this.groupBox2.Controls.Add(this.textBox_InputCars);
             this.groupBox2.Controls.Add(this.pictureBox_CurvedLane);
@@ -235,41 +235,41 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Components";
             // 
-            // label4
+            // labelCurvedLane
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 377);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "label4";
+            this.labelCurvedLane.AutoSize = true;
+            this.labelCurvedLane.Location = new System.Drawing.Point(7, 377);
+            this.labelCurvedLane.Name = "labelCurvedLane";
+            this.labelCurvedLane.Size = new System.Drawing.Size(64, 13);
+            this.labelCurvedLane.TabIndex = 11;
+            this.labelCurvedLane.Text = "Curved lane";
             // 
-            // label3
+            // label_StrighLane
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 255);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "label3";
+            this.label_StrighLane.AutoSize = true;
+            this.label_StrighLane.Location = new System.Drawing.Point(7, 255);
+            this.label_StrighLane.Name = "label_StrighLane";
+            this.label_StrighLane.Size = new System.Drawing.Size(64, 13);
+            this.label_StrighLane.TabIndex = 10;
+            this.label_StrighLane.Text = "Stright Lane";
             // 
-            // label2
+            // label_CrossingB
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 140);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
+            this.label_CrossingB.AutoSize = true;
+            this.label_CrossingB.Location = new System.Drawing.Point(7, 140);
+            this.label_CrossingB.Name = "label_CrossingB";
+            this.label_CrossingB.Size = new System.Drawing.Size(57, 13);
+            this.label_CrossingB.TabIndex = 9;
+            this.label_CrossingB.Text = "Crossing B";
             // 
-            // label1
+            // label_CrossingType1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
+            this.label_CrossingType1.AutoSize = true;
+            this.label_CrossingType1.Location = new System.Drawing.Point(7, 16);
+            this.label_CrossingType1.Name = "label_CrossingType1";
+            this.label_CrossingType1.Size = new System.Drawing.Size(57, 13);
+            this.label_CrossingType1.TabIndex = 8;
+            this.label_CrossingType1.Text = "Crossing A";
             // 
             // label_HowManyCars
             // 
@@ -314,8 +314,7 @@
             // 
             // pictureBox_CrossingA
             // 
-            this.pictureBox_CrossingA.Image = global::TrafficLightSimulator.Properties.Resources.open131;
-            this.pictureBox_CrossingA.Location = new System.Drawing.Point(6, 45);
+            this.pictureBox_CrossingA.Location = new System.Drawing.Point(6, 32);
             this.pictureBox_CrossingA.Name = "pictureBox_CrossingA";
             this.pictureBox_CrossingA.Size = new System.Drawing.Size(107, 96);
             this.pictureBox_CrossingA.TabIndex = 4;
@@ -402,10 +401,10 @@
         private System.Windows.Forms.PictureBox pictureBox_CrossingB;
         private System.Windows.Forms.PictureBox pictureBox_CrossingA;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_Utilities_Redo;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelCurvedLane;
+        private System.Windows.Forms.Label label_StrighLane;
+        private System.Windows.Forms.Label label_CrossingB;
+        private System.Windows.Forms.Label label_CrossingType1;
         private System.Windows.Forms.PictureBox pictureBoxGrid;
         private System.Windows.Forms.Label label_MouseLocation;
     }

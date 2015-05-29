@@ -38,7 +38,8 @@ namespace TrafficLightSimulator
 
         private void pictureBoxGrid_DragDrop(object sender, DragEventArgs e)
         {
-
+            // TODO Abdullah
+          
         }
         private void pictureBoxGrid_DragEnter(object sender, DragEventArgs e)
         {
