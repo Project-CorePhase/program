@@ -39,7 +39,14 @@ namespace TrafficLightSimulator
         private void pictureBoxGrid_DragDrop(object sender, DragEventArgs e)
         {
             // TODO Abdullah
-          
+            RoadObject roadObject = null; // Declaration
+            Image draggedImage = (Image)e.Data.GetData(DataFormats.Bitmap); // Get Imaged Draged
+
+            if (draggedImage == pictureBox_CrossingA.Image)
+            {
+                Bitmap t = new Bitmap(draggedImage);
+                roadObject = new Crossing(CrossingType.CrossingWithPedestrian);
+            }
         }
         private void pictureBoxGrid_DragEnter(object sender, DragEventArgs e)
         {
