@@ -79,7 +79,8 @@
             this.MenuItem_AboutUS});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1061, 24);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(1415, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -90,25 +91,25 @@
             this.MenuItem_File_SaveSimulator,
             this.MenuItem_File_ClearSimulator});
             this.MenuItem_File.Name = "MenuItem_File";
-            this.MenuItem_File.Size = new System.Drawing.Size(37, 20);
+            this.MenuItem_File.Size = new System.Drawing.Size(44, 24);
             this.MenuItem_File.Text = "File";
             // 
             // MenuItem_File_CreateNewSimulator
             // 
             this.MenuItem_File_CreateNewSimulator.Name = "MenuItem_File_CreateNewSimulator";
-            this.MenuItem_File_CreateNewSimulator.Size = new System.Drawing.Size(187, 22);
+            this.MenuItem_File_CreateNewSimulator.Size = new System.Drawing.Size(220, 24);
             this.MenuItem_File_CreateNewSimulator.Text = "Create new Simulator";
             // 
             // MenuItem_File_SaveSimulator
             // 
             this.MenuItem_File_SaveSimulator.Name = "MenuItem_File_SaveSimulator";
-            this.MenuItem_File_SaveSimulator.Size = new System.Drawing.Size(187, 22);
+            this.MenuItem_File_SaveSimulator.Size = new System.Drawing.Size(220, 24);
             this.MenuItem_File_SaveSimulator.Text = "Save Simulator";
             // 
             // MenuItem_File_ClearSimulator
             // 
             this.MenuItem_File_ClearSimulator.Name = "MenuItem_File_ClearSimulator";
-            this.MenuItem_File_ClearSimulator.Size = new System.Drawing.Size(187, 22);
+            this.MenuItem_File_ClearSimulator.Size = new System.Drawing.Size(220, 24);
             this.MenuItem_File_ClearSimulator.Text = "Clear Simulator";
             // 
             // MenuItem_Utilities
@@ -117,19 +118,19 @@
             this.MenuItem_Utilities_Undo,
             this.MenuItem_Utilities_Redo});
             this.MenuItem_Utilities.Name = "MenuItem_Utilities";
-            this.MenuItem_Utilities.Size = new System.Drawing.Size(58, 20);
+            this.MenuItem_Utilities.Size = new System.Drawing.Size(71, 24);
             this.MenuItem_Utilities.Text = "Utilities";
             // 
             // MenuItem_Utilities_Undo
             // 
             this.MenuItem_Utilities_Undo.Name = "MenuItem_Utilities_Undo";
-            this.MenuItem_Utilities_Undo.Size = new System.Drawing.Size(103, 22);
+            this.MenuItem_Utilities_Undo.Size = new System.Drawing.Size(114, 24);
             this.MenuItem_Utilities_Undo.Text = "Undo";
             // 
             // MenuItem_Utilities_Redo
             // 
             this.MenuItem_Utilities_Redo.Name = "MenuItem_Utilities_Redo";
-            this.MenuItem_Utilities_Redo.Size = new System.Drawing.Size(103, 22);
+            this.MenuItem_Utilities_Redo.Size = new System.Drawing.Size(114, 24);
             this.MenuItem_Utilities_Redo.Text = "Redo";
             // 
             // type3ToolStripMenuItem
@@ -137,7 +138,7 @@
             this.type3ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItem_Help});
             this.type3ToolStripMenuItem.Name = "type3ToolStripMenuItem";
-            this.type3ToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.type3ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.type3ToolStripMenuItem.Text = "Help";
             // 
             // MenuItem_Help
@@ -145,19 +146,19 @@
             this.MenuItem_Help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.subTypeToolStripMenuItem5});
             this.MenuItem_Help.Name = "MenuItem_Help";
-            this.MenuItem_Help.Size = new System.Drawing.Size(124, 22);
+            this.MenuItem_Help.Size = new System.Drawing.Size(139, 24);
             this.MenuItem_Help.Text = "sub-Type";
             // 
             // subTypeToolStripMenuItem5
             // 
             this.subTypeToolStripMenuItem5.Name = "subTypeToolStripMenuItem5";
-            this.subTypeToolStripMenuItem5.Size = new System.Drawing.Size(124, 22);
+            this.subTypeToolStripMenuItem5.Size = new System.Drawing.Size(139, 24);
             this.subTypeToolStripMenuItem5.Text = "sub-Type";
             // 
             // MenuItem_AboutUS
             // 
             this.MenuItem_AboutUS.Name = "MenuItem_AboutUS";
-            this.MenuItem_AboutUS.Size = new System.Drawing.Size(68, 20);
+            this.MenuItem_AboutUS.Size = new System.Drawing.Size(82, 24);
             this.MenuItem_AboutUS.Text = "About Us";
             // 
             // toolStrip1
@@ -169,9 +170,9 @@
             this.toolStripButton5,
             this.toolStripButton6,
             this.toolStripSeparator2});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1061, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1415, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -183,6 +184,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripButton4
             // 
@@ -228,9 +230,11 @@
             this.groupBox2.Controls.Add(this.pictureBox_StrightLane);
             this.groupBox2.Controls.Add(this.pictureBox_CrossingB);
             this.groupBox2.Controls.Add(this.pictureBox_CrossingA);
-            this.groupBox2.Location = new System.Drawing.Point(12, 52);
+            this.groupBox2.Location = new System.Drawing.Point(16, 64);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(125, 532);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(167, 655);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Components";
@@ -238,94 +242,105 @@
             // labelCurvedLane
             // 
             this.labelCurvedLane.AutoSize = true;
-            this.labelCurvedLane.Location = new System.Drawing.Point(7, 377);
+            this.labelCurvedLane.Location = new System.Drawing.Point(9, 464);
+            this.labelCurvedLane.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCurvedLane.Name = "labelCurvedLane";
-            this.labelCurvedLane.Size = new System.Drawing.Size(64, 13);
+            this.labelCurvedLane.Size = new System.Drawing.Size(84, 17);
             this.labelCurvedLane.TabIndex = 11;
             this.labelCurvedLane.Text = "Curved lane";
             // 
             // label_StrighLane
             // 
             this.label_StrighLane.AutoSize = true;
-            this.label_StrighLane.Location = new System.Drawing.Point(7, 255);
+            this.label_StrighLane.Location = new System.Drawing.Point(9, 314);
+            this.label_StrighLane.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_StrighLane.Name = "label_StrighLane";
-            this.label_StrighLane.Size = new System.Drawing.Size(64, 13);
+            this.label_StrighLane.Size = new System.Drawing.Size(85, 17);
             this.label_StrighLane.TabIndex = 10;
             this.label_StrighLane.Text = "Stright Lane";
             // 
             // label_CrossingB
             // 
             this.label_CrossingB.AutoSize = true;
-            this.label_CrossingB.Location = new System.Drawing.Point(7, 140);
+            this.label_CrossingB.Location = new System.Drawing.Point(9, 172);
+            this.label_CrossingB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_CrossingB.Name = "label_CrossingB";
-            this.label_CrossingB.Size = new System.Drawing.Size(57, 13);
+            this.label_CrossingB.Size = new System.Drawing.Size(76, 17);
             this.label_CrossingB.TabIndex = 9;
             this.label_CrossingB.Text = "Crossing B";
             // 
             // label_CrossingType1
             // 
             this.label_CrossingType1.AutoSize = true;
-            this.label_CrossingType1.Location = new System.Drawing.Point(7, 16);
+            this.label_CrossingType1.Location = new System.Drawing.Point(9, 20);
+            this.label_CrossingType1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_CrossingType1.Name = "label_CrossingType1";
-            this.label_CrossingType1.Size = new System.Drawing.Size(57, 13);
+            this.label_CrossingType1.Size = new System.Drawing.Size(76, 17);
             this.label_CrossingType1.TabIndex = 8;
             this.label_CrossingType1.Text = "Crossing A";
             // 
             // label_HowManyCars
             // 
             this.label_HowManyCars.AutoSize = true;
-            this.label_HowManyCars.Location = new System.Drawing.Point(6, 492);
+            this.label_HowManyCars.Location = new System.Drawing.Point(8, 606);
+            this.label_HowManyCars.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_HowManyCars.Name = "label_HowManyCars";
-            this.label_HowManyCars.Size = new System.Drawing.Size(75, 13);
+            this.label_HowManyCars.Size = new System.Drawing.Size(101, 17);
             this.label_HowManyCars.TabIndex = 4;
             this.label_HowManyCars.Text = "Cars on street ";
             // 
             // textBox_InputCars
             // 
-            this.textBox_InputCars.Location = new System.Drawing.Point(10, 508);
+            this.textBox_InputCars.Location = new System.Drawing.Point(13, 625);
+            this.textBox_InputCars.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_InputCars.Name = "textBox_InputCars";
-            this.textBox_InputCars.Size = new System.Drawing.Size(104, 20);
+            this.textBox_InputCars.Size = new System.Drawing.Size(137, 22);
             this.textBox_InputCars.TabIndex = 5;
             this.textBox_InputCars.Text = "77";
             // 
             // pictureBox_CurvedLane
             // 
-            this.pictureBox_CurvedLane.Location = new System.Drawing.Point(6, 393);
+            this.pictureBox_CurvedLane.Location = new System.Drawing.Point(8, 484);
+            this.pictureBox_CurvedLane.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox_CurvedLane.Name = "pictureBox_CurvedLane";
-            this.pictureBox_CurvedLane.Size = new System.Drawing.Size(107, 96);
+            this.pictureBox_CurvedLane.Size = new System.Drawing.Size(143, 118);
             this.pictureBox_CurvedLane.TabIndex = 7;
             this.pictureBox_CurvedLane.TabStop = false;
             // 
             // pictureBox_StrightLane
             // 
-            this.pictureBox_StrightLane.Location = new System.Drawing.Point(6, 269);
+            this.pictureBox_StrightLane.Location = new System.Drawing.Point(8, 331);
+            this.pictureBox_StrightLane.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox_StrightLane.Name = "pictureBox_StrightLane";
-            this.pictureBox_StrightLane.Size = new System.Drawing.Size(107, 96);
+            this.pictureBox_StrightLane.Size = new System.Drawing.Size(143, 118);
             this.pictureBox_StrightLane.TabIndex = 6;
             this.pictureBox_StrightLane.TabStop = false;
             // 
             // pictureBox_CrossingB
             // 
-            this.pictureBox_CrossingB.Location = new System.Drawing.Point(6, 156);
+            this.pictureBox_CrossingB.Location = new System.Drawing.Point(8, 192);
+            this.pictureBox_CrossingB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox_CrossingB.Name = "pictureBox_CrossingB";
-            this.pictureBox_CrossingB.Size = new System.Drawing.Size(107, 96);
+            this.pictureBox_CrossingB.Size = new System.Drawing.Size(143, 118);
             this.pictureBox_CrossingB.TabIndex = 5;
             this.pictureBox_CrossingB.TabStop = false;
             // 
             // pictureBox_CrossingA
             // 
-            this.pictureBox_CrossingA.Location = new System.Drawing.Point(6, 32);
+            this.pictureBox_CrossingA.Location = new System.Drawing.Point(8, 39);
+            this.pictureBox_CrossingA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox_CrossingA.Name = "pictureBox_CrossingA";
-            this.pictureBox_CrossingA.Size = new System.Drawing.Size(107, 96);
+            this.pictureBox_CrossingA.Size = new System.Drawing.Size(143, 118);
             this.pictureBox_CrossingA.TabIndex = 4;
             this.pictureBox_CrossingA.TabStop = false;
             // 
             // pictureBoxGrid
             // 
             this.pictureBoxGrid.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBoxGrid.Location = new System.Drawing.Point(143, 24);
+            this.pictureBoxGrid.Location = new System.Drawing.Point(191, 30);
+            this.pictureBoxGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxGrid.Name = "pictureBoxGrid";
-            this.pictureBoxGrid.Size = new System.Drawing.Size(901, 601);
+            this.pictureBoxGrid.Size = new System.Drawing.Size(1201, 740);
             this.pictureBoxGrid.TabIndex = 12;
             this.pictureBoxGrid.TabStop = false;
             this.pictureBoxGrid.Click += new System.EventHandler(this.pictureBoxGrid_Click);
@@ -337,24 +352,26 @@
             // label_MouseLocation
             // 
             this.label_MouseLocation.AutoSize = true;
-            this.label_MouseLocation.Location = new System.Drawing.Point(12, 612);
+            this.label_MouseLocation.Location = new System.Drawing.Point(16, 753);
+            this.label_MouseLocation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_MouseLocation.Name = "label_MouseLocation";
-            this.label_MouseLocation.Size = new System.Drawing.Size(13, 13);
+            this.label_MouseLocation.Size = new System.Drawing.Size(17, 17);
             this.label_MouseLocation.TabIndex = 13;
             this.label_MouseLocation.Text = ":-";
             // 
             // TrafficLightSimulator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1061, 633);
+            this.ClientSize = new System.Drawing.Size(1415, 779);
             this.Controls.Add(this.label_MouseLocation);
             this.Controls.Add(this.pictureBoxGrid);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TrafficLightSimulator";
             this.Text = "Traffic Light Simulator";
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TrafficLightSimulator_MouseMove);

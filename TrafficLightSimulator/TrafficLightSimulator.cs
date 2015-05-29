@@ -12,9 +12,11 @@ namespace TrafficLightSimulator
 {
     public partial class TrafficLightSimulator : Form
     {
+        TrafficLightSimulatorProgram.Simulator simulator;
         public TrafficLightSimulator()
         {
             InitializeComponent();
+            simulator = new TrafficLightSimulatorProgram.Simulator();
         }
 
         private void pictureBox_Grid_Paint(object sender, PaintEventArgs e)
@@ -33,7 +35,7 @@ namespace TrafficLightSimulator
 
         private void pictureBoxGrid_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Emeric Programmed this");
+
         }
 
         private void pictureBoxGrid_DragDrop(object sender, DragEventArgs e)
@@ -68,6 +70,11 @@ namespace TrafficLightSimulator
         private void pictureBoxGrid_MouseMove(object sender, MouseEventArgs e)
         {
             label_MouseLocation.Text = e.Location.X + "," + e.Location.Y;
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            simulator.SetTimerInterval(1);
         }
 
    
