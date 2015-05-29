@@ -137,28 +137,56 @@ namespace TrafficLightSimulator
         private void addConnections()
         {
             List<Cell> allCells = Grid.GetCellsWithRoadObject();
+            Oriention[] todo = { Oriention.Degree0, Oriention.Degree180, Oriention.Degree270, Oriention.Degree90 };
             int x, y;
             foreach (Cell cell in allCells)
             {
                 x = cell.GetCellX();
                 y = cell.GetCellY();
-
-                foreach (Cell neighbour in allCells)
+                //Here we determine the neighbours of the cell, the connections.
+                Cell top,bottom,left,right;
+                top = allCells.ElementAt(allCells.IndexOf(cell) - 6);
+                bottom = allCells.ElementAt(allCells.IndexOf(cell) + 6);
+                left = allCells.ElementAt(allCells.IndexOf(cell) - 1);
+                right = allCells.ElementAt(allCells.IndexOf(cell) + 1);
+                //If there exists a neighbour to the left, right, bottom or the top of this cell add him as a connection to it.
+                if (top != null)
                 {
-                    if (neighbour != cell)
+                    cell.GetRoadObject().AddConnection(top.GetRoadObject());
+                }
+                if (bottom != null)
+                {
+                    cell.GetRoadObject().AddConnection(bottom.GetRoadObject());
+                }
+                if (left != null)
+                {
+                    cell.GetRoadObject().AddConnection(left.GetRoadObject());
+                }
+                if (right != null)
+                {
+                    cell.GetRoadObject().AddConnection(right.GetRoadObject());
+                }
+                
+                
+                // Link all the startpoint and the endpoint of the neighbour to the current cells                        
+                // Looking for all starting point of the object, and trying to get the endpoint of the other
+                foreach (Oriention o in todo) 
+                {
+                    // Looking for the neighdoor
+                    // Looking for the start point of the current grid and current orientation
+                    roadPiece destination = cell.GetRoadObject().endPoints[(int)o];
+                    // TODO : set oppoositOfO
+                    roadPiece source = null;
+                    if ((int)o>=todo.Length/2)
                     {
-                        // Link all the startpoint and the endpoint of the neighbour to the current cells
-                        Oriention[] todo = {Oriention.Degree0, Oriention.Degree180, Oriention.Degree270, Oriention.Degree90};
-                        // Looking for all starting point of the object, and trying to get the endpoint of the other
-                        foreach (Oriention o in todo) {
-                            // Looking for the neighdoor
-                            // Looking for the start point of the current grid and current orientation
-                           // roadPiece destination = neighbour.GetRoadObject().endPoints[(int)o];
-                            // TODO : set oppoositOfO
-                           // roadPiece source = cell.GetRoadObject().ReferencePath[(int)oppositeOfO];
-                           // source.NextArray = new roadPiece[] { destination };
-                        }
+                        source = cell.GetRoadObject().ReferencePath[(int)o+2];
                     }
+                    else
+                    {
+                        source = cell.GetRoadObject().ReferencePath[(int)o-2];
+                    }
+                    source.NextArray = new roadPiece[] { destination };
+
                 }
             }
         }

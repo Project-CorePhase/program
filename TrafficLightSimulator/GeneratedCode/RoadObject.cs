@@ -18,6 +18,8 @@ public abstract class RoadObject
     public roadPiece[] ReferencePath;
     public roadPiece[] endPoints;
     public roadPiece[] pedestrianStartPoint = null;
+    //Adding a list with all the connections (from 2 to 4)
+    private List<RoadObject> connections = null;
 
     public int cellIndexInGrid;
 
@@ -36,8 +38,12 @@ public abstract class RoadObject
 
 	public void AddConnection(RoadObject next)
 	{
-		throw new System.NotImplementedException();
+        connections.Add(next);
 	}
+    public List<RoadObject> Connections()
+    {
+        return connections;
+    }
 
 	public void Update()
 	{
