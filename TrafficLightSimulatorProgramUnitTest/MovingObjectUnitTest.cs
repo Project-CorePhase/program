@@ -14,7 +14,6 @@ namespace TrafficLightSimulatorProgramUnitTest
         public void Update() {
             roadPiece piece = new roadPiece();
 
-
             // First we create a road
             TrafficLight tl1 = new TrafficLight();
             tl1.SetColor(TrafficColor.Red); // you shall not pass !

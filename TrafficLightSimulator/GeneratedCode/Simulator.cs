@@ -8,78 +8,128 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 namespace TrafficLightSimulator
 {
     public class Simulator
     {
-        public virtual Grid Grid
+        public Simulator()
+        {
+            UpdateTimer = new System.Timers.Timer();
+            UpdateTimer.Elapsed += new ElapsedEventHandler(timerTicks);
+        }
+
+        private void timerTicks(object sender, ElapsedEventArgs e)
+        {
+
+            Console.WriteLine("Timer ticks !");
+            Console.WriteLine("Moving movingObjects");
+            if (MovingObjects == null) { return; }
+            foreach (MovingObject mo in MovingObjects)
+            {
+                mo.Update();
+            }
+
+
+        }
+
+
+        public Grid Grid
         {
             get;
             set;
         }
 
-        public virtual List<MovingObject> MovingObjects
+        public List<MovingObject> MovingObjects = null;
+
+        public List<RoadObject> RoadObjects = null;
+
+        public System.Timers.Timer UpdateTimer;
+
+
+
+        public void AddCrossing(RoadObject ro)
         {
-            get;
-            set;
+            if (RoadObjects == null)
+            {
+                RoadObjects = new List<RoadObject>();
+            }
+            RoadObjects.Add(ro);
         }
 
-        public virtual List<RoadObject> RoadObjects
-        {
-            get;
-            set;
-        }
-
-        public virtual System.Timers.Timer UpdateTimer
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// WHAT THE HELL IS THIS
-        /// </summary>
-        public virtual IEnumerable<RoadObject> RoadObject
-        {
-            get;
-            set;
-        }
-
-        public virtual void AddCrossing()
+        public void RemoveCrossing()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void RemoveCrossing()
+        public void MoveCrossing()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void MoveCrossing()
+        public void Save()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void Save()
+        public void Load()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void Load()
+        public void SetTimerInterval(int duration)
         {
-            throw new System.NotImplementedException();
+            if (duration == 0)
+            {
+                UpdateTimer.Stop();
+            }
+            else
+            {
+                Reset();
+                UpdateTimer.Interval = duration;
+                UpdateTimer.Start();
+            }
         }
 
-        public virtual void SetTimerInterval(int duration)
+        public void Reset()
         {
-            throw new System.NotImplementedException();
+            if (RoadObjects == null)
+            {
+                return;
+            }
+            // Setting everything ready for the simulator   
+            
+            // First create the link between the crossing
+            foreach (RoadObject ro in RoadObjects)
+            {
+/*Oriention[] todo = {Oriention.Degree0, Oriention.Degree180, Oriention.Degree270, Oriention.Degree90};
+                // Looking for all starting point of the object, and trying to get the endpoint of the other
+                foreach (Oriention o in todo) {
+                    if (ro.ReferencePath[o] == null) { continue; }
+                    // Looking for the neighdoor
+                    
+                }*/
+            }
+
+            // Seconds we have to create cars
+            MovingObjects = new List<MovingObject>();
+
+
+            // We looking for each startpoint of RoadObject
+            foreach (RoadObject ro in RoadObjects)
+            {
+                foreach (roadPiece rp in ro.ReferencePath)
+                {
+                    // Create a car into the roadPiece
+                    // TODO : LINK BETWEEN STARTPOINT AND NEIGHDOOR ENDPOINT
+                    MovingObject car = new MovingObject(false, rp);
+                    MovingObjects.Add(car);
+                }
+            }
+
         }
 
-        public virtual void Rest()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public virtual void updateGraphic()
+        public void updateGraphic()
         {
             throw new System.NotImplementedException();
         }
@@ -97,7 +147,17 @@ namespace TrafficLightSimulator
                 {
                     if (neighbour != cell)
                     {
-                        
+                        // Link all the startpoint and the endpoint of the neighbour to the current cells
+                        Oriention[] todo = {Oriention.Degree0, Oriention.Degree180, Oriention.Degree270, Oriention.Degree90};
+                        // Looking for all starting point of the object, and trying to get the endpoint of the other
+                        foreach (Oriention o in todo) {
+                            // Looking for the neighdoor
+                            // Looking for the start point of the current grid and current orientation
+                           // roadPiece destination = neighbour.GetRoadObject().endPoints[(int)o];
+                            // TODO : set oppoositOfO
+                           // roadPiece source = cell.GetRoadObject().ReferencePath[(int)oppositeOfO];
+                           // source.NextArray = new roadPiece[] { destination };
+                        }
                     }
                 }
             }
