@@ -121,12 +121,6 @@
   <ItemGroup>
     <None Include="Resources\track4.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TrafficLightSimulatorModelingProjectLib\TrafficLightSimulatorProgram.csproj">
-      <Project>{6e882f44-2275-49b2-b384-fe9cef0785b4}</Project>
-      <Name>TrafficLightSimulatorProgram</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

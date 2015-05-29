@@ -60,9 +60,9 @@
     <Compile Include="CrossingTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TrafficLightSimulatorModelingProjectLib\TrafficLightSimulatorProgram.csproj">
-      <Project>{6e882f44-2275-49b2-b384-fe9cef0785b4}</Project>
-      <Name>TrafficLightSimulatorProgram</Name>
+    <ProjectReference Include="..\TrafficLightSimulator\TrafficLightSimulatorDesign.csproj">
+      <Project>{98fe4afa-2dfd-4f1f-bc6e-8232f9dcc63e}</Project>
+      <Name>TrafficLightSimulatorDesign</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

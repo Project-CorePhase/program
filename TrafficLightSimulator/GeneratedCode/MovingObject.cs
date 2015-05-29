@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TrafficLightSimulatorProgram
+namespace TrafficLightSimulator
 {
 
     public class MovingObject

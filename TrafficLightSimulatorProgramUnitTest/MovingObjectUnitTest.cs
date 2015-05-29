@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TrafficLightSimulatorProgram;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TrafficLightSimulator;
 
 namespace TrafficLightSimulatorProgramUnitTest
 {

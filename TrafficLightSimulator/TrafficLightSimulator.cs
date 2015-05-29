@@ -12,11 +12,11 @@ namespace TrafficLightSimulator
 {
     public partial class TrafficLightSimulator : Form
     {
-        TrafficLightSimulatorProgram.Simulator simulator;
+        Simulator simulator;
         public TrafficLightSimulator()
         {
             InitializeComponent();
-            simulator = new TrafficLightSimulatorProgram.Simulator();
+            simulator = new Simulator();
         }
 
         private void pictureBox_Grid_Paint(object sender, PaintEventArgs e)

@@ -13,38 +13,38 @@ using System.Drawing;
 public abstract class RoadObject
 {
 
-    public virtual RoadObject[] StartArray;
+    public RoadObject[] StartArray;
 
     public roadPiece[] ReferencePath;
     public roadPiece[] endPoints;
     public roadPiece[] pedestrianStartPoint = null;
 
-    public virtual int cellIndexInGrid;
+    public int cellIndexInGrid;
 
-    public virtual Point coordinate;
+    public Point coordinate;
 
-    public virtual Image Image;
+    public Image Image;
 
-    public virtual Oriention Oriention;
+    public Oriention Oriention;
 
-	public virtual TrafficController TrafficController;
+	public TrafficController TrafficController;
 
-	public virtual void SetOrientation(Oriention arg)
+	public void SetOrientation(Oriention arg)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddConnection(RoadObject next)
+	public void AddConnection(RoadObject next)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Update()
+	public void Update()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual RoadObject GetRoadObject()
+	public RoadObject GetRoadObject()
 	{
 		throw new System.NotImplementedException();
 	}
