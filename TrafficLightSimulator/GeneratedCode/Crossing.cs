@@ -6,13 +6,21 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
 public class Crossing : RoadObject
 {
-    public Crossing(CrossingType ct)
+
+    public Point coordinate;
+
+    public Image Image;
+
+    public Crossing(CrossingType ct, Point p)
     {
+        this.coordinate = p;
+
         this.ReferencePath = new roadPiece[4];
         // Create all the end point needed by the crossing, those will be connected by the simulator to the other crossing
         // The direction is relative to the crossing, 
@@ -100,6 +108,8 @@ public class Crossing : RoadObject
 
     void crossingWithPedestrian()
     {
+        // TODO : Add the image here (Abdulla)
+      //  this.Image = 
         pedestrianStartPoint = new roadPiece[2];
         Oriention[] todo = { Oriention.Degree0, Oriention.Degree180 };
         foreach (Oriention localO in todo)

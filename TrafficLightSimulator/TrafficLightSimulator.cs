@@ -24,8 +24,15 @@ namespace TrafficLightSimulator
             // TODO Abdullah
             RoadObject roadObject = null; // Declaration
             Image draggedImage = (Image)e.Data.GetData(DataFormats.Bitmap); // Get Imaged Draged
-                roadObject = new Crossing(CrossingType.CrossingWithPedestrian);
+            Point draggedPointer = new Point();
+                roadObject = new Crossing(CrossingType.CrossingWithPedestrian,draggedPointer);
             
+
+            if (draggedImage == pictureBox_CrossingA.Image)
+            {
+                Bitmap t = new Bitmap(draggedImage);
+                roadObject = new Crossing(CrossingType.CrossingWithPedestrian, new Point()); // TODO : define the point
+            }
         }
         private void pictureBoxGrid_DragEnter(object sender, DragEventArgs e)
         {

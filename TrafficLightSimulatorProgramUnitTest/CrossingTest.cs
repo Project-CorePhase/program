@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Drawing;
 
 namespace TrafficLightSimulatorProgramUnitTest
 {
@@ -9,7 +10,7 @@ namespace TrafficLightSimulatorProgramUnitTest
         [TestMethod]
         public void getGlobalOrientationFromLocalTest()
         {
-            Crossing crossing1 = new Crossing(CrossingType.CrossingWithoutPedestrian);
+            Crossing crossing1 = new Crossing(CrossingType.CrossingWithoutPedestrian, new Point());
             Oriention test = crossing1.getGlobalOrientationFromLocal(Oriention.Degree0, Oriention.Degree0);
             Assert.AreEqual(test, Oriention.Degree0);
             test = crossing1.getGlobalOrientationFromLocal(Oriention.Degree90, Oriention.Degree0);
