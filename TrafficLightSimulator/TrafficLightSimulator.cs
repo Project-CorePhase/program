@@ -47,7 +47,7 @@ namespace TrafficLightSimulator
             if (draggedImage == pictureBox_CrossingA.Image)
             {
                 Bitmap t = new Bitmap(draggedImage);
-                roadObject = new Crossing(CrossingType.CrossingWithPedestrian);
+                roadObject = new Crossing(CrossingType.CrossingWithPedestrian, new Point()); // TODO : define the point
             }
         }
         private void pictureBoxGrid_DragEnter(object sender, DragEventArgs e)
