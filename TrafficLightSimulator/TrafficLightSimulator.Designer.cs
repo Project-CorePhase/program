@@ -347,7 +347,7 @@
             // 
             // pictureBoxGrid
             // 
-            this.pictureBoxGrid.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBoxGrid.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBoxGrid.Location = new System.Drawing.Point(143, 24);
             this.pictureBoxGrid.Name = "pictureBoxGrid";
             this.pictureBoxGrid.Size = new System.Drawing.Size(901, 601);

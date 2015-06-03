@@ -11,6 +11,7 @@ namespace TrafficLightSimulator
     [Serializable]
     public class Cell
     {
+        // Fields 
         private int topLeftCornerX;
         private int topLeftCornerY;
         private RoadObject roadObject;
@@ -18,6 +19,7 @@ namespace TrafficLightSimulator
         [NonSerialized]
         private TextBox[] spawntextboxes;
 
+        // Constructor
         public Cell(int x, int y)
         {
             this.topLeftCornerX = x;
@@ -26,6 +28,9 @@ namespace TrafficLightSimulator
             spawntextboxes = new TextBox[4];
         }
 
+
+        // Method
+        /* get & Set Cell X pos - Java note*/
         public int GetCellX()
         {
             return topLeftCornerX; 
@@ -35,6 +40,7 @@ namespace TrafficLightSimulator
             this.topLeftCornerX = value;
         }
 
+        /* get & set cell Y pos - java note*/
         public int GetCellY()
         { 
             return topLeftCornerY;
@@ -44,6 +50,7 @@ namespace TrafficLightSimulator
             this.topLeftCornerY = value;
         }
 
+        /* get & set cell y pos - java note*/
         public void SetRoadObject(RoadObject o) { this.roadObject = o; }
         public RoadObject GetRoadObject()
         {
@@ -59,6 +66,7 @@ namespace TrafficLightSimulator
             gr.DrawImage(GetRoadObject().Image, new Point((int)this.topLeftCornerX, (int)this.topLeftCornerY));
         }
 
+        /* No idea what is this*/
         public TextBox[] SpawnTextBoxes()
         {
             return this.spawntextboxes;
