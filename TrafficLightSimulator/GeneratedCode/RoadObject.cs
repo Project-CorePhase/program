@@ -17,11 +17,13 @@ public abstract class RoadObject
     private roadPiece[] referencePath;
     private roadPiece[] endPoints;
     private roadPiece[] pedestrianStartPoint = null;
-    public int cellIndexInGrid = 0;
-    public Point coordinate;
-    public Image Image;
-    public Oriention Oriention;
-    public TrafficController TrafficController;
+    private int cellIndexInGrid = 0;  // Each Cell has a uniqe Number
+    private Point coordinate;        // Where each crossing should be drawn 
+    private Image image;             // Refrence to crossing Image
+    private Oriention oriention;     // How to orintate : Default by 0 deggres
+    private TrafficController trafficController;
+
+ 
     //Adding a list with all the connections (from 2 to 4)
     private List<RoadObject> connections = null;
 
@@ -31,13 +33,17 @@ public abstract class RoadObject
     public roadPiece[] EndPoints { get { return endPoints; } set { endPoints = value; } }
     public roadPiece[] PedestrianStartPoint { get { return pedestrianStartPoint; } set { pedestrianStartPoint = value; } }
     public List<RoadObject> Connections() { return connections; }
+    public int CellIndexInGrid { get { return cellIndexInGrid; } set { cellIndexInGrid = value; } }
+    public Point Coordinate { get { return coordinate; } set { coordinate = value; } }
+    public Image Image { get { return image; } set { image = value; } }
+    public Oriention Oriention { get { return oriention; } set { oriention = value; } }
+    public TrafficController TrafficController { get { return trafficController; } set { trafficController = value; }}
 
     // Constructor 
     public RoadObject(Point p)
     {
         cellIndexInGrid++;
         p = coordinate;
-        Oriention  = new Oriention();
         Image = null;
     }
 
