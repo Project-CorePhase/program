@@ -137,7 +137,7 @@ namespace TrafficLightSimulator
         private void addConnections()
         {
             List<Cell> allCells = Grid.GetCellsWithRoadObject();
-            Oriention[] todo = { Oriention.Degree0, Oriention.Degree180, Oriention.Degree270, Oriention.Degree90 };
+            Orientation[] todo = { Orientation.Degree0, Orientation.Degree180, Orientation.Degree270, Orientation.Degree90 };
             int x, y;
             foreach (Cell cell in allCells)
             {
@@ -170,7 +170,7 @@ namespace TrafficLightSimulator
                 
                 // Link all the startpoint and the endpoint of the neighbour to the current cells                        
                 // Looking for all starting point of the object, and trying to get the endpoint of the other
-                foreach (Oriention o in todo) 
+                foreach (Orientation o in todo) 
                 {
                     // Looking for the neighdoor
                     // Looking for the start point of the current grid and current orientation

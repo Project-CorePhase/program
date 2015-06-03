@@ -9,7 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public enum Oriention
+public enum Orientation
 {
     Degree0, Degree90, Degree180, Degree270
 }
+

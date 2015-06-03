@@ -20,7 +20,7 @@ public abstract class RoadObject
     private int cellIndexInGrid = 0;  // Each Cell has a uniqe Number
     private Point coordinate;        // Where each crossing should be drawn 
     private Image image;             // Refrence to crossing Image
-    private Oriention oriention;     // How to orintate : Default by 0 deggres
+    public Orientation orientation;     // How to orintate : Default by 0 deggres
     private TrafficController trafficController;
 
  
@@ -36,7 +36,7 @@ public abstract class RoadObject
     public int CellIndexInGrid { get { return cellIndexInGrid; } set { cellIndexInGrid = value; } }
     public Point Coordinate { get { return coordinate; } set { coordinate = value; } }
     public Image Image { get { return image; } set { image = value; } }
-    public Oriention Oriention { get { return oriention; } set { oriention = value; } }
+    public Orientation Oriention { get { return orientation; } set { orientation = value; } }
     public TrafficController TrafficController { get { return trafficController; } set { trafficController = value; }}
 
     // Constructor 
@@ -50,7 +50,7 @@ public abstract class RoadObject
 
 
     // Methods
-    public void SetOrientation(Oriention arg)
+    public void SetOrientation(Orientation arg)
     {
         throw new System.NotImplementedException();
     }
