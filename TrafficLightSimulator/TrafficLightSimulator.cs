@@ -61,7 +61,7 @@ namespace TrafficLightSimulator
             {
                 roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithPedestrian);
                 Bitmap image = new Bitmap(draggedImage);
-
+                g.DrawImage(image, draggedPointer);
                 Console.WriteLine("Crossing B was Drawn");
             }
             else
@@ -69,7 +69,6 @@ namespace TrafficLightSimulator
                 MessageBox.Show("Non of the crossings");
                 Console.WriteLine("Crossing xyz was Drawn");
             }
-         //   pictureBoxGrid.Invalidate();
         }
 
         /* Form Paint Event*/
