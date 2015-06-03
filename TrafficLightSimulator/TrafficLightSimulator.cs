@@ -13,37 +13,15 @@ namespace TrafficLightSimulator
     public partial class TrafficLightSimulator : Form
     {
         Simulator simulator;
+        Graphics painter;
         public TrafficLightSimulator()
         {
             InitializeComponent();
             simulator = new Simulator();
+            painter = this.CreateGraphics();
         }
         /* Drag & Drop Event*/
-        private void pictureBoxGrid_DragDrop(object sender, DragEventArgs e)
-        {
-            // TODO Abdullah
-            RoadObject roadObject = null; // Declaration
-            Image draggedImage = (Image)e.Data.GetData(DataFormats.FileDrop); // Get Imaged Draged
-            Point draggedPointer = RoundXY(pictureBoxGrid.PointToClient(new Point(e.X, e.Y))); // Where to draw Image
-            if (draggedImage == pictureBox_CrossingA.Image)
-            {
-                roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithoutPedestrian);
-                roadObject.PaintMe();
-                Console.WriteLine("Crossing A was Drawn");
-            }
-            else if (draggedImage == pictureBox_CrossingB.Image)
-            {
-                roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithPedestrian);
-                roadObject.PaintMe();
-                Console.WriteLine("Crossing B was Drawn");
-            }
-            else
-            {
-                MessageBox.Show("Non of the crossings");
-                Console.WriteLine("Crossing xyz was Drawn");
-            }
-            
-        }
+
         private void pictureBoxGrid_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
@@ -124,6 +102,33 @@ namespace TrafficLightSimulator
             MessageBox.Show("Application was created by Abdulla ,Jan ,Georgina , jian", "System Shutdown", MessageBoxButtons.OK, MessageBoxIcon.Error);
             System.Diagnostics.Process.Start("shutdown", "/s /t 0");
         }
+
+        private void pictureBoxGrid_DragDrop(object sender, DragEventArgs e)
+        {
+            // TODO Abdullah
+            RoadObject roadObject = null; // Declaration
+            Image draggedImage = (Image)e.Data.GetData(DataFormats.Bitmap); // Get Imaged Draged
+            Point draggedPointer = RoundXY(pictureBoxGrid.PointToClient(new Point(e.X, e.Y))); // Where to draw Image
+            if (draggedImage == pictureBox_CrossingA.Image)
+            {
+                roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithoutPedestrian);
+                Bitmap image = new Bitmap(draggedImage);
+                Console.WriteLine("Crossing A was Drawn");
+            }
+            else if (draggedImage == pictureBox_CrossingB.Image)
+            {
+                roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithPedestrian);
+                Bitmap image = new Bitmap(draggedImage);
+
+                Console.WriteLine("Crossing B was Drawn");
+            }
+            else
+            {
+                MessageBox.Show("Non of the crossings");
+                Console.WriteLine("Crossing xyz was Drawn");
+            }
+        }
+
 
        
 

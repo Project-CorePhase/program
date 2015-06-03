@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrafficLightSimulator));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.MenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_File_CreateNewSimulator = new System.Windows.Forms.ToolStripMenuItem();
@@ -317,7 +318,7 @@
             // 
             // pictureBox_CrossingB
             // 
-            this.pictureBox_CrossingB.Image = global::TrafficLightSimulator.Properties.Resources.crossingB;
+            this.pictureBox_CrossingB.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CrossingB.Image")));
             this.pictureBox_CrossingB.Location = new System.Drawing.Point(6, 156);
             this.pictureBox_CrossingB.Name = "pictureBox_CrossingB";
             this.pictureBox_CrossingB.Size = new System.Drawing.Size(107, 96);
@@ -327,7 +328,7 @@
             // 
             // pictureBox_CrossingA
             // 
-            this.pictureBox_CrossingA.Image = global::TrafficLightSimulator.Properties.Resources.crossingA;
+            this.pictureBox_CrossingA.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CrossingA.Image")));
             this.pictureBox_CrossingA.Location = new System.Drawing.Point(6, 32);
             this.pictureBox_CrossingA.Name = "pictureBox_CrossingA";
             this.pictureBox_CrossingA.Size = new System.Drawing.Size(107, 96);
@@ -352,7 +353,7 @@
             this.pictureBoxGrid.Size = new System.Drawing.Size(901, 601);
             this.pictureBoxGrid.TabIndex = 12;
             this.pictureBoxGrid.TabStop = false;
-            this.pictureBoxGrid.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxGrid_DragEnter);
+            this.pictureBoxGrid.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxGrid_DragDrop);
             this.pictureBoxGrid.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxGrid_DragEnter);
             this.pictureBoxGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Grid_Paint);
             this.pictureBoxGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxGrid_MouseMove);

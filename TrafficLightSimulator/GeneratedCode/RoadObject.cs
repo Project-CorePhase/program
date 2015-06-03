@@ -17,7 +17,7 @@ public abstract class RoadObject
     private roadPiece[] referencePath;
     private roadPiece[] endPoints;
     private roadPiece[] pedestrianStartPoint = null;
-    public int cellIndexInGrid;
+    public int cellIndexInGrid = 0;
     public Point coordinate;
     public Image Image;
     public Oriention Oriention;
@@ -60,7 +60,6 @@ public abstract class RoadObject
     {
         throw new System.NotImplementedException();
     }
-    public abstract void PaintMe();
 
 }
 

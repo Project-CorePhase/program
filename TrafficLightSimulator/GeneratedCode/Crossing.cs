@@ -240,10 +240,5 @@ public class Crossing : RoadObject
             this.ReferencePath[(int)localO] = rp0StartPoint;
         }
     }
-
-    public override void PaintMe()
-    {
-
-    }
 }
 
