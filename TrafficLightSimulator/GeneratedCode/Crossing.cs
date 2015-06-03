@@ -120,7 +120,7 @@ public class Crossing : RoadObject
         // TODO : Add the image here (Abdulla)
         this.Image = TrafficLightSimulator.Properties.Resources.crossingB;
 
-        PedestrianStartPoint = new roadPiece[2];
+        PedestrianStartPoint = new roadPiece[4];
         Orientation[] todo = { Orientation.Degree0, Orientation.Degree180 };
         foreach (Orientation localO in todo)
         {
