@@ -61,7 +61,7 @@ public class Crossing : RoadObject
     }
 
     // Methods
-    private Orientation getGlobalOrientationFromLocal(Orientation local, Orientation global)
+    public Orientation getGlobalOrientationFromLocal(Orientation local, Orientation global)
     {
         int localAngle = 0;
         switch (local)

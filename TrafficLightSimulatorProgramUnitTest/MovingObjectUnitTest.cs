@@ -19,10 +19,10 @@ namespace TrafficLightSimulatorProgramUnitTest
             tl1.SetColor(TrafficColor.Red); // you shall not pass !
             roadPiece piece1 = new roadPiece(piece);
             piece1.trafficlightRefrence = tl1;
-            piece1.orientation = Oriention.Degree270;
+            piece1.orientation = Orientation.Degree270;
 
             roadPiece piece2 = new roadPiece(piece1);
-            piece2.orientation = Oriention.Degree90; // because I don't like when it is too easy :p
+            piece2.orientation = Orientation.Degree90; // because I don't like when it is too easy :p
             roadPiece piece3 = new roadPiece(piece2);
             MovingObject car = new MovingObject(false, piece3);
             Assert.AreEqual(car.path, piece3);
