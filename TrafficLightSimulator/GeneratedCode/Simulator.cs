@@ -174,7 +174,7 @@ namespace TrafficLightSimulator
                 {
                     // Looking for the neighdoor
                     // Looking for the start point of the current grid and current orientation
-                    roadPiece destination = cell.GetRoadObject().endPoints[(int)o];
+                    roadPiece destination = cell.GetRoadObject().EndPoints[(int)o];
                     // TODO : set oppoositOfO
                     roadPiece source = null;
                     if ((int)o>=todo.Length/2)

@@ -40,6 +40,7 @@
             this.MenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.subTypeToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_AboutUS = new System.Windows.Forms.ToolStripMenuItem();
+            this.clickMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
@@ -57,8 +58,8 @@
             this.pictureBox_StrightLane = new System.Windows.Forms.PictureBox();
             this.pictureBox_CrossingB = new System.Windows.Forms.PictureBox();
             this.pictureBox_CrossingA = new System.Windows.Forms.PictureBox();
-            this.pictureBoxGrid = new System.Windows.Forms.PictureBox();
             this.label_MouseLocation = new System.Windows.Forms.Label();
+            this.pictureBoxGrid = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -156,9 +157,18 @@
             // 
             // MenuItem_AboutUS
             // 
+            this.MenuItem_AboutUS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clickMeToolStripMenuItem});
             this.MenuItem_AboutUS.Name = "MenuItem_AboutUS";
             this.MenuItem_AboutUS.Size = new System.Drawing.Size(68, 20);
             this.MenuItem_AboutUS.Text = "About Us";
+            // 
+            // clickMeToolStripMenuItem
+            // 
+            this.clickMeToolStripMenuItem.Name = "clickMeToolStripMenuItem";
+            this.clickMeToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.clickMeToolStripMenuItem.Text = "Click Me";
+            this.clickMeToolStripMenuItem.Click += new System.EventHandler(this.clickMeToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -307,20 +317,32 @@
             // 
             // pictureBox_CrossingB
             // 
+            this.pictureBox_CrossingB.Image = global::TrafficLightSimulator.Properties.Resources.crossingB;
             this.pictureBox_CrossingB.Location = new System.Drawing.Point(6, 156);
             this.pictureBox_CrossingB.Name = "pictureBox_CrossingB";
             this.pictureBox_CrossingB.Size = new System.Drawing.Size(107, 96);
             this.pictureBox_CrossingB.TabIndex = 5;
             this.pictureBox_CrossingB.TabStop = false;
+            this.pictureBox_CrossingB.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_CrossingB_MouseMove);
             // 
             // pictureBox_CrossingA
             // 
+            this.pictureBox_CrossingA.Image = global::TrafficLightSimulator.Properties.Resources.crossingA;
             this.pictureBox_CrossingA.Location = new System.Drawing.Point(6, 32);
             this.pictureBox_CrossingA.Name = "pictureBox_CrossingA";
             this.pictureBox_CrossingA.Size = new System.Drawing.Size(107, 96);
             this.pictureBox_CrossingA.TabIndex = 4;
             this.pictureBox_CrossingA.TabStop = false;
-            this.pictureBox_CrossingA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_CrossingA_MouseDown);
+            this.pictureBox_CrossingA.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_CrossingA_MouseMove);
+            // 
+            // label_MouseLocation
+            // 
+            this.label_MouseLocation.AutoSize = true;
+            this.label_MouseLocation.Location = new System.Drawing.Point(12, 612);
+            this.label_MouseLocation.Name = "label_MouseLocation";
+            this.label_MouseLocation.Size = new System.Drawing.Size(13, 13);
+            this.label_MouseLocation.TabIndex = 13;
+            this.label_MouseLocation.Text = ":-";
             // 
             // pictureBoxGrid
             // 
@@ -334,15 +356,6 @@
             this.pictureBoxGrid.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxGrid_DragEnter);
             this.pictureBoxGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Grid_Paint);
             this.pictureBoxGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxGrid_MouseMove);
-            // 
-            // label_MouseLocation
-            // 
-            this.label_MouseLocation.AutoSize = true;
-            this.label_MouseLocation.Location = new System.Drawing.Point(12, 612);
-            this.label_MouseLocation.Name = "label_MouseLocation";
-            this.label_MouseLocation.Size = new System.Drawing.Size(13, 13);
-            this.label_MouseLocation.TabIndex = 13;
-            this.label_MouseLocation.Text = ":-";
             // 
             // TrafficLightSimulator
             // 
@@ -358,6 +371,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "TrafficLightSimulator";
             this.Text = "Traffic Light Simulator";
+            this.Load += new System.EventHandler(this.TrafficLightSimulator_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TrafficLightSimulator_MouseMove);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -408,6 +422,7 @@
         private System.Windows.Forms.Label label_CrossingType1;
         private System.Windows.Forms.PictureBox pictureBoxGrid;
         private System.Windows.Forms.Label label_MouseLocation;
+        private System.Windows.Forms.ToolStripMenuItem clickMeToolStripMenuItem;
     }
 }
 

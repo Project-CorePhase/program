@@ -12,48 +12,55 @@ using System.Drawing;
 
 public abstract class RoadObject
 {
-
-    public RoadObject[] StartArray;
-
-    public roadPiece[] ReferencePath;
-    public roadPiece[] endPoints;
-    public roadPiece[] pedestrianStartPoint = null;
+    // Fields & properties
+    private RoadObject[] startArray;
+    private roadPiece[] referencePath;
+    private roadPiece[] endPoints;
+    private roadPiece[] pedestrianStartPoint = null;
+    public int cellIndexInGrid;
+    public Point coordinate;
+    public Image Image;
+    public Oriention Oriention;
+    public TrafficController TrafficController;
     //Adding a list with all the connections (from 2 to 4)
     private List<RoadObject> connections = null;
 
-    public int cellIndexInGrid;
 
-    public Point coordinate;
+    public RoadObject[] StartArray { get { return startArray; } set { startArray = value; } }
+    public roadPiece[] ReferencePath { get { return referencePath; } set { referencePath = value; } }
+    public roadPiece[] EndPoints { get { return endPoints; } set { endPoints = value; } }
+    public roadPiece[] PedestrianStartPoint { get { return pedestrianStartPoint; } set { pedestrianStartPoint = value; } }
+    public List<RoadObject> Connections() { return connections; }
 
-    public Image Image;
-
-    public Oriention Oriention;
-
-	public TrafficController TrafficController;
-
-	public void SetOrientation(Oriention arg)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public void AddConnection(RoadObject next)
-	{
-        connections.Add(next);
-	}
-    public List<RoadObject> Connections()
+    // Constructor 
+    public RoadObject(Point p)
     {
-        return connections;
+        cellIndexInGrid++;
+        p = coordinate;
+        Oriention  = new Oriention();
+        Image = null;
     }
 
-	public void Update()
-	{
-		throw new System.NotImplementedException();
-	}
 
-	public RoadObject GetRoadObject()
-	{
-		throw new System.NotImplementedException();
-	}
+
+    // Methods
+    public void SetOrientation(Oriention arg)
+    {
+        throw new System.NotImplementedException();
+    }
+    public void AddConnection(RoadObject next)
+    {
+        connections.Add(next);
+    }
+    public void Update()
+    {
+        throw new System.NotImplementedException();
+    }
+    public RoadObject GetRoadObject()
+    {
+        throw new System.NotImplementedException();
+    }
+    public abstract void PaintMe();
 
 }
 
