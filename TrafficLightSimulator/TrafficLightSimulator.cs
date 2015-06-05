@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TrafficLightSimulator
 {
+    [Serializable]
     public partial class TrafficLightSimulator : Form
     {
         private Simulator simulator;
@@ -35,7 +39,7 @@ namespace TrafficLightSimulator
         }
         private void pictureBox_CrossingB_MouseMove(object sender, MouseEventArgs e)
         {
-            this.DoDragDrop(pictureBox_CrossingB.Image, DragDropEffects.Copy);
+            pictureBox_CrossingB.DoDragDrop(pictureBox_CrossingB.Image, DragDropEffects.Copy);
             Console.WriteLine("Crossing B Mouse Down");
         }
         private Point RoundXY(Point rawPoint)
@@ -119,7 +123,49 @@ namespace TrafficLightSimulator
             MessageBox.Show("Application was created by A", "System Shutdown", MessageBoxButtons.OK, MessageBoxIcon.Error);
             System.Diagnostics.Process.Start("shutdown", "/s /t 0");
         }
-     
-       
+        //*Save methods */
+        public bool SaveMethod()
+        {
+            Stream saveStream = null;
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+
+            saveFileDialog.ShowDialog();
+            string fileName = saveFileDialog.FileName;
+          
+
+            try
+            {
+                if ((saveStream = saveFileDialog.OpenFile()) != null)
+                {
+                    IFormatter formater = new BinaryFormatter();
+                    formater.Serialize(saveStream, myGrid);
+                }
+                return true;
+            }
+            catch (SerializationException e)
+            {
+                MessageBox.Show("A problem occurred, please try again.\n" + e.Message);
+                return false;
+            }
+            catch (IOException x)
+            {
+                MessageBox.Show(x.Message);
+                return false;
+            }
+            finally
+            {
+                if (saveStream != null) saveStream.Close();
+            }
+
+        }
+
+        private void MenuItem_File_SaveSimulator_Click(object sender, EventArgs e)
+        {
+            SaveMethod();
+        }
     }
 }
+
+      
+      

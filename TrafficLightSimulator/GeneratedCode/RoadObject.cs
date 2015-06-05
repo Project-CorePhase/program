@@ -10,8 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
+[Serializable]
 public abstract class RoadObject
 {
+
     // Fields & properties
     private RoadObject[] startArray;
     private roadPiece[] referencePath;

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace TrafficLightSimulator
 {
-
+    [Serializable]
     public class MovingObject
     {
         // the size in pixel for calculate the coordinate

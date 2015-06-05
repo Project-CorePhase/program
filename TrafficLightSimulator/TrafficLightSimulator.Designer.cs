@@ -34,6 +34,8 @@
             this.MenuItem_File_CreateNewSimulator = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_File_SaveSimulator = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_File_ClearSimulator = new System.Windows.Forms.ToolStripMenuItem();
+            this.openSimulatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsSimulatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Utilities = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Utilities_Undo = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Utilities_Redo = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,7 +92,9 @@
             this.MenuItem_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItem_File_CreateNewSimulator,
             this.MenuItem_File_SaveSimulator,
-            this.MenuItem_File_ClearSimulator});
+            this.MenuItem_File_ClearSimulator,
+            this.openSimulatorToolStripMenuItem,
+            this.saveAsSimulatorToolStripMenuItem});
             this.MenuItem_File.Name = "MenuItem_File";
             this.MenuItem_File.Size = new System.Drawing.Size(37, 20);
             this.MenuItem_File.Text = "File";
@@ -106,12 +110,25 @@
             this.MenuItem_File_SaveSimulator.Name = "MenuItem_File_SaveSimulator";
             this.MenuItem_File_SaveSimulator.Size = new System.Drawing.Size(187, 22);
             this.MenuItem_File_SaveSimulator.Text = "Save Simulator";
+            this.MenuItem_File_SaveSimulator.Click += new System.EventHandler(this.MenuItem_File_SaveSimulator_Click);
             // 
             // MenuItem_File_ClearSimulator
             // 
             this.MenuItem_File_ClearSimulator.Name = "MenuItem_File_ClearSimulator";
             this.MenuItem_File_ClearSimulator.Size = new System.Drawing.Size(187, 22);
             this.MenuItem_File_ClearSimulator.Text = "Clear Simulator";
+            // 
+            // openSimulatorToolStripMenuItem
+            // 
+            this.openSimulatorToolStripMenuItem.Name = "openSimulatorToolStripMenuItem";
+            this.openSimulatorToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.openSimulatorToolStripMenuItem.Text = "Open Simulator";
+            // 
+            // saveAsSimulatorToolStripMenuItem
+            // 
+            this.saveAsSimulatorToolStripMenuItem.Name = "saveAsSimulatorToolStripMenuItem";
+            this.saveAsSimulatorToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.saveAsSimulatorToolStripMenuItem.Text = "Save As Simulator";
             // 
             // MenuItem_Utilities
             // 
@@ -424,6 +441,8 @@
         private System.Windows.Forms.PictureBox pictureBoxGrid;
         private System.Windows.Forms.Label label_MouseLocation;
         private System.Windows.Forms.ToolStripMenuItem clickMeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openSimulatorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsSimulatorToolStripMenuItem;
     }
 }
 

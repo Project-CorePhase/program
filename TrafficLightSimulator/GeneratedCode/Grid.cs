@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 namespace TrafficLightSimulator
 {
+    [Serializable]
     public class Grid
     {
         public Cell[] cells { get; private set; }

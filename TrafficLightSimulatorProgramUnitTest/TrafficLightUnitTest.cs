@@ -65,10 +65,8 @@ namespace TrafficLightSimulatorProgramUnitTest
             // TODO: Add test logic here
             //
         }
-        [TestMethod]
-        public void SetColor(TrafficColor c)
-        {
 
-        }
     }
 }
+       
+    
