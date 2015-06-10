@@ -16,8 +16,10 @@ public class Crossing : RoadObject
     // Constrcutor
     public Crossing(Point pp,CrossingType ct) : base(pp)
     {
+        this.Coordinate = pp;
 
         this.ReferencePath = new roadPiece[4];
+        this.ReferencePathLinked = new Boolean[4];
         // Create all the end point needed by the crossing, those will be connected by the simulator to the other crossing
         // The direction is relative to the crossing, 
         // Deg0
@@ -46,11 +48,11 @@ public class Crossing : RoadObject
         {
             case CrossingType.CrossingWithoutPedestrian:
                 Image = TrafficLightSimulator.Properties.Resources.crossingA;
-                crossingWithPedestrian();
+                crossingWithoutPedestrian();
                 break;
             case CrossingType.CrossingWithPedestrian:
                 Image = TrafficLightSimulator.Properties.Resources.crossingB;
-                crossingWithoutPedestrian();
+                crossingWithPedestrian();
                 break;
                 
             default :
@@ -117,7 +119,6 @@ public class Crossing : RoadObject
 
     void crossingWithPedestrian()
     {
-        // TODO : Add the image here (Abdulla)
         this.Image = TrafficLightSimulator.Properties.Resources.crossingB;
 
         PedestrianStartPoint = new roadPiece[4];
@@ -156,6 +157,7 @@ public class Crossing : RoadObject
             rp0StartPoint.coordinate = new System.Drawing.Point(10, 10);
             //  assign the start point
             this.ReferencePath[(int)localO] = rp0StartPoint;
+            this.ReferencePathLinked[(int)localO] = false; // not conencted first
         }
 
         // A5,A6, ...
@@ -197,6 +199,7 @@ public class Crossing : RoadObject
             rp10StartPoint.coordinate = new System.Drawing.Point(10, 10);
 
             this.ReferencePath[(int)localO] = rp10StartPoint;
+            this.ReferencePathLinked[(int)localO] = false; // not conencted first
         }
     }
 
@@ -239,6 +242,7 @@ public class Crossing : RoadObject
 
             //  assign the start point
             this.ReferencePath[(int)localO] = rp0StartPoint;
+            this.ReferencePathLinked[(int)localO] = false; // not conencted first
         }
     }
 }

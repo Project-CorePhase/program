@@ -13,24 +13,57 @@ namespace TrafficLightSimulator
 {
     public class Simulator
     {
-        public Simulator()
+        int SquareSize = 150;
+        TrafficLightSimulator onform;
+        List <roadPiece> carStartPoints = null;
+        public Simulator(TrafficLightSimulator form)
         {
+            onform = form;
             UpdateTimer = new System.Timers.Timer();
             UpdateTimer.Elapsed += new ElapsedEventHandler(timerTicks);
         }
 
+        private void addMovingObject(roadPiece rp, bool isPedestrian)
+        {
+            MovingObject mo = new MovingObject(isPedestrian, rp);
+            if (MovingObjects == null)
+            {
+                MovingObjects = new List<MovingObject>();
+            }
+            MovingObjects.Add(mo);
+        }
+
         private void timerTicks(object sender, ElapsedEventArgs e)
         {
-
-            Console.WriteLine("Timer ticks !");
-            Console.WriteLine("Moving movingObjects");
-            if (MovingObjects == null) { return; }
-            foreach (MovingObject mo in MovingObjects)
-            {
-                mo.Update();
+           
+            Random rd = new Random();
+            // Create moving object here, we have to look on the startpoint of the system
+            foreach (roadPiece rp in carStartPoints) {
+                if (rp.orientation == Orientation.Degree90 && rd.Next(2) == 1 && MovingObjects.Count < 1)
+                {
+                    this.addMovingObject(rp, false);
+                }
             }
 
+            if (MovingObjects == null) { return; }
+            List<MovingObject> tmp = new List<MovingObject>();
+            foreach (MovingObject mo in MovingObjects)
+            {
+                try
+                {
+                    mo.Update();
+                    tmp.Add(mo);
+                }
+                catch (Exception ex)
+                {
+                    tmp.Remove(mo);
+                    // The car is out of the grid
 
+                }
+            }
+            MovingObjects = tmp;
+
+            onform.drawMovingObject(this.MovingObjects);
         }
 
 
@@ -98,34 +131,24 @@ namespace TrafficLightSimulator
                 return;
             }
             // Setting everything ready for the simulator   
-            
-            // First create the link between the crossing
+            // Reset referencePath Linked
             foreach (RoadObject ro in RoadObjects)
             {
-/*Oriention[] todo = {Oriention.Degree0, Oriention.Degree180, Oriention.Degree270, Oriention.Degree90};
-                // Looking for all starting point of the object, and trying to get the endpoint of the other
-                foreach (Oriention o in todo) {
-                    if (ro.ReferencePath[o] == null) { continue; }
-                    // Looking for the neighdoor
-                    
-                }*/
+                ro.ReferencePathLinked[(int)Orientation.Degree0] = false;
+                ro.ReferencePathLinked[(int)Orientation.Degree90] = false;
+                ro.ReferencePathLinked[(int)Orientation.Degree180] = false;
+                ro.ReferencePathLinked[(int)Orientation.Degree270] = false;
             }
+
+
+            // First create the link between the crossing
+            addConnections();
+            Console.WriteLine("Car Start point number : " + carStartPoints.Count);
 
             // Seconds we have to create cars
             MovingObjects = new List<MovingObject>();
 
 
-            // We looking for each startpoint of RoadObject
-            foreach (RoadObject ro in RoadObjects)
-            {
-                foreach (roadPiece rp in ro.ReferencePath)
-                {
-                    // Create a car into the roadPiece
-                    // TODO : LINK BETWEEN STARTPOINT AND NEIGHDOOR ENDPOINT
-                    MovingObject car = new MovingObject(false, rp);
-                    MovingObjects.Add(car);
-                }
-            }
 
         }
 
@@ -136,58 +159,47 @@ namespace TrafficLightSimulator
 
         private void addConnections()
         {
-            List<Cell> allCells = Grid.GetCellsWithRoadObject();
-            Orientation[] todo = { Orientation.Degree0, Orientation.Degree180, Orientation.Degree270, Orientation.Degree90 };
-            int x, y;
-            foreach (Cell cell in allCells)
+            carStartPoints = new List<roadPiece>(); // reset the list
+            Console.WriteLine("Adding connections");
+            foreach (RoadObject ro in RoadObjects)
             {
-                x = cell.GetCellX();
-                y = cell.GetCellY();
-                //Here we determine the neighbours of the cell, the connections.
-                Cell top,bottom,left,right;
-                top = allCells.ElementAt(allCells.IndexOf(cell) - 6);
-                bottom = allCells.ElementAt(allCells.IndexOf(cell) + 6);
-                left = allCells.ElementAt(allCells.IndexOf(cell) - 1);
-                right = allCells.ElementAt(allCells.IndexOf(cell) + 1);
-                //If there exists a neighbour to the left, right, bottom or the top of this cell add him as a connection to it.
-                if (top != null)
+                foreach (RoadObject top in RoadObjects)
                 {
-                    cell.GetRoadObject().AddConnection(top.GetRoadObject());
-                }
-                if (bottom != null)
-                {
-                    cell.GetRoadObject().AddConnection(bottom.GetRoadObject());
-                }
-                if (left != null)
-                {
-                    cell.GetRoadObject().AddConnection(left.GetRoadObject());
-                }
-                if (right != null)
-                {
-                    cell.GetRoadObject().AddConnection(right.GetRoadObject());
-                }
-                
-                
-                // Link all the startpoint and the endpoint of the neighbour to the current cells                        
-                // Looking for all starting point of the object, and trying to get the endpoint of the other
-                foreach (Orientation o in todo) 
-                {
-                    // Looking for the neighdoor
-                    // Looking for the start point of the current grid and current orientation
-                    roadPiece destination = cell.GetRoadObject().EndPoints[(int)o];
-                    // TODO : set oppoositOfO
-                    roadPiece source = null;
-                    if ((int)o>=todo.Length/2)
+                    // TOP
+                    if (ro.Coordinate.Y == top.Coordinate.Y + SquareSize)
                     {
-                        source = cell.GetRoadObject().ReferencePath[(int)o+2];
+                        top.EndPoints[(int)Orientation.Degree90] = ro.ReferencePath[(int)Orientation.Degree270];
+                        ro.ReferencePathLinked[(int)Orientation.Degree270] = true;
                     }
-                    else
+                    // Bottom
+                    if (ro.Coordinate.Y == top.Coordinate.Y - SquareSize)
                     {
-                        source = cell.GetRoadObject().ReferencePath[(int)o-2];
+                        top.EndPoints[(int)Orientation.Degree270] = ro.ReferencePath[(int)Orientation.Degree90];
+                        ro.ReferencePathLinked[(int)Orientation.Degree90] = true;
                     }
-                    source.NextArray = new roadPiece[] { destination };
+                    // Right
+                    if (ro.Coordinate.X == top.Coordinate.X + SquareSize)
+                    {
+                        top.EndPoints[(int)Orientation.Degree0] = ro.ReferencePath[(int)Orientation.Degree180];
+                        ro.ReferencePathLinked[(int)Orientation.Degree180] = true;
+                    }
+                    // Left
+                    if (ro.Coordinate.X == top.Coordinate.X - SquareSize)
+                    {
+                        top.EndPoints[(int)Orientation.Degree180] = ro.ReferencePath[(int)Orientation.Degree0];
+                        ro.ReferencePathLinked[(int)Orientation.Degree0] = true;
+                    }
+                }
+                // Note the car startpoint
+                Orientation[] todo = { Orientation.Degree0, Orientation.Degree180, Orientation.Degree270, Orientation.Degree90 };
+                foreach (Orientation o in todo)
+                {
+                    if (ro.ReferencePathLinked[(int)o] == false)
+                    {
+                        this.carStartPoints.Add(ro.ReferencePath[(int)o]);
+                    }
+                }
 
-                }
             }
         }
     }

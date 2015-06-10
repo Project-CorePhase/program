@@ -17,6 +17,7 @@ public abstract class RoadObject
     // Fields & properties
     private RoadObject[] startArray;
     private roadPiece[] referencePath;
+    private Boolean[] referencePathLinked;
     private roadPiece[] endPoints;
     private roadPiece[] pedestrianStartPoint = null;
     private int cellIndexInGrid = 0;  // Each Cell has a uniqe Number
@@ -32,6 +33,7 @@ public abstract class RoadObject
 
     public RoadObject[] StartArray { get { return startArray; } set { startArray = value; } }
     public roadPiece[] ReferencePath { get { return referencePath; } set { referencePath = value; } }
+    public Boolean[] ReferencePathLinked { get { return referencePathLinked; } set { referencePathLinked = value; } }
     public roadPiece[] EndPoints { get { return endPoints; } set { endPoints = value; } }
     public roadPiece[] PedestrianStartPoint { get { return pedestrianStartPoint; } set { pedestrianStartPoint = value; } }
     public List<RoadObject> Connections() { return connections; }

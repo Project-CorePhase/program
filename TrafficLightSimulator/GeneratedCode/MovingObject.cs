@@ -47,7 +47,7 @@ namespace TrafficLightSimulator
             isPedestrian = isPedest;
             isAlive = true;
             coordinateInRoadPiece = new System.Drawing.Point(0, 0);
-            picture = new System.Drawing.Rectangle(coordinateInRoadPiece, new System.Drawing.Size(10, 10));
+            picture = new System.Drawing.Rectangle(coordinateInRoadPiece, new System.Drawing.Size(2, 2));
             path = startPoint;
         }
 
@@ -95,7 +95,7 @@ namespace TrafficLightSimulator
                 }
                 else
                 {
-                    if (path.trafficlightRefrence == null || path.trafficlightRefrence.GetColor() == TrafficColor.Green)
+                    if (true) //path.trafficlightRefrence == null || path.trafficlightRefrence.GetColor() == TrafficColor.Green)
                     {
                         // We check if there is a traffic light and if i we can continue
                         path = path.getNext();

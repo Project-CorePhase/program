@@ -22,11 +22,28 @@ namespace TrafficLightSimulator
         public TrafficLightSimulator()
         {
             InitializeComponent();
-            simulator = new Simulator();
+            simulator = new Simulator(this);
             myGrid = new Grid(24);
             g = pictureBoxGrid.CreateGraphics();
 
         }
+
+        public void drawMovingObject(List<MovingObject> mo)
+        {
+            Graphics ga = pictureBoxGrid.CreateGraphics();
+            Brush brush = new SolidBrush(Color.Blue);
+            Pen pen = new Pen(brush);
+            foreach (MovingObject moving in mo)
+            {
+                // Coordinate ARE LOCALS, TODO : make GLOBAL
+                roadPiece rp = moving.path;
+                int x = rp.coordinate.X + moving.coordinateInRoadPiece.X;
+                int y = rp.coordinate.Y + moving.coordinateInRoadPiece.Y;
+                ga.DrawEllipse(pen, x, moving.coordinateInRoadPiece.Y, 2, 2);
+            }
+            
+        }
+
         /* Drag & Drop Event*/
         private void pictureBoxGrid_DragEnter(object sender, DragEventArgs e)
         {
@@ -35,12 +52,10 @@ namespace TrafficLightSimulator
         private void pictureBox_CrossingA_MouseMove(object sender, MouseEventArgs e)
         {
             pictureBox_CrossingA.DoDragDrop(pictureBox_CrossingA.Image, DragDropEffects.Copy);
-            Console.WriteLine("Crossing A Mouse Down");
         }
         private void pictureBox_CrossingB_MouseMove(object sender, MouseEventArgs e)
         {
             pictureBox_CrossingB.DoDragDrop(pictureBox_CrossingB.Image, DragDropEffects.Copy);
-            Console.WriteLine("Crossing B Mouse Down");
         }
         private Point RoundXY(Point rawPoint)
         {
@@ -59,6 +74,7 @@ namespace TrafficLightSimulator
                 roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithoutPedestrian);
                 Bitmap image = new Bitmap(draggedImage);
                 g.DrawImage(image, draggedPointer);
+                simulator.AddCrossing(roadObject);
                 Console.WriteLine("Crossing A was Drawn");
             }
             else if (draggedImage == pictureBox_CrossingB.Image)
@@ -66,6 +82,7 @@ namespace TrafficLightSimulator
                 roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithPedestrian);
                 Bitmap image = new Bitmap(draggedImage);
                 g.DrawImage(image, draggedPointer);
+                simulator.AddCrossing(roadObject);
                 Console.WriteLine("Crossing B was Drawn");
             }
             else
@@ -78,7 +95,6 @@ namespace TrafficLightSimulator
         /* Form Paint Event*/
         private void pictureBox_Grid_Paint(object sender, PaintEventArgs e)
         {
-            Console.WriteLine("Grid is paiting");
             Graphics gr = e.Graphics;
             int SquareSize = 150;
             for (int i = 0; i < 4; i++)
@@ -89,7 +105,6 @@ namespace TrafficLightSimulator
             {
                 gr.DrawLine(Pens.LightGray, j * SquareSize, 0, j * SquareSize, 4 * SquareSize);
             }
-            Console.WriteLine("Grid was paited");
         }
 
 
@@ -105,7 +120,7 @@ namespace TrafficLightSimulator
         /*Menu Item */
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            simulator.SetTimerInterval(1000);
+            simulator.SetTimerInterval(500);
         }
         /* Form Load Event */
         private void TrafficLightSimulator_Load(object sender, EventArgs e)
