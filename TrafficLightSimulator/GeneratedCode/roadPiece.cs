@@ -57,8 +57,9 @@ public class roadPiece
         orientation = Orientation.Degree0;
     }
 
-    public roadPiece(roadPiece next)
+    public roadPiece(RoadObject ro,roadPiece next)
     {
+        RoadObject = ro;
         Randomizer = new Random();
         coordinate = new System.Drawing.Point();
         trafficlightRefrence = null;
@@ -68,8 +69,9 @@ public class roadPiece
         Sensor = null;
     }
 
-    public roadPiece(roadPiece[] nexts)
+    public roadPiece(RoadObject ro, roadPiece[] nexts)
     {
+        RoadObject = ro;
         Randomizer = new Random();
         coordinate = new System.Drawing.Point();
         orientation = Orientation.Degree0;
