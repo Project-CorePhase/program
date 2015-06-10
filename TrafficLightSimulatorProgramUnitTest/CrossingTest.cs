@@ -20,5 +20,18 @@ namespace TrafficLightSimulatorProgramUnitTest
             test = crossing1.getGlobalOrientationFromLocal(Orientation.Degree270, Orientation.Degree180);
             Assert.AreEqual(test, Orientation.Degree90);
         }
+
+    [TestMethod]
+        public void rotatePointTest()
+        {
+            Crossing crossing1 = new Crossing(new Point(), CrossingType.CrossingWithoutPedestrian);
+            System.Drawing.Point test = new System.Drawing.Point(0, 0);
+            System.Drawing.Point result = crossing1.rotatePoint(Orientation.Degree0, test);
+            Assert.AreEqual(result, new System.Drawing.Point(0,0));
+
+            test = new System.Drawing.Point(0, 0);
+            result = crossing1.rotatePoint(Orientation.Degree90, test);
+            Assert.AreEqual(result, new System.Drawing.Point(0, 142));
+        }
     }
 }
