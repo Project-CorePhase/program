@@ -5,75 +5,63 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace TrafficLightSimulator
 {
     [Serializable]
     public class MovingObject
     {
+        // Feilds;
         // the size in pixel for calculate the coordinate
         private int roadPieceSize = 10;
-        public System.Drawing.Point coordinateInRoadPiece
+        private Point coordinateInRoadPiece;
+        private Boolean isPedestrian;
+        private Boolean isAlive;
+
+        // Properties
+        public Point CoordinateInRoadPiece { get { return coordinateInRoadPiece; } set { coordinateInRoadPiece = value; } }
+        public Boolean IsPedestrian { get { return isPedestrian; } set { isPedestrian = value; } }
+        public Boolean IsAlive { get { return isAlive; } set { isAlive = value; } }
+        public Rectangle MovingObjectPicture { get; set; }
+
+        public roadPiece Path { get; set; }
+
+
+        // Constructor
+        public MovingObject(Boolean isPedest, roadPiece startPoint)
         {
-            get;
-            set;
+            IsPedestrian = isPedest;
+            IsAlive = true;
+            CoordinateInRoadPiece = new Point(0, 0);
+            MovingObjectPicture = new Rectangle(coordinateInRoadPiece, new Size(5, 5));
+            Path = startPoint;
         }
 
-        public Boolean isPedestrian
-        {
-            get;
-            set;
-        }
-
-        public Boolean isAlive
-        {
-            get;
-            set;
-        }
-
-        public System.Drawing.Rectangle picture
-        {
-            get;
-            set;
-        }
-
-        public roadPiece path
-        {
-            get;
-            set;
-        }
-
-        public MovingObject(Boolean isPedest, roadPiece startPoint) {
-            isPedestrian = isPedest;
-            isAlive = true;
-            coordinateInRoadPiece = new System.Drawing.Point(0, 0);
-            picture = new System.Drawing.Rectangle(coordinateInRoadPiece, new System.Drawing.Size(2, 2));
-            path = startPoint;
-        }
-
+        // Methods
         public void Update()
         {
             Boolean animationDone = false;
-            switch (path.orientation)
+            switch (Path.orientation)
             {
                 case Orientation.Degree90:
                     if (coordinateInRoadPiece.Y < roadPieceSize)
                     {
-                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X, coordinateInRoadPiece.Y+1);
+                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X, coordinateInRoadPiece.Y + 1);
                     }
                     else animationDone = true;
                     break;
                 case Orientation.Degree180:
                     if (coordinateInRoadPiece.X > -roadPieceSize)
                     {
-                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X-1, coordinateInRoadPiece.Y);
+                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X - 1, coordinateInRoadPiece.Y);
                     }
                     else animationDone = true;
                     break;
                 case Orientation.Degree270:
                     if (coordinateInRoadPiece.Y > -roadPieceSize)
                     {
-                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X, coordinateInRoadPiece.Y-1);
+                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X, coordinateInRoadPiece.Y - 1);
                     }
                     else animationDone = true;
                     break;
@@ -88,7 +76,7 @@ namespace TrafficLightSimulator
             if (animationDone)
             {
                 // We move the car to the next roadPiece (if exist)
-                if (path.getNext() == null)
+                if (Path.getNext() == null)
                 {
                     // Car out of the road : should be destroy
                     throw new Exception();
@@ -98,18 +86,23 @@ namespace TrafficLightSimulator
                     if (true) //path.trafficlightRefrence == null || path.trafficlightRefrence.GetColor() == TrafficColor.Green)
                     {
                         // We check if there is a traffic light and if i we can continue
-                        path = path.getNext();
+                        Path = Path.getNext();
                         coordinateInRoadPiece = new System.Drawing.Point(0, 0);
                     }
 
                 }
             }
- 
+
         }
 
         public System.Drawing.Point GetPosition()
         {
             return coordinateInRoadPiece;
+        }
+
+        public void DrawMovingObject(System.Drawing.Graphics graphics, Boolean isPedstrian)
+        {
+
         }
 
     }

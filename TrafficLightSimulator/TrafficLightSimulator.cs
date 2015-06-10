@@ -36,12 +36,12 @@ namespace TrafficLightSimulator
             foreach (MovingObject moving in mo)
             {
                 // Coordinate ARE LOCALS, TODO : make GLOBAL
-                roadPiece rp = moving.path;
-                int x = rp.coordinate.X + moving.coordinateInRoadPiece.X;
-                int y = rp.coordinate.Y + moving.coordinateInRoadPiece.Y;
-                ga.DrawEllipse(pen, x, moving.coordinateInRoadPiece.Y, 2, 2);
+                roadPiece rp = moving.Path;
+                int x = rp.coordinate.X + moving.CoordinateInRoadPiece.X;
+                int y = rp.coordinate.Y + moving.CoordinateInRoadPiece.Y;
+                ga.DrawEllipse(pen, x, moving.CoordinateInRoadPiece.Y, 2, 2);
             }
-            
+            this.DoubleBuffered = true; 
         }
 
         /* Drag & Drop Event*/
