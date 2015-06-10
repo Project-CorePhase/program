@@ -8,33 +8,29 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
+using System.Windows.Forms;
 
 public class TrafficLight
 {
-	public virtual System.Drawing.Point coordinate
-	{
-		get;
-		set;
-	}
+    // Fields 
+    private Point coordinate; // Corrdinate Of where the PictureBox is On the Grid
+    private const Int32 trafficPointOnCell = 12;
+    private Control onForm;   // Reffrence to the form
+    private Image Traffic;
+    private Graphics myGraphics; //  Will Draw three colors on each RoadObjects  
+    private Int32 timercounter;
 
-	public virtual System.Windows.Forms.PictureBox PictureboxImage
-	{
-		get;
-		set;
-	}
+    // Properties
 
-	public virtual int counter
-	{
-		get;
-		set;
-	}
+    // Constructor
+    public TrafficLight()
+    {
 
-	public virtual TrafficController TrafficGroup
-	{
-		get;
-		set;
-	}
+    }
 
+
+    // Methods
 	public virtual TrafficColor GetColor()
 	{
 		throw new System.NotImplementedException();

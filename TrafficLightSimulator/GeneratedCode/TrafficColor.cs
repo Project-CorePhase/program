@@ -9,9 +9,4 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public enum TrafficColor
-{
-	Red = 2,
-	Green = 1,
-	Yellow = 3,
-}
+public enum TrafficColor { Red = 1 , Yellow = 2 , Green = 3}
