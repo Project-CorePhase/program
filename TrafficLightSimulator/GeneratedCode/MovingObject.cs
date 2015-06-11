@@ -47,28 +47,28 @@ namespace TrafficLightSimulator
                 case Orientation.Degree270:
                     if (coordinateInRoadPiece.Y < Path.size.Y)
                     {
-                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X, coordinateInRoadPiece.Y + 1);
+                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X, coordinateInRoadPiece.Y + 2);
                     }
                     else animationDone = true;
                     break;
                 case Orientation.Degree0:
                     if (coordinateInRoadPiece.X > -Path.size.X)
                     {
-                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X - 1, coordinateInRoadPiece.Y);
+                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X - 2, coordinateInRoadPiece.Y);
                     }
                     else animationDone = true;
                     break;
                 case Orientation.Degree90:
                     if (coordinateInRoadPiece.Y > -Path.size.Y)
                     {
-                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X, coordinateInRoadPiece.Y - 1);
+                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X, coordinateInRoadPiece.Y - 2);
                     }
                     else animationDone = true;
                     break;
                 default:
                     if (coordinateInRoadPiece.X < Path.size.X)
                     {
-                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X + 1, coordinateInRoadPiece.Y);
+                        coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X + 2, coordinateInRoadPiece.Y);
                     }
                     else animationDone = true;
                     break;

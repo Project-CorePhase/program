@@ -40,7 +40,7 @@ namespace TrafficLightSimulator
                 // Create moving object here, we have to look on the startpoint of the system
                 foreach (roadPiece rp in carStartPoints)
                 {
-                    if (rp != null && rd.Next(2) == 1 && MovingObjects.Count < 10)
+                    if (rp != null && rd.Next(100) > 70 && MovingObjects.Count < 30)
                     {
                         this.addMovingObject(rp, false);
                     }
@@ -63,8 +63,14 @@ namespace TrafficLightSimulator
                     }
                 }
                 MovingObjects = tmp;
+
+   
+                onform.clear();
+                onform.drawGrid();
                 onform.drawRoadObjects(this.RoadObjects);
                 onform.drawMovingObject(this.MovingObjects);
+                onform.render();
+
             
         }
         public Grid Grid
@@ -165,31 +171,31 @@ namespace TrafficLightSimulator
             {
                 foreach (RoadObject top in RoadObjects)
                 {
-                    // TOP
-                    if (ro.Coordinate.Y == top.Coordinate.Y + SquareSize)
-                    {
-                        top.EndPoints[(int)Orientation.Degree90] = ro.ReferencePath[(int)Orientation.Degree270];
-                        ro.ReferencePathLinked[(int)Orientation.Degree270] = true;
-                    }
-                    // Bottom
-                    if (ro.Coordinate.Y == top.Coordinate.Y - SquareSize)
-                    {
-                        top.EndPoints[(int)Orientation.Degree270] = ro.ReferencePath[(int)Orientation.Degree90];
-                        ro.ReferencePathLinked[(int)Orientation.Degree90] = true;
-                    }
-                    // Right
-                    if (ro.Coordinate.X == top.Coordinate.X + SquareSize)
-                    {
-                        top.EndPoints[(int)Orientation.Degree0] = ro.ReferencePath[(int)Orientation.Degree180];
-                        ro.ReferencePathLinked[(int)Orientation.Degree180] = true;
-                    }
-                    // Left
+                    if (ro == top) { continue; }
                     if (ro.Coordinate.X == top.Coordinate.X - SquareSize)
                     {
-                        top.EndPoints[(int)Orientation.Degree180] = ro.ReferencePath[(int)Orientation.Degree0];
+                        top.EndPoints[(int)Orientation.Degree0].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree270] };
+                        ro.ReferencePathLinked[(int)Orientation.Degree270] = true;
+                    }
+                    if (ro.Coordinate.Y == top.Coordinate.Y + SquareSize)
+                    {
+                        top.EndPoints[(int)Orientation.Degree270].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree180] };
+                        ro.ReferencePathLinked[(int)Orientation.Degree90] = true;
+                    }
+                    if (ro.Coordinate.X == top.Coordinate.X + SquareSize)
+                    {
+                        top.EndPoints[(int)Orientation.Degree180].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree90] };
+                        ro.ReferencePathLinked[(int)Orientation.Degree180] = true;
+                    }
+                    if (ro.Coordinate.Y == top.Coordinate.Y - SquareSize)
+                    {
+                        top.EndPoints[(int)Orientation.Degree90].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree0] };
                         ro.ReferencePathLinked[(int)Orientation.Degree0] = true;
                     }
                 }
+            }
+            foreach (RoadObject ro in RoadObjects)
+            {
                 // Note the car startpoint
                 Orientation[] todo = { Orientation.Degree0, Orientation.Degree180, Orientation.Degree270, Orientation.Degree90 };
                 foreach (Orientation o in todo)
@@ -199,7 +205,6 @@ namespace TrafficLightSimulator
                         this.carStartPoints.Add(ro.ReferencePath[(int)o]);
                     }
                 }
-
             }
         }
     }

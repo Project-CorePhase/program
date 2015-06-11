@@ -43,6 +43,7 @@ public abstract class RoadObject
     public Orientation Oriention { get { return orientation; } set { orientation = value; } }
     public TrafficController TrafficController { get { return trafficController; } set { trafficController = value; }}
 
+    public Bitmap bitmap { get; set; }
     // Constructor 
     public RoadObject(Point p)
     {

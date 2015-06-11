@@ -269,7 +269,7 @@ public class Crossing : RoadObject
             rp6deg180EndPoint.coordinate = rotatePoint(o, new System.Drawing.Point(84, 40));
             rp6deg180EndPoint.size = new System.Drawing.Point(84, 84);
 
-            roadPiece rp4 = new roadPiece(this, new roadPiece[] { rp5deg90EndPoint, rp6deg180EndPoint });//rp6deg180EndPoint rp6deg180EndPoint
+            roadPiece rp4 = new roadPiece(this, new roadPiece[] { rp5deg90EndPoint });//rp6deg180EndPoint rp6deg180EndPoint
             rp4.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
             rp4.coordinate = rotatePoint(o, new System.Drawing.Point(84, 115));
             rp4.size = new System.Drawing.Point(75, 75);
@@ -278,7 +278,7 @@ public class Crossing : RoadObject
             rp2.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
             rp2.coordinate = rotatePoint(o, new System.Drawing.Point(84, 140));
             rp2.size = new System.Drawing.Point(25, 25);
-            roadPiece rp0StartPoint = new roadPiece(this, new roadPiece[] { rp1, rp2 }); // manque rp1 rp2
+            roadPiece rp0StartPoint = new roadPiece(this, new roadPiece[] {  rp2 }); // manque rp1 rp2
             rp0StartPoint.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
             rp0StartPoint.coordinate = rotatePoint(o, new System.Drawing.Point(90, 150));
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
@@ -20,40 +21,69 @@ namespace TrafficLightSimulator
         private Simulator simulator;
         private Grid myGrid;
         private Graphics g;
+        Brush brush;
+        Pen pen;
+
+        BufferedGraphicsContext currentContext;
+        BufferedGraphics myBuffer;
+
         public TrafficLightSimulator()
         {
             InitializeComponent();
             simulator = new Simulator(this);
             myGrid = new Grid(24);
-            g = pictureBoxGrid.CreateGraphics();
+            this.DoubleBuffered = true; 
+            //g = pictureBoxGrid.CreateGraphics();
+            brush = new SolidBrush(Color.Blue);
+            pen = new Pen(brush);
+
 
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public void drawRoadObjects(List<RoadObject> ros)
         {
             foreach (RoadObject roadObject in ros)
             {
                 Point draggedPointer = roadObject.Coordinate;
-                Bitmap image = new Bitmap(roadObject.Image);
-                g.DrawImage(image, draggedPointer);
+                g.DrawImage(roadObject.bitmap, draggedPointer);
             }
         }
 
+        public void drawGrid()
+        {
+            int SquareSize = 150;
+            for (int i = 0; i < 4; i++)
+            {
+                g.DrawLine(Pens.Black, 0, i * SquareSize, 6 * SquareSize, i * SquareSize);
+            }
+            for (int j = 0; j < 7; j++)
+            {
+                g.DrawLine(Pens.LightGray, j * SquareSize, 0, j * SquareSize, 4 * SquareSize);
+            }
+        }
 
         public void drawMovingObject(List<MovingObject> mo)
         {
-            Graphics ga = pictureBoxGrid.CreateGraphics();
-            Brush brush = new SolidBrush(Color.Blue);
-            Pen pen = new Pen(brush);
             foreach (MovingObject moving in mo)
             {
                 RoadObject roadObject = moving.Path.RoadObject;
                 roadPiece rp = moving.Path;
                 int x = roadObject.Coordinate.X + rp.coordinate.X + moving.CoordinateInRoadPiece.X;
                 int y = roadObject.Coordinate.Y + rp.coordinate.Y + moving.CoordinateInRoadPiece.Y;
-                ga.DrawEllipse(pen, x, y, 4, 4);
+                g.DrawEllipse(pen, x, y, 4, 4);
             }
-            this.DoubleBuffered = true; 
+            
+        }
+
+        public void clear()
+        {
+            g.Clear(Color.White);
+        }
+
+        public void render()
+        {
+            myBuffer.Render();
         }
 
         /* Drag & Drop Event*/
@@ -84,16 +114,14 @@ namespace TrafficLightSimulator
             if (draggedImage == pictureBox_CrossingA.Image)
             {
                 roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithoutPedestrian, draggedImage);
-                Bitmap image = new Bitmap(draggedImage);
-                g.DrawImage(image, draggedPointer);
+                roadObject.bitmap = new Bitmap(draggedImage);
                 simulator.AddCrossing(roadObject);
                 Console.WriteLine("Crossing A was Drawn");
             }
             else if (draggedImage == pictureBox_CrossingB.Image)
             {
                 roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithPedestrian, draggedImage);
-                Bitmap image = new Bitmap(draggedImage);
-                g.DrawImage(image, draggedPointer);
+                roadObject.bitmap = new Bitmap(draggedImage);
                 simulator.AddCrossing(roadObject);
                 Console.WriteLine("Crossing B was Drawn");
             }
@@ -102,12 +130,18 @@ namespace TrafficLightSimulator
                 MessageBox.Show("Non of the crossings");
                 Console.WriteLine("Crossing xyz was Drawn");
             }
+            clear();
+            drawGrid();
+            drawRoadObjects(simulator.RoadObjects);
+            render();
         }
 
         /* Form Paint Event*/
         private void pictureBox_Grid_Paint(object sender, PaintEventArgs e)
         {
+
             Graphics gr = e.Graphics;
+            gr.Clear(Color.White);
             int SquareSize = 150;
             for (int i = 0; i < 4; i++)
             {
@@ -117,6 +151,11 @@ namespace TrafficLightSimulator
             {
                 gr.DrawLine(Pens.LightGray, j * SquareSize, 0, j * SquareSize, 4 * SquareSize);
             }
+
+            currentContext = BufferedGraphicsManager.Current;
+            myBuffer = currentContext.Allocate(pictureBoxGrid.CreateGraphics(),
+            pictureBoxGrid.DisplayRectangle);
+            g = myBuffer.Graphics;
         }
 
 
