@@ -40,7 +40,7 @@ namespace TrafficLightSimulator
                 // Create moving object here, we have to look on the startpoint of the system
                 foreach (roadPiece rp in carStartPoints)
                 {
-                    if (rp.orientation == Orientation.Degree90 && rd.Next(2) == 1 && MovingObjects.Count < 1)
+                    if (rp != null && rd.Next(2) == 1 && MovingObjects.Count < 10)
                     {
                         this.addMovingObject(rp, false);
                     }

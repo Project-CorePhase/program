@@ -51,7 +51,7 @@ namespace TrafficLightSimulator
                     }
                     else animationDone = true;
                     break;
-                case Orientation.Degree180:
+                case Orientation.Degree0:
                     if (coordinateInRoadPiece.X > -Path.size.X)
                     {
                         coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X - 1, coordinateInRoadPiece.Y);
