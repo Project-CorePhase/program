@@ -47,11 +47,11 @@ namespace TrafficLightSimulator
             Pen pen = new Pen(brush);
             foreach (MovingObject moving in mo)
             {
-                // Coordinate ARE LOCALS, TODO : make GLOBAL
+                RoadObject roadObject = moving.Path.RoadObject;
                 roadPiece rp = moving.Path;
-                int x = rp.coordinate.X + moving.CoordinateInRoadPiece.X;
-                int y = rp.coordinate.Y + moving.CoordinateInRoadPiece.Y;
-                ga.DrawEllipse(pen, x, moving.CoordinateInRoadPiece.Y, 2, 2);
+                int x = roadObject.Coordinate.X + rp.coordinate.X + moving.CoordinateInRoadPiece.X;
+                int y = roadObject.Coordinate.Y + rp.coordinate.Y + moving.CoordinateInRoadPiece.Y;
+                ga.DrawEllipse(pen, x, y, 4, 4);
             }
             this.DoubleBuffered = true; 
         }
@@ -132,7 +132,7 @@ namespace TrafficLightSimulator
         /*Menu Item */
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            simulator.SetTimerInterval(500);
+            simulator.SetTimerInterval(100);
         }
         /* Form Load Event */
         private void TrafficLightSimulator_Load(object sender, EventArgs e)

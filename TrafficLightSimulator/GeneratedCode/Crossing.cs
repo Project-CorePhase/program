@@ -32,12 +32,12 @@ public class Crossing : RoadObject
         // Deg90
         EndPoints[(int)Orientation.Degree90] = new roadPiece(this, (roadPiece)null);
         EndPoints[(int)Orientation.Degree90].orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, this.Oriention);
-        EndPoints[(int)Orientation.Degree90].coordinate = new System.Drawing.Point(145, 62);
+        EndPoints[(int)Orientation.Degree90].coordinate = new System.Drawing.Point(84, 10);
 
         // Deg180
         EndPoints[(int)Orientation.Degree180] = new roadPiece(this, (roadPiece)null);
         EndPoints[(int)Orientation.Degree180].orientation = getGlobalOrientationFromLocal(global::Orientation.Degree180, this.Oriention);
-        EndPoints[(int)Orientation.Degree180].coordinate = new System.Drawing.Point(63, 3);
+        EndPoints[(int)Orientation.Degree180].coordinate = new System.Drawing.Point(63, 10);
 
         // Deg270
         EndPoints[(int)Orientation.Degree270] = new roadPiece(this, (roadPiece)null);
@@ -250,32 +250,37 @@ public class Crossing : RoadObject
             // Orientation of the roadpiece ?
             rp3deg0EndPoint.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree0, o);
             // Now generating the good coordinate from 84, 125 which is the point on the picture of Abdullah
-            rp3deg0EndPoint.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(84,125));
+            rp3deg0EndPoint.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(100,100));
+            rp3deg0EndPoint.size = new System.Drawing.Point(45, 10);
 
             roadPiece rp1 = new roadPiece(this, rp3deg0EndPoint);
             rp1.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
-            rp1.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(84, 135));
+            rp1.size = new System.Drawing.Point(10, 33);
+            rp1.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(100, 133));
 
 
             roadPiece rp5deg90EndPoint = new roadPiece(this, EndPoints[(int)Orientation.Degree90]);
             rp5deg90EndPoint.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
-            rp5deg90EndPoint.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(74, 115));
+            rp5deg90EndPoint.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(84, 40));
+            rp5deg90EndPoint.size = new System.Drawing.Point(10, 30);
 
             roadPiece rp6deg180EndPoint = new roadPiece(this, EndPoints[(int)Orientation.Degree180]);
             rp6deg180EndPoint.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree180, o);
-            rp6deg180EndPoint.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(74, 115));
+            rp6deg180EndPoint.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(84, 40));
+            rp6deg180EndPoint.size = new System.Drawing.Point(84, 10);
 
-            roadPiece rp4 = new roadPiece(this, new roadPiece[] { rp6deg180EndPoint, rp5deg90EndPoint });
+            roadPiece rp4 = new roadPiece(this, new roadPiece[] { rp5deg90EndPoint, rp6deg180EndPoint });//rp5deg90EndPoint rp6deg180EndPoint
             rp4.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
-            rp4.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(74, 125));
+            rp4.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(84, 115));
+            rp4.size = new System.Drawing.Point(10, 75);
 
             roadPiece rp2 = new roadPiece(this, rp4);
             rp2.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
-            rp2.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(74, 135));
-
-            roadPiece rp0StartPoint = new roadPiece(this, new roadPiece[] { rp2, rp1 });
+            rp2.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(84, 140));
+            rp2.size = new System.Drawing.Point(10, 25);
+            roadPiece rp0StartPoint = new roadPiece(this, new roadPiece[] { rp2, rp1 }); // manque rp1
             rp0StartPoint.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
-            rp0StartPoint.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(84, 145));
+            rp0StartPoint.coordinate = rotatePoint(rp3deg0EndPoint.orientation, new System.Drawing.Point(90, 150));
 
             //  assign the start point
             this.ReferencePath[(int)localO] = rp0StartPoint;

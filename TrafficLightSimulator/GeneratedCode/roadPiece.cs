@@ -35,6 +35,12 @@ public class roadPiece
 		set;
 	}
 
+    public System.Drawing.Point size
+    {
+        get;
+        set;
+    }
+
 	public RoadObject RoadObject
 	{
 		get;
@@ -49,6 +55,7 @@ public class roadPiece
 
     public roadPiece()
     {
+        size = new System.Drawing.Point(10, 10);
         Randomizer = new Random();
         coordinate = new System.Drawing.Point();
         trafficlightRefrence = null;
@@ -59,6 +66,7 @@ public class roadPiece
 
     public roadPiece(RoadObject ro,roadPiece next)
     {
+        size = new System.Drawing.Point(10, 10);
         RoadObject = ro;
         Randomizer = new Random();
         coordinate = new System.Drawing.Point();
@@ -71,6 +79,7 @@ public class roadPiece
 
     public roadPiece(RoadObject ro, roadPiece[] nexts)
     {
+        size = new System.Drawing.Point(10, 10);
         RoadObject = ro;
         Randomizer = new Random();
         coordinate = new System.Drawing.Point();
@@ -109,7 +118,7 @@ public class roadPiece
         {
             return NextArray[0];
         }
-        return NextArray[Randomize(0, NextArray.Length - 1)];
+        return NextArray[Randomize(0, NextArray.Length)];
 	}
 
 	public int Randomize(int min, int max)

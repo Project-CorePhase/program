@@ -34,7 +34,7 @@ namespace TrafficLightSimulator
             IsPedestrian = isPedest;
             IsAlive = true;
             CoordinateInRoadPiece = new Point(0, 0);
-            MovingObjectPicture = new Rectangle(coordinateInRoadPiece, new Size(5, 5));
+            MovingObjectPicture = new Rectangle(coordinateInRoadPiece, new Size(10, 10));
             Path = startPoint;
         }
 
@@ -44,29 +44,29 @@ namespace TrafficLightSimulator
             Boolean animationDone = false;
             switch (Path.orientation)
             {
-                case Orientation.Degree90:
-                    if (coordinateInRoadPiece.Y < roadPieceSize)
+                case Orientation.Degree270:
+                    if (coordinateInRoadPiece.Y < Path.size.Y)
                     {
                         coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X, coordinateInRoadPiece.Y + 1);
                     }
                     else animationDone = true;
                     break;
                 case Orientation.Degree180:
-                    if (coordinateInRoadPiece.X > -roadPieceSize)
+                    if (coordinateInRoadPiece.X > -Path.size.X)
                     {
                         coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X - 1, coordinateInRoadPiece.Y);
                     }
                     else animationDone = true;
                     break;
-                case Orientation.Degree270:
-                    if (coordinateInRoadPiece.Y > -roadPieceSize)
+                case Orientation.Degree90:
+                    if (coordinateInRoadPiece.Y > -Path.size.Y)
                     {
                         coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X, coordinateInRoadPiece.Y - 1);
                     }
                     else animationDone = true;
                     break;
                 default:
-                    if (coordinateInRoadPiece.X < roadPieceSize)
+                    if (coordinateInRoadPiece.X < Path.size.X)
                     {
                         coordinateInRoadPiece = new System.Drawing.Point(coordinateInRoadPiece.X + 1, coordinateInRoadPiece.Y);
                     }
