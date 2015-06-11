@@ -63,7 +63,7 @@ namespace TrafficLightSimulator
                     }
                 }
                 MovingObjects = tmp;
-
+                onform.drawRoadObjects(this.RoadObjects);
                 onform.drawMovingObject(this.MovingObjects);
             
         }

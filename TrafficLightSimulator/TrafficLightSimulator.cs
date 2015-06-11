@@ -13,6 +13,7 @@ using System.Windows.Forms;
 
 namespace TrafficLightSimulator
 {
+
     [Serializable]
     public partial class TrafficLightSimulator : Form
     {
@@ -27,6 +28,17 @@ namespace TrafficLightSimulator
             g = pictureBoxGrid.CreateGraphics();
 
         }
+
+        public void drawRoadObjects(List<RoadObject> ros)
+        {
+            foreach (RoadObject roadObject in ros)
+            {
+                Point draggedPointer = roadObject.Coordinate;
+                Bitmap image = new Bitmap(roadObject.Image);
+                g.DrawImage(image, draggedPointer);
+            }
+        }
+
 
         public void drawMovingObject(List<MovingObject> mo)
         {
@@ -71,7 +83,7 @@ namespace TrafficLightSimulator
             Point draggedPointer = RoundXY(pictureBoxGrid.PointToClient(new Point(e.X, e.Y))); // Where to draw Image
             if (draggedImage == pictureBox_CrossingA.Image)
             {
-                roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithoutPedestrian);
+                roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithoutPedestrian, draggedImage);
                 Bitmap image = new Bitmap(draggedImage);
                 g.DrawImage(image, draggedPointer);
                 simulator.AddCrossing(roadObject);
@@ -79,7 +91,7 @@ namespace TrafficLightSimulator
             }
             else if (draggedImage == pictureBox_CrossingB.Image)
             {
-                roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithPedestrian);
+                roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithPedestrian, draggedImage);
                 Bitmap image = new Bitmap(draggedImage);
                 g.DrawImage(image, draggedPointer);
                 simulator.AddCrossing(roadObject);

@@ -14,8 +14,9 @@ public class Crossing : RoadObject
 {
     private System.Drawing.Point centerPoint = new System.Drawing.Point(71, 71);
     // Constrcutor
-    public Crossing(Point pp,CrossingType ct) : base(pp)
+    public Crossing(Point pp,CrossingType ct, Image img) : base(pp)
     {
+        this.Image = img;
         this.Coordinate = pp;
         
         this.ReferencePath = new roadPiece[4];
