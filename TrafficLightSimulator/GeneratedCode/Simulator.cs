@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Timers;
 namespace TrafficLightSimulator
@@ -33,6 +34,7 @@ namespace TrafficLightSimulator
             MovingObjects.Add(mo);
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
         private void timerTicks(object sender, ElapsedEventArgs e)
         {
             
@@ -48,6 +50,7 @@ namespace TrafficLightSimulator
 
                 if (MovingObjects == null) { return; }
                 List<MovingObject> tmp = new List<MovingObject>();
+
                 foreach (MovingObject mo in MovingObjects)
                 {
                     try
@@ -131,7 +134,9 @@ namespace TrafficLightSimulator
         }
         public void FastForward(int duration)
         {
+            if (UpdateTimer.Interval - duration > 0) { 
                 UpdateTimer.Interval -= duration;
+            }
         }
 
         public void Reset()

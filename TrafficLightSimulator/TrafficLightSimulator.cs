@@ -50,6 +50,7 @@ namespace TrafficLightSimulator
             }
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public void drawGrid()
         {
             int SquareSize = 150;
@@ -63,6 +64,7 @@ namespace TrafficLightSimulator
             }
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public void drawMovingObject(List<MovingObject> mo)
         {
             foreach (MovingObject moving in mo)
@@ -76,11 +78,13 @@ namespace TrafficLightSimulator
             
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public void clear()
         {
             g.Clear(Color.White);
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public void render()
         {
             myBuffer.Render();
