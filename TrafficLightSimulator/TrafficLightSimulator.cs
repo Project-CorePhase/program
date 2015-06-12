@@ -48,7 +48,7 @@ namespace TrafficLightSimulator
                 Point draggedPointer = roadObject.Coordinate;
                 g.DrawImage(roadObject.bitmap, draggedPointer);
                 // Drawing Trafficlight
-             /*   foreach (TrafficLight tl in roadObject.TrafficController.TrafficGroupList)
+                /*foreach (TrafficLight tl in roadObject.TrafficController.TrafficGroupList)
                 {
                     //Point trafficLightC = new Point(tl.coordinate.X + roadObject.Coordinate.X, )
                     //g.DrawImage(tl.imagen tl.coordinate)

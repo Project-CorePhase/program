@@ -14,6 +14,10 @@ using System.Windows.Forms;
 public class TrafficLight
 {
     // Fields 
+    Point trafficCordinate;
+    
+    int innerCounter;
+    int outterCounter;
    
     // Properties
 
