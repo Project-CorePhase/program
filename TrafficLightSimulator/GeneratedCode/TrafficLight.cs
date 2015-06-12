@@ -14,17 +14,39 @@ using System.Windows.Forms;
 public class TrafficLight
 {
     // Fields 
-    Point trafficCordinate;
-    
+    Point[] trafficCordinates = new Point[4];                   // Car Traffic Cordinates
+    Point[] pedstrianTrafficCordinates = new Point[4];          // Pedstrian With Two Colors
+    Rectangle[] trafficColors = new Rectangle[3];               // Rectangle which will hold Colors
+    Size colorSize = new Size(4, 4);                            // Size of the Rectangle
+    Color[] Colors = {Color.Red , Color.Yellow , Color.Green }; // All Possible Colors
     int innerCounter;
     int outterCounter;
    
     // Properties
 
     // Constructor
-    public TrafficLight()
+    public TrafficLight(CrossingType ct)
     {
-
+        switch (ct)
+        {
+            case CrossingType.CrossingWithPedestrian:
+                // For pedstrian
+                pedstrianTrafficCordinates[(int)Orientation.Degree0] = new Point(30, 30);
+                pedstrianTrafficCordinates[(int)Orientation.Degree90] = new Point(120,10);
+                pedstrianTrafficCordinates[(int)Orientation.Degree180] = new Point(30, 140);
+                pedstrianTrafficCordinates[(int)Orientation.Degree270] = new Point(104, 140);
+                // For Cards 
+                trafficCordinates[(int)Orientation.Degree0] = new Point(120, 30);
+                trafficCordinates[(int)Orientation.Degree90] = new Point(30,120);
+                break;
+                //
+            case CrossingType.CrossingWithoutPedestrian:
+                trafficCordinates[(int)Orientation.Degree0] = new Point(32,32);
+                trafficCordinates[(int)Orientation.Degree90] = new Point(120, 30);
+                trafficCordinates[(int)Orientation.Degree180] = new Point(32,120);
+                trafficCordinates[(int)Orientation.Degree270] = new Point(110, 120);
+                break;
+        }
     }
 
 
@@ -34,10 +56,14 @@ public class TrafficLight
         return TrafficColor.Red;
 	}
 
-	public virtual void setCounter(int Seconds)
+	public void SetInnerCounter(int Seconds)
 	{
-		throw new System.NotImplementedException();
+	
 	}
+    public void SetOutterCounter(int Seconds)
+    {
+
+    }
 
 	public virtual void SetColor(TrafficColor color)
 	{
