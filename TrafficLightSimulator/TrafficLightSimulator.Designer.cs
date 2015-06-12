@@ -63,6 +63,7 @@
             this.pictureBox_CrossingA = new System.Windows.Forms.PictureBox();
             this.label_MouseLocation = new System.Windows.Forms.Label();
             this.pictureBoxGrid = new System.Windows.Forms.PictureBox();
+            this.addCarAmountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -96,60 +97,61 @@
             this.openSimulatorToolStripMenuItem,
             this.saveAsSimulatorToolStripMenuItem});
             this.MenuItem_File.Name = "MenuItem_File";
-            this.MenuItem_File.Size = new System.Drawing.Size(37, 20);
+            this.MenuItem_File.Size = new System.Drawing.Size(40, 20);
             this.MenuItem_File.Text = "File";
             // 
             // MenuItem_File_CreateNewSimulator
             // 
             this.MenuItem_File_CreateNewSimulator.Name = "MenuItem_File_CreateNewSimulator";
-            this.MenuItem_File_CreateNewSimulator.Size = new System.Drawing.Size(187, 22);
+            this.MenuItem_File_CreateNewSimulator.Size = new System.Drawing.Size(191, 22);
             this.MenuItem_File_CreateNewSimulator.Text = "Create new Simulator";
             // 
             // MenuItem_File_SaveSimulator
             // 
             this.MenuItem_File_SaveSimulator.Name = "MenuItem_File_SaveSimulator";
-            this.MenuItem_File_SaveSimulator.Size = new System.Drawing.Size(187, 22);
+            this.MenuItem_File_SaveSimulator.Size = new System.Drawing.Size(191, 22);
             this.MenuItem_File_SaveSimulator.Text = "Save Simulator";
             this.MenuItem_File_SaveSimulator.Click += new System.EventHandler(this.MenuItem_File_SaveSimulator_Click);
             // 
             // MenuItem_File_ClearSimulator
             // 
             this.MenuItem_File_ClearSimulator.Name = "MenuItem_File_ClearSimulator";
-            this.MenuItem_File_ClearSimulator.Size = new System.Drawing.Size(187, 22);
+            this.MenuItem_File_ClearSimulator.Size = new System.Drawing.Size(191, 22);
             this.MenuItem_File_ClearSimulator.Text = "Clear Simulator";
             // 
             // openSimulatorToolStripMenuItem
             // 
             this.openSimulatorToolStripMenuItem.Name = "openSimulatorToolStripMenuItem";
-            this.openSimulatorToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.openSimulatorToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.openSimulatorToolStripMenuItem.Text = "Open Simulator";
             this.openSimulatorToolStripMenuItem.Click += new System.EventHandler(this.openSimulatorToolStripMenuItem_Click);
             // 
             // saveAsSimulatorToolStripMenuItem
             // 
             this.saveAsSimulatorToolStripMenuItem.Name = "saveAsSimulatorToolStripMenuItem";
-            this.saveAsSimulatorToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.saveAsSimulatorToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.saveAsSimulatorToolStripMenuItem.Text = "Save As Simulator";
             // 
             // MenuItem_Utilities
             // 
             this.MenuItem_Utilities.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItem_Utilities_Undo,
-            this.MenuItem_Utilities_Redo});
+            this.MenuItem_Utilities_Redo,
+            this.addCarAmountToolStripMenuItem});
             this.MenuItem_Utilities.Name = "MenuItem_Utilities";
-            this.MenuItem_Utilities.Size = new System.Drawing.Size(58, 20);
+            this.MenuItem_Utilities.Size = new System.Drawing.Size(62, 20);
             this.MenuItem_Utilities.Text = "Utilities";
             // 
             // MenuItem_Utilities_Undo
             // 
             this.MenuItem_Utilities_Undo.Name = "MenuItem_Utilities_Undo";
-            this.MenuItem_Utilities_Undo.Size = new System.Drawing.Size(103, 22);
+            this.MenuItem_Utilities_Undo.Size = new System.Drawing.Size(160, 22);
             this.MenuItem_Utilities_Undo.Text = "Undo";
             // 
             // MenuItem_Utilities_Redo
             // 
             this.MenuItem_Utilities_Redo.Name = "MenuItem_Utilities_Redo";
-            this.MenuItem_Utilities_Redo.Size = new System.Drawing.Size(103, 22);
+            this.MenuItem_Utilities_Redo.Size = new System.Drawing.Size(160, 22);
             this.MenuItem_Utilities_Redo.Text = "Redo";
             // 
             // type3ToolStripMenuItem
@@ -157,7 +159,7 @@
             this.type3ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItem_Help});
             this.type3ToolStripMenuItem.Name = "type3ToolStripMenuItem";
-            this.type3ToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.type3ToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.type3ToolStripMenuItem.Text = "Help";
             // 
             // MenuItem_Help
@@ -165,13 +167,13 @@
             this.MenuItem_Help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.subTypeToolStripMenuItem5});
             this.MenuItem_Help.Name = "MenuItem_Help";
-            this.MenuItem_Help.Size = new System.Drawing.Size(124, 22);
+            this.MenuItem_Help.Size = new System.Drawing.Size(122, 22);
             this.MenuItem_Help.Text = "sub-Type";
             // 
             // subTypeToolStripMenuItem5
             // 
             this.subTypeToolStripMenuItem5.Name = "subTypeToolStripMenuItem5";
-            this.subTypeToolStripMenuItem5.Size = new System.Drawing.Size(124, 22);
+            this.subTypeToolStripMenuItem5.Size = new System.Drawing.Size(122, 22);
             this.subTypeToolStripMenuItem5.Text = "sub-Type";
             // 
             // MenuItem_AboutUS
@@ -185,7 +187,7 @@
             // clickMeToolStripMenuItem
             // 
             this.clickMeToolStripMenuItem.Name = "clickMeToolStripMenuItem";
-            this.clickMeToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.clickMeToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.clickMeToolStripMenuItem.Text = "Click Me";
             this.clickMeToolStripMenuItem.Click += new System.EventHandler(this.clickMeToolStripMenuItem_Click);
             // 
@@ -377,6 +379,13 @@
             this.pictureBoxGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Grid_Paint);
             this.pictureBoxGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxGrid_MouseMove);
             // 
+            // addCarAmountToolStripMenuItem
+            // 
+            this.addCarAmountToolStripMenuItem.Name = "addCarAmountToolStripMenuItem";
+            this.addCarAmountToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.addCarAmountToolStripMenuItem.Text = "Add Car Amount";
+            this.addCarAmountToolStripMenuItem.Click += new System.EventHandler(this.addCarAmountToolStripMenuItem_Click);
+            // 
             // TrafficLightSimulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,6 +454,7 @@
         private System.Windows.Forms.ToolStripMenuItem clickMeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openSimulatorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsSimulatorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addCarAmountToolStripMenuItem;
     }
 }
 
