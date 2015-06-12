@@ -129,6 +129,10 @@ namespace TrafficLightSimulator
                 UpdateTimer.Start();
             }
         }
+        public void FastForward(int duration)
+        {
+                UpdateTimer.Interval -= duration;
+        }
 
         public void Reset()
         {

@@ -230,6 +230,11 @@ namespace TrafficLightSimulator
         {
             SaveMethod();
         }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            simulator.FastForward(30);
+        }
     }
 }
 
