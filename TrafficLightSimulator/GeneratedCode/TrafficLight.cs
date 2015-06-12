@@ -19,8 +19,9 @@ public class TrafficLight
     Rectangle[] trafficColors = new Rectangle[3];               // Rectangle which will hold Colors
     Size colorSize = new Size(4, 4);                            // Size of the Rectangle
     Color[] Colors = {Color.Red , Color.Yellow , Color.Green }; // All Possible Colors
-    int innerCounter;
-    int outterCounter;
+    int innerCounter;                                           // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
+    int outterCounter;                                          //Counter For the pair of each Traffic light;
+    public Boolean isGreen;
    
     // Properties
 
@@ -58,11 +59,11 @@ public class TrafficLight
 
 	public void SetInnerCounter(int Seconds)
 	{
-	
+        innerCounter = Seconds;
 	}
     public void SetOutterCounter(int Seconds)
     {
-
+        outterCounter = Seconds;
     }
 
 	public virtual void SetColor(TrafficColor color)
@@ -70,10 +71,13 @@ public class TrafficLight
         switch (color)
         {
             case TrafficColor.Red:
+                isGreen = false;
                 break;
             case TrafficColor.Yellow:
+                isGreen = false;
                 break;
             case TrafficColor.Green:
+                isGreen = true;
                 break;
 
         }

@@ -11,21 +11,21 @@ using System.Text;
 
 public class TrafficController
 {
-	public  List<TrafficLight> TrafficGroupList{ get; set;}
+	private  List<TrafficLight> TrafficGroupList{ get; set;}
 
 	public void SetSensor()
 	{
-	
+        TrafficGroupList = new List<TrafficLight>();
 	}
 
-	public virtual void Update()
+	public  void Update()
 	{
-		throw new System.NotImplementedException();
+		
 	}
 
-	public virtual TrafficLight GetTrafficLight()
+	public  List<TrafficLight> GetTrafficLight()
 	{
-		throw new System.NotImplementedException();
+        return this.TrafficGroupList;
 	}
 
 }
