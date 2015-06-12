@@ -11,6 +11,7 @@ using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 
+[Serializable]
 public class TrafficLight
 {
     // Fields 

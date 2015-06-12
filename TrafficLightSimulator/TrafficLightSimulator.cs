@@ -21,6 +21,9 @@ namespace TrafficLightSimulator
         private Simulator simulator;
         private Grid myGrid;
         private Graphics g;
+        private string lastSave;
+        private string filename;
+        private bool isSaved;
         Brush brush;
         Pen pen;
 
@@ -32,12 +35,12 @@ namespace TrafficLightSimulator
             InitializeComponent();
             simulator = new Simulator(this);
             myGrid = new Grid(24);
-            this.DoubleBuffered = true; 
+            this.DoubleBuffered = true;
             //g = pictureBoxGrid.CreateGraphics();
             brush = new SolidBrush(Color.Blue);
             pen = new Pen(brush);
 
-
+            timer1.Enabled = true;
         }
 
         [MethodImpl(MethodImplOptions.Synchronized)]
@@ -82,7 +85,7 @@ namespace TrafficLightSimulator
                 int y = roadObject.Coordinate.Y + rp.coordinate.Y + moving.CoordinateInRoadPiece.Y;
                 g.DrawEllipse(pen, x, y, 4, 4);
             }
-            
+
         }
 
         [MethodImpl(MethodImplOptions.Synchronized)]
@@ -127,6 +130,7 @@ namespace TrafficLightSimulator
                 roadObject = new Crossing(draggedPointer, CrossingType.CrossingWithoutPedestrian, draggedImage);
                 roadObject.bitmap = new Bitmap(draggedImage);
                 simulator.AddCrossing(roadObject);
+                isSaved = false;
                 Console.WriteLine("Crossing A was Drawn");
             }
             else if (draggedImage == pictureBox_CrossingB.Image)
@@ -135,6 +139,7 @@ namespace TrafficLightSimulator
                 roadObject.bitmap = new Bitmap(draggedImage);
                 simulator.AddCrossing(roadObject);
                 Console.WriteLine("Crossing B was Drawn");
+                isSaved = false;
             }
             else
             {
@@ -182,6 +187,7 @@ namespace TrafficLightSimulator
         /*Menu Item */
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
             simulator.SetTimerInterval(100);
         }
         /* Form Load Event */
@@ -205,41 +211,79 @@ namespace TrafficLightSimulator
         {
             Stream saveStream = null;
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-
-
-            saveFileDialog.ShowDialog();
-            string fileName = saveFileDialog.FileName;
-          
-
-            try
+            saveFileDialog.FileName = "Simulation1"; //Default filename.
+            saveFileDialog.Filter = "TrafficSimulation Extension files (*.trf)|*.trf";
+            saveFileDialog.FilterIndex = 1;
+            saveFileDialog.RestoreDirectory = true;
+            
+            if (lastSave != null)
             {
-                if ((saveStream = saveFileDialog.OpenFile()) != null)
-                {
-                    IFormatter formater = new BinaryFormatter();
-                    formater.Serialize(saveStream, myGrid);
-                }
+                Stream stream = File.Open(lastSave, FileMode.Create);
+                BinaryFormatter bFormatter = new BinaryFormatter();
+
+                bFormatter.Serialize(stream, simulator.RoadObjects);
+                stream.Close();
                 return true;
             }
-            catch (SerializationException e)
+            else
             {
-                MessageBox.Show("A problem occurred, please try again.\n" + e.Message);
-                return false;
-            }
-            catch (IOException x)
-            {
-                MessageBox.Show(x.Message);
-                return false;
-            }
-            finally
-            {
-                if (saveStream != null) saveStream.Close();
-            }
+                DialogResult res = saveFileDialog.ShowDialog();
+               if( !(res == DialogResult.Cancel || res == DialogResult.Abort ||
+                   res == DialogResult.No || res == DialogResult.No)){
 
+               
+                if (lastSave == null)
+                {
+                    string fileName = saveFileDialog.FileName;
+                    lastSave = fileName;
+                }
+                try
+                {
+
+                    if ((saveStream = saveFileDialog.OpenFile()) != null)
+                    {
+                        IFormatter formater = new BinaryFormatter();
+
+                        formater.Serialize(saveStream, simulator.RoadObjects);
+
+                    }
+
+                    return true;
+                }
+                catch (SerializationException e)
+                {
+                    MessageBox.Show("A problem occurred, please try again.\n" + e.Message);
+                    return false;
+                }
+                catch (IOException x)
+                {
+                    MessageBox.Show(x.Message);
+                    return false;
+                }
+                finally
+                {
+                    if (saveStream != null) saveStream.Close();
+                }
+               }
+               else
+               {
+                   return false;
+               }
+            }
         }
 
         private void MenuItem_File_SaveSimulator_Click(object sender, EventArgs e)
         {
-            SaveMethod();
+
+            if (simulator.RoadObjects != null && simulator.RoadObjects.Count > 0)
+            {
+                isSaved = SaveMethod();
+
+            }
+            else
+            {
+                MessageBox.Show("There is nothing on the workspace");
+            }
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
@@ -249,10 +293,114 @@ namespace TrafficLightSimulator
 
         private void openSimulatorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (simulator.RoadObjects != null && simulator.RoadObjects.Count > 0)
+            {
+                if (isSaved == false)
+                {
+                    String text = "You have unsaved changes do you want to save them?";
+                    string caption = "Error";
+                    if (MessageBox.Show(text, caption, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        isSaved = SaveMethod();
+                    }
+                    
+                }
+            }
+            LoadFromFile();
+        }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (simulator.RoadObjects != null)
+            {
+                DrawAll();
+            }
+        }
+
+        private void DrawAll()
+        {
+            clear();
+            drawGrid();
+            drawRoadObjects(simulator.RoadObjects);
+            timer1.Enabled = true;
+            render();
+        }
+        public bool LoadFromFile()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            DialogResult res = ofd.ShowDialog();
+
+            if (!(res == DialogResult.Cancel || res == DialogResult.Abort ||
+                res == DialogResult.No || res == DialogResult.No))
+            {
+
+                String file = ofd.FileName;
+                FileStream myFS = new FileStream(file, FileMode.Open, FileAccess.Read);
+                BinaryFormatter myBF = new BinaryFormatter();
+                simulator.RoadObjects = (List<RoadObject>)myBF.Deserialize(myFS);
+                if (simulator.RoadObjects == null) return false;
+                DrawAll();
+                return true;
+            }
+            return false;
+        }
+        
+
+        private void saveAsSimulatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           isSaved = SaveAs();
+        }
+
+        private void MenuItem_File_ClearSimulator_Click(object sender, EventArgs e)
+        {
+            
+            if ( MessageBox.Show("Are you sure that u want to clear the workspace","",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                g.Clear(Color.White);
+                this.simulator.RoadObjects = new List<RoadObject>();
+                DrawAll();
+            }      
+        }
+        public bool SaveAs()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+
+            saveFileDialog.FileName = "Simulation1"; 
+            saveFileDialog.Filter = "TrafficSimulation Extension files (*.trf)|*.trf";
+            saveFileDialog.FilterIndex = 1;
+            saveFileDialog.RestoreDirectory = true;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    lastSave = saveFileDialog.FileName;
+                    Stream stream = File.Open(saveFileDialog.FileName, FileMode.Create);
+                    BinaryFormatter bFormatter = new BinaryFormatter();
+
+                    bFormatter.Serialize(stream, simulator.RoadObjects);
+                    stream.Close();
+                    return true;
+                }
+                catch (SerializationException e)
+                {
+                    MessageBox.Show("A problem occurred, please try again.\n" + e.Message);
+                    return false;
+                }
+                catch (IOException x)
+                {
+                    MessageBox.Show(x.Message);
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
 
-      
-      
+
+

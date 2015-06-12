@@ -13,7 +13,7 @@ using System.Drawing;
 [Serializable]
 public abstract class RoadObject
 {
-
+    
     // Fields & properties
     private RoadObject[] startArray;
     private roadPiece[] referencePath;

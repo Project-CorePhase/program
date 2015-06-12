@@ -9,8 +9,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+[Serializable]
 public class Sensor
 {
+    
 	public virtual bool State
 	{
 		get;

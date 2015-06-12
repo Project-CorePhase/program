@@ -10,8 +10,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Timers;
+
+
 namespace TrafficLightSimulator
 {
+    [Serializable]
     public class Simulator
     {
         int SquareSize = 150;

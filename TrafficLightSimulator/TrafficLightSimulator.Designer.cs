@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrafficLightSimulator));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.MenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +64,7 @@
             this.pictureBox_CrossingA = new System.Windows.Forms.PictureBox();
             this.label_MouseLocation = new System.Windows.Forms.Label();
             this.pictureBoxGrid = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -117,6 +119,7 @@
             this.MenuItem_File_ClearSimulator.Name = "MenuItem_File_ClearSimulator";
             this.MenuItem_File_ClearSimulator.Size = new System.Drawing.Size(187, 22);
             this.MenuItem_File_ClearSimulator.Text = "Clear Simulator";
+            this.MenuItem_File_ClearSimulator.Click += new System.EventHandler(this.MenuItem_File_ClearSimulator_Click);
             // 
             // openSimulatorToolStripMenuItem
             // 
@@ -130,6 +133,7 @@
             this.saveAsSimulatorToolStripMenuItem.Name = "saveAsSimulatorToolStripMenuItem";
             this.saveAsSimulatorToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.saveAsSimulatorToolStripMenuItem.Text = "Save As Simulator";
+            this.saveAsSimulatorToolStripMenuItem.Click += new System.EventHandler(this.saveAsSimulatorToolStripMenuItem_Click);
             // 
             // MenuItem_Utilities
             // 
@@ -377,6 +381,10 @@
             this.pictureBoxGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Grid_Paint);
             this.pictureBoxGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxGrid_MouseMove);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // TrafficLightSimulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,6 +453,7 @@
         private System.Windows.Forms.ToolStripMenuItem clickMeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openSimulatorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsSimulatorToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

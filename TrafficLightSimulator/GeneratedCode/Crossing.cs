@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 
+[Serializable]
 public class Crossing : RoadObject
 {
     private System.Drawing.Point centerPoint = new System.Drawing.Point(71, 71);
