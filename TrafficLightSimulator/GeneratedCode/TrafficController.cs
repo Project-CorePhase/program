@@ -11,7 +11,7 @@ using System.Text;
 
 public class TrafficController
 {
-	public virtual TrafficLight TrafficGroupList
+	public virtual List<TrafficLight> TrafficGroupList
 	{
 		get;
 		set;

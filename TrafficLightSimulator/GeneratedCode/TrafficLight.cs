@@ -33,7 +33,7 @@ public class TrafficLight
     // Methods
 	public virtual TrafficColor GetColor()
 	{
-		throw new System.NotImplementedException();
+        return TrafficColor.Red;
 	}
 
 	public virtual void setCounter(int Seconds)
