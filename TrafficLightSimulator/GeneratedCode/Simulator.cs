@@ -45,7 +45,7 @@ namespace TrafficLightSimulator
                 // Create moving object here, we have to look on the startpoint of the system
                 foreach (roadPiece rp in carStartPoints)
                 {
-                    if (rp != null && rd.Next(100) > 70 && MovingObjects.Count < 30)
+                    if (rp != null && rd.Next(10) > 7 && MovingObjects.Count < 30)
                     {
                         this.addMovingObject(rp, false);
                     }
@@ -157,23 +157,22 @@ namespace TrafficLightSimulator
             {
                 foreach (RoadObject top in RoadObjects)
                 {
-                    if (ro == top) { continue; }
                     if (ro.Coordinate.X == top.Coordinate.X - SquareSize)
                     {
                         top.EndPoints[(int)Orientation.Degree0].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree270] };
                         ro.ReferencePathLinked[(int)Orientation.Degree270] = true;
                     }
-                    if (ro.Coordinate.Y == top.Coordinate.Y + SquareSize)
+                    else if (ro.Coordinate.Y == top.Coordinate.Y + SquareSize)
                     {
                         top.EndPoints[(int)Orientation.Degree270].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree180] };
-                        ro.ReferencePathLinked[(int)Orientation.Degree90] = true;
-                    }
-                    if (ro.Coordinate.X == top.Coordinate.X + SquareSize)
-                    {
-                        top.EndPoints[(int)Orientation.Degree180].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree90] };
                         ro.ReferencePathLinked[(int)Orientation.Degree180] = true;
                     }
-                    if (ro.Coordinate.Y == top.Coordinate.Y - SquareSize)
+                    else if (ro.Coordinate.X == top.Coordinate.X + SquareSize)
+                    {
+                        top.EndPoints[(int)Orientation.Degree180].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree90] };
+                        ro.ReferencePathLinked[(int)Orientation.Degree90] = true;
+                    }
+                    else if (ro.Coordinate.Y == top.Coordinate.Y - SquareSize)
                     {
                         top.EndPoints[(int)Orientation.Degree90].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree0] };
                         ro.ReferencePathLinked[(int)Orientation.Degree0] = true;
