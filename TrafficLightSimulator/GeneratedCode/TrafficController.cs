@@ -11,18 +11,11 @@ using System.Text;
 
 public class TrafficController
 {
-	public virtual List<TrafficLight> TrafficGroupList
+	public  List<TrafficLight> TrafficGroupList{ get; set;}
+
+	public void SetSensor()
 	{
-		get;
-		set;
-	}
-    /// <summary>
-    /// WHAT THE HELL
-    /// </summary>
-	public virtual IEnumerable<Sensor> Sensor
-	{
-		get;
-		set;
+	
 	}
 
 	public virtual void Update()

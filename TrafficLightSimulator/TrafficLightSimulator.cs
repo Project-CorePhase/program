@@ -246,6 +246,11 @@ namespace TrafficLightSimulator
         {
             simulator.FastForward(30);
         }
+
+        private void openSimulatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
