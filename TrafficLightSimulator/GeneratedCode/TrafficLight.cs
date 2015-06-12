@@ -14,13 +14,7 @@ using System.Windows.Forms;
 public class TrafficLight
 {
     // Fields 
-    private Point coordinate; // Corrdinate Of where the PictureBox is On the Grid
-    private const Int32 trafficPointOnCell = 12;
-    private Control onForm;   // Reffrence to the form
-    private Image Traffic;
-    private Graphics myGraphics; //  Will Draw three colors on each RoadObjects  
-    private Int32 timercounter;
-
+   
     // Properties
 
     // Constructor
@@ -43,7 +37,16 @@ public class TrafficLight
 
 	public virtual void SetColor(TrafficColor color)
 	{
-		throw new System.NotImplementedException();
+        switch (color)
+        {
+            case TrafficColor.Red:
+                break;
+            case TrafficColor.Yellow:
+                break;
+            case TrafficColor.Green:
+                break;
+
+        }
 	}
 
 }

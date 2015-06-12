@@ -76,11 +76,6 @@ namespace TrafficLightSimulator
 
             
         }
-        public Grid Grid
-        {
-            get;
-            set;
-        }
 
         public List<MovingObject> MovingObjects = null;
 
@@ -98,27 +93,6 @@ namespace TrafficLightSimulator
             }
             RoadObjects.Add(ro);
         }
-
-        public void RemoveCrossing()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void MoveCrossing()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Save()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Load()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void SetTimerInterval(int duration)
         {
             if (duration == 0)
