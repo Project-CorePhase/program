@@ -42,22 +42,32 @@ namespace TrafficLightSimulator
 
             timer1.Enabled = true;
         }
-
+        
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void drawRoadObjects(List<RoadObject> ros)
         {
+           
             foreach (RoadObject roadObject in ros)
             {
                 Point draggedPointer = roadObject.Coordinate;
                 g.DrawImage(roadObject.bitmap, draggedPointer);
                 // Drawing Trafficlight
-                /*foreach (TrafficLight tl in roadObject.TrafficController.TrafficGroupList)
+                foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight())
                 {
-                    //Point trafficLightC = new Point(tl.coordinate.X + roadObject.Coordinate.X, )
+                    //Point trafficLightC = new Point(tl.coordinate.X + roadObject.Coordinate.X)
                     //g.DrawImage(tl.imagen tl.coordinate)
-                }*/
+      
+                  
+                }
             }
         }
+        #region Drawing Components For the traffic light 
+
+        private Pen DetermineColorOfTrafficLight(TrafficColor currentColor)
+        {
+            return new Pen(Color.AliceBlue);
+        }
+        #endregion
 
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void drawGrid()

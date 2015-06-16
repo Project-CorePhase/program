@@ -11,11 +11,20 @@ using System.Text;
 [Serializable]
 public class TrafficController
 {
+    // Feilds & properties
 	private  List<TrafficLight> TrafficGroupList{ get; set;}
+
+    // constructor
+
+    public TrafficController()
+    {
+        TrafficGroupList = new List<TrafficLight>();
+    }
+
 
 	public void SetSensor()
 	{
-        TrafficGroupList = new List<TrafficLight>();
+        
 	}
 
 	public  void Update()

@@ -17,15 +17,16 @@ public class TrafficLight
     // Fields 
     Point[] trafficCordinates = new Point[4];                   // Car Traffic Cordinates
     Point[] pedstrianTrafficCordinates = new Point[4];          // Pedstrian With Two Colors
-    Rectangle[] trafficColors = new Rectangle[3];               // Rectangle which will hold Colors
     Size colorSize = new Size(4, 4);                            // Size of the Rectangle
-    Color[] Colors = {Color.Red , Color.Yellow , Color.Green }; // All Possible Colors
+    Color[] Colors = { Color.Red, Color.Yellow, Color.Green }; // All Possible Colors
+    Pen drawingPen;
     int innerCounter;                                           // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
     int outterCounter;                                          //Counter For the pair of each Traffic light;
     public Boolean isGreen;
-   
-    // Properties
 
+    // Properties
+    public Point[] TrafficCordinates { get { return trafficCordinates; } set { trafficCordinates = value; } }
+    public Point[] PedstrianTrafficCordinates { get { return pedstrianTrafficCordinates; } set { pedstrianTrafficCordinates = value; } }
     // Constructor
     public TrafficLight(CrossingType ct)
     {
@@ -34,18 +35,18 @@ public class TrafficLight
             case CrossingType.CrossingWithPedestrian:
                 // For pedstrian
                 pedstrianTrafficCordinates[(int)Orientation.Degree0] = new Point(30, 30);
-                pedstrianTrafficCordinates[(int)Orientation.Degree90] = new Point(120,10);
+                pedstrianTrafficCordinates[(int)Orientation.Degree90] = new Point(120, 10);
                 pedstrianTrafficCordinates[(int)Orientation.Degree180] = new Point(30, 140);
                 pedstrianTrafficCordinates[(int)Orientation.Degree270] = new Point(104, 140);
                 // For Cards 
                 trafficCordinates[(int)Orientation.Degree0] = new Point(120, 30);
-                trafficCordinates[(int)Orientation.Degree90] = new Point(30,120);
+                trafficCordinates[(int)Orientation.Degree90] = new Point(30, 120);
                 break;
-                //
+            //
             case CrossingType.CrossingWithoutPedestrian:
-                trafficCordinates[(int)Orientation.Degree0] = new Point(32,32);
+                trafficCordinates[(int)Orientation.Degree0] = new Point(32, 32);
                 trafficCordinates[(int)Orientation.Degree90] = new Point(120, 30);
-                trafficCordinates[(int)Orientation.Degree180] = new Point(32,120);
+                trafficCordinates[(int)Orientation.Degree180] = new Point(32, 120);
                 trafficCordinates[(int)Orientation.Degree270] = new Point(110, 120);
                 break;
         }
@@ -53,22 +54,22 @@ public class TrafficLight
 
 
     // Methods
-	public virtual TrafficColor GetColor()
-	{
-        return TrafficColor.Red;
-	}
+    public TrafficColor? GetColor()
+    {
+        return null; 
+    }
 
-	public void SetInnerCounter(int Seconds)
-	{
+    public void SetInnerCounter(int Seconds)
+    {
         innerCounter = Seconds;
-	}
+    }
     public void SetOutterCounter(int Seconds)
     {
         outterCounter = Seconds;
     }
 
-	public virtual void SetColor(TrafficColor color)
-	{
+    public virtual void SetColor(TrafficColor color)
+    {
         switch (color)
         {
             case TrafficColor.Red:
@@ -82,7 +83,7 @@ public class TrafficLight
                 break;
 
         }
-	}
+    }
 
 }
 
