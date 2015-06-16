@@ -52,6 +52,7 @@ namespace TrafficLightSimulator
                 Point draggedPointer = roadObject.Coordinate;
                 myGraphics.DrawImage(roadObject.bitmap, draggedPointer);
                 // Drawing Trafficlight
+                roadObject.TrafficController.Update();  // Abdullah Added The code here
                 foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight())
                 {
                     myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficCordinates[indexEnumrator].X, item.PedstrianTrafficCordinates[indexEnumrator].Y, 10, 10);
@@ -103,7 +104,6 @@ namespace TrafficLightSimulator
             foreach (MovingObject moving in mo)
             {
                 RoadObject roadObject = moving.Path.RoadObject;
-                roadObject.TrafficController.Update();  // Abdullah Added The code here
                 roadPiece rp = moving.Path;
                 int x = roadObject.Coordinate.X + rp.coordinate.X + moving.CoordinateInRoadPiece.X;
                 int y = roadObject.Coordinate.Y + rp.coordinate.Y + moving.CoordinateInRoadPiece.Y;
