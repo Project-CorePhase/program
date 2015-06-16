@@ -18,9 +18,6 @@ public class TrafficLight
     //****************************************************************************************************************************************
     Point[] trafficCordinates = new Point[4];                   // Car Traffic Cordinates
     Point[] pedstrianTrafficCordinates = new Point[4];          // Pedstrian With Two Colors
-    Rectangle[] TrafficLightMachine;                            // The rectangle will hold the cordinate of the all traffic light
-    int innerCounter;                                           // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
-    int outterCounter;                                          //Counter For the pair of each Traffic light;
     private TrafficColor CurrentColor;
 
     // Properties
@@ -58,15 +55,6 @@ public class TrafficLight
 
     //*****************************************************************************************************************************************
     // Methods
-    public void SetInnerCounter(int Seconds)
-    {
-        innerCounter = Seconds;
-    }
-    public void SetOutterCounter(int Seconds)
-    {
-        outterCounter = Seconds;
-    }
-
     public void SetColor(TrafficColor color)
     {
         switch (color)

@@ -29,16 +29,28 @@ public class TrafficController
     //Methods
 	public void SetSensor()
 	{
-        
+        // TODO
 	}
 
 	public  void Update()
 	{
+        // Called at each timer tick 
+        // Update Values By changeing the colors of each Cordinate in the traffic light 
+        // The update Happens by the inner Counter and Outter Counter 
         foreach (TrafficLight item in TrafficGroupList)
         {
             // Update all the values
         }
 	}
+    
+    public void SetInnerCounter(int Seconds)
+    {
+        innerCounter = Seconds;
+    } 
+    public void SetOutterCounter(int Seconds)
+    {
+        outterCounter = Seconds;
+    }
 
 	public  List<TrafficLight> GetTrafficLight()
 	{
