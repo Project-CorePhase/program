@@ -22,7 +22,6 @@ public class TrafficLight
     Rectangle[] TrafficLightMachine;                           // The rectangle will hold the cordinate of the all traffic light
     int innerCounter;                                           // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
     int outterCounter;                                          //Counter For the pair of each Traffic light;
-    public Boolean isGreen;
     private TrafficColor CurrentColor;
 
     // Properties
@@ -31,6 +30,8 @@ public class TrafficLight
     // Constructor
     public TrafficLight(CrossingType ct)
     {
+        CurrentColor = new TrafficColor();
+
         switch (ct)
         {
             case CrossingType.CrossingWithPedestrian:
@@ -55,10 +56,7 @@ public class TrafficLight
 
 
     // Methods
-    public TrafficColor GetColor()
-    {
-        return CurrentColor;
-    }
+ 
 
     public void SetInnerCounter(int Seconds)
     {
@@ -74,16 +72,20 @@ public class TrafficLight
         switch (color)
         {
             case TrafficColor.Red:
-                isGreen = false;
+                CurrentColor = TrafficColor.Red;
                 break;
             case TrafficColor.Yellow:
-                isGreen = false;
+                CurrentColor = TrafficColor.Yellow;
                 break;
             case TrafficColor.Green:
-                isGreen = true;
+                CurrentColor = TrafficColor.Green;
                 break;
 
         }
+    }
+    public TrafficColor GetColor()
+    {
+        return CurrentColor;
     }
 
 }

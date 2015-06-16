@@ -65,7 +65,20 @@ namespace TrafficLightSimulator
 
         private Color DetermineColorOfTrafficLight(TrafficColor currentColor)
         {
-            return Color.Red;
+            Color holder = Color.Purple; // Purple is for debugging purposses onliy
+            switch (currentColor)
+            {
+                case TrafficColor.Red:
+                    holder = Color.Red;
+                    break;
+                case TrafficColor.Yellow:
+                    holder = Color.Yellow;
+                    break;
+                case TrafficColor.Green:
+                    holder = Color.Green;
+                    break;
+            }
+            return holder;
         }
         #endregion
 
