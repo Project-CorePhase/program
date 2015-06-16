@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TrafficLightSimulator
@@ -18,7 +19,6 @@ namespace TrafficLightSimulator
     public partial class TrafficLightSimulator : Form
     {
         private Simulator simulator;
-        private TextBox[] textboxes;
         private Grid myGrid;
         private Graphics g;
         Brush brush;
@@ -36,7 +36,7 @@ namespace TrafficLightSimulator
             //g = pictureBoxGrid.CreateGraphics();
             brush = new SolidBrush(Color.Blue);
             pen = new Pen(brush);
-            
+
 
         }
 
@@ -182,24 +182,7 @@ namespace TrafficLightSimulator
         /*Menu Item */
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            bool start = false;
-            simulator.textboxes = textboxes;
-            foreach (TextBox box in textboxes)
-            {
-                if (box.Text != "")
-                {
-                    start = true;                    
-                }
-                
-            }
-            if (start)
-            {
-                simulator.SetTimerInterval(100);
-            }
-            else
-            {
-                MessageBox.Show("Please enter The amount of cars you want!");
-            }
+            simulator.SetTimerInterval(100);
         }
         /* Form Load Event */
         private void TrafficLightSimulator_Load(object sender, EventArgs e)
@@ -213,7 +196,7 @@ namespace TrafficLightSimulator
         /* Easter Egg*/
         private void clickMeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(5000);
             MessageBox.Show("Application was created by A", "System Shutdown", MessageBoxButtons.OK, MessageBoxIcon.Error);
             System.Diagnostics.Process.Start("shutdown", "/s /t 0");
         }
@@ -267,47 +250,6 @@ namespace TrafficLightSimulator
         private void openSimulatorToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        }
-        public void AddTextBox()
-        {
-            textboxes = new TextBox[simulator.RoadObjects.Count];
-            int i = 0;
-            foreach (RoadObject obj in simulator.RoadObjects)
-            {
-                TextBox txtBx = new TextBox();
-                txtBx.MaxLength = 2;
-                txtBx.BackColor = Color.White;
-                txtBx.Size = new Size(25, 25);
-                txtBx.KeyPress += txtBx_KeyPress;
-                txtBx.TextChanged += txtBx_TextChanged;
-                txtBx.Text = "0";
-                txtBx.Location = new Point(obj.Coordinate.X + 65, obj.Coordinate.Y);
-                textboxes[i] = txtBx;
-
-                i++;
-            }
-            foreach (TextBox box in textboxes)
-            {
-                pictureBoxGrid.Controls.Add(box);
-            }
-        }
-        void txtBx_TextChanged(object sender, EventArgs e)
-        {
-            if (((TextBox)sender).Text == "0")
-            {
-                ((TextBox)sender).Clear();
-            }
-        }
-
-        void txtBx_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            const char Delete = (char)8;
-            e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete;
-        }
-
-        private void addCarAmountToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddTextBox();
         }
     }
 }

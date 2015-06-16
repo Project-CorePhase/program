@@ -10,7 +10,6 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Timers;
-using System.Windows.Forms;
 namespace TrafficLightSimulator
 {
     public class Simulator
@@ -18,7 +17,6 @@ namespace TrafficLightSimulator
         int SquareSize = 150;
         TrafficLightSimulator onform;
         List<roadPiece> carStartPoints = null;
-        public TextBox[] textboxes = null;
         public Simulator(TrafficLightSimulator form)
         {
             onform = form;
@@ -39,20 +37,15 @@ namespace TrafficLightSimulator
         [MethodImpl(MethodImplOptions.Synchronized)]
         private void timerTicks(object sender, ElapsedEventArgs e)
         {
+            
+                Random rd = new Random();
                 // Create moving object here, we have to look on the startpoint of the system
-                
-                    foreach (roadPiece rp in carStartPoints)
+                foreach (roadPiece rp in carStartPoints)
+                {
+                    if (rp != null && rd.Next(100) > 70 && MovingObjects.Count < 30)
                     {
-                        if (rp != null)
-                        {
-                            for (int i = 0; i < Convert.ToInt32(textboxes[i].Text) - 1; i++)
-                            {
-                                this.addMovingObject(rp, false);
-                            }
-                            
-                        }
-                    
-                    
+                        this.addMovingObject(rp, false);
+                    }
                 }
 
                 if (MovingObjects == null) { return; }
