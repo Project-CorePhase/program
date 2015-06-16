@@ -13,13 +13,13 @@ using System.Text;
 public class Sensor
 {
     
-	public virtual bool State
+	public bool State
 	{
 		get;
 		set;
 	}
 
-	public virtual void SetState(bool state)
+	public void SetState(bool state)
 	{
 		throw new System.NotImplementedException();
 	}

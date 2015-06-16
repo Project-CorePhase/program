@@ -19,7 +19,7 @@ public class TrafficLight
     Point[] pedstrianTrafficCordinates = new Point[4];          // Pedstrian With Two Colors
     Size colorSize = new Size(4, 4);                            // Size of the Rectangle
     Color[] Colors = { Color.Red, Color.Yellow, Color.Green }; // All Possible Colors
-    Pen drawingPen;
+    Rectangle[] TrafficLightMachine;                           // The rectangle will hold the cordinate of the all traffic light
     int innerCounter;                                           // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
     int outterCounter;                                          //Counter For the pair of each Traffic light;
     public Boolean isGreen;
@@ -54,9 +54,9 @@ public class TrafficLight
 
 
     // Methods
-    public TrafficColor? GetColor()
+    public TrafficColor GetColor()
     {
-        return null; 
+       
     }
 
     public void SetInnerCounter(int Seconds)
@@ -68,7 +68,7 @@ public class TrafficLight
         outterCounter = Seconds;
     }
 
-    public virtual void SetColor(TrafficColor color)
+    public void SetColor(TrafficColor color)
     {
         switch (color)
         {

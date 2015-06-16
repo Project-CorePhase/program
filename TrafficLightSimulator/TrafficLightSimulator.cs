@@ -56,16 +56,16 @@ namespace TrafficLightSimulator
                 {
                     //Point trafficLightC = new Point(tl.coordinate.X + roadObject.Coordinate.X)
                     //g.DrawImage(tl.imagen tl.coordinate)
-      
+                    g.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficCordinates[1].X, item.PedstrianTrafficCordinates[1].Y, 10, 10);
                   
                 }
             }
         }
         #region Drawing Components For the traffic light 
 
-        private Pen DetermineColorOfTrafficLight(TrafficColor currentColor)
+        private Color DetermineColorOfTrafficLight(TrafficColor currentColor)
         {
-            return new Pen(Color.AliceBlue);
+            return Color.Red;
         }
         #endregion
 
