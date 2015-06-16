@@ -55,14 +55,15 @@ namespace TrafficLightSimulator
                 foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight())
                 {
                     myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficCordinates[indexEnumrator].X, item.PedstrianTrafficCordinates[indexEnumrator].Y, 10, 10);
-                    
+                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())), item.TrafficCordinates[indexEnumrator].X, item.TrafficCordinates[indexEnumrator].Y, 10, 10);
                     indexEnumrator++;
                   
                 }
             }
         }
-        #region Drawing Components For the traffic light 
 
+        // Drawing Components For the traffic light
+        [MethodImpl(MethodImplOptions.Synchronized)]
         private Color DetermineColorOfTrafficLight(TrafficColor currentColor)
         {
             Color holder = Color.Purple; // Purple is for debugging purposses onliy
@@ -80,7 +81,6 @@ namespace TrafficLightSimulator
             }
             return holder;
         }
-        #endregion
 
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void drawGrid()
@@ -122,7 +122,24 @@ namespace TrafficLightSimulator
         {
             myBuffer.Render();
         }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (simulator.RoadObjects != null)
+            {
+                DrawAll();
+            }
+        }
 
+        private void DrawAll()
+        {
+            clear();
+            drawGrid();
+            drawRoadObjects(simulator.RoadObjects);
+            timer1.Enabled = true;
+            render();
+        }
+
+        #region Drag Drop Events Method
         /* Drag & Drop Event*/
         private void pictureBoxGrid_DragEnter(object sender, DragEventArgs e)
         {
@@ -174,6 +191,7 @@ namespace TrafficLightSimulator
             drawRoadObjects(simulator.RoadObjects);
             render();
         }
+        # endregion
 
         /* Form Paint Event*/
         private void pictureBox_Grid_Paint(object sender, PaintEventArgs e)
@@ -196,8 +214,6 @@ namespace TrafficLightSimulator
             pictureBoxGrid.DisplayRectangle);
             myGraphics = myBuffer.Graphics;
         }
-
-
         /* Mouse Tracking*/
         private void TrafficLightSimulator_MouseMove(object sender, MouseEventArgs e)
         {
@@ -226,10 +242,11 @@ namespace TrafficLightSimulator
         private void clickMeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Threading.Thread.Sleep(5000);
-            MessageBox.Show("Application was created by A", "System Shutdown", MessageBoxButtons.OK, MessageBoxIcon.Error);
             System.Diagnostics.Process.Start("shutdown", "/s /t 0");
         }
-        //*Save methods */
+
+        #region Saveing & Loading & saving As methods
+        //*Save As methods */
         public bool SaveMethod()
         {
             Stream saveStream = null;
@@ -308,88 +325,12 @@ namespace TrafficLightSimulator
                 MessageBox.Show("There is nothing on the workspace");
             }
         }
-
-        private void toolStripButton6_Click(object sender, EventArgs e)
-        {
-            simulator.FastForward(30);
-        }
-
-        private void openSimulatorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (simulator.RoadObjects != null && simulator.RoadObjects.Count > 0)
-            {
-                if (isSaved == false)
-                {
-                    String text = "You have unsaved changes do you want to save them?";
-                    string caption = "Error";
-                    if (MessageBox.Show(text, caption, MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        isSaved = SaveMethod();
-                    }
-                    
-                }
-            }
-            LoadFromFile();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (simulator.RoadObjects != null)
-            {
-                DrawAll();
-            }
-        }
-
-        private void DrawAll()
-        {
-            clear();
-            drawGrid();
-            drawRoadObjects(simulator.RoadObjects);
-            timer1.Enabled = true;
-            render();
-        }
-        public bool LoadFromFile()
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            DialogResult res = ofd.ShowDialog();
-
-            if (!(res == DialogResult.Cancel || res == DialogResult.Abort ||
-                res == DialogResult.No || res == DialogResult.No))
-            {
-
-                String file = ofd.FileName;
-                FileStream myFS = new FileStream(file, FileMode.Open, FileAccess.Read);
-                BinaryFormatter myBF = new BinaryFormatter();
-                simulator.RoadObjects = (List<RoadObject>)myBF.Deserialize(myFS);
-                if (simulator.RoadObjects == null) return false;
-                DrawAll();
-                return true;
-            }
-            return false;
-        }
-        
-
-        private void saveAsSimulatorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           isSaved = SaveAs();
-        }
-
-        private void MenuItem_File_ClearSimulator_Click(object sender, EventArgs e)
-        {
-            
-            if ( MessageBox.Show("Are you sure that u want to clear the workspace","",MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                myGraphics.Clear(Color.White);
-                this.simulator.RoadObjects = new List<RoadObject>();
-                DrawAll();
-            }      
-        }
         public bool SaveAs()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
 
 
-            saveFileDialog.FileName = "Simulation1"; 
+            saveFileDialog.FileName = "Simulation1";
             saveFileDialog.Filter = "TrafficSimulation Extension files (*.trf)|*.trf";
             saveFileDialog.FilterIndex = 1;
             saveFileDialog.RestoreDirectory = true;
@@ -422,6 +363,63 @@ namespace TrafficLightSimulator
                 return false;
             }
         }
+        private void openSimulatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (simulator.RoadObjects != null && simulator.RoadObjects.Count > 0)
+            {
+                if (isSaved == false)
+                {
+                    String text = "You have unsaved changes do you want to save them?";
+                    string caption = "Error";
+                    if (MessageBox.Show(text, caption, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        isSaved = SaveMethod();
+                    }
+
+                }
+            }
+            LoadFromFile();
+        }
+        public bool LoadFromFile()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            DialogResult res = ofd.ShowDialog();
+
+            if (!(res == DialogResult.Cancel || res == DialogResult.Abort ||
+                res == DialogResult.No || res == DialogResult.No))
+            {
+
+                String file = ofd.FileName;
+                FileStream myFS = new FileStream(file, FileMode.Open, FileAccess.Read);
+                BinaryFormatter myBF = new BinaryFormatter();
+                simulator.RoadObjects = (List<RoadObject>)myBF.Deserialize(myFS);
+                if (simulator.RoadObjects == null) return false;
+                DrawAll();
+                return true;
+            }
+            return false;
+        }
+        #endregion
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            simulator.FastForward(30);
+        }
+        private void saveAsSimulatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           isSaved = SaveAs();
+        }
+
+        private void MenuItem_File_ClearSimulator_Click(object sender, EventArgs e)
+        {
+            
+            if ( MessageBox.Show("Are you sure that u want to clear the workspace","",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                myGraphics.Clear(Color.White);
+                this.simulator.RoadObjects = new List<RoadObject>();
+                DrawAll();
+            }      
+        }
+       
     }
 }
 

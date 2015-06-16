@@ -29,7 +29,10 @@ public class TrafficController
 
 	public  void Update()
 	{
-		
+        foreach (TrafficLight item in TrafficGroupList)
+        {
+            // Update all the values
+        }
 	}
 
 	public  List<TrafficLight> GetTrafficLight()
