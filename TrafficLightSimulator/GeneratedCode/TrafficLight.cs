@@ -23,6 +23,7 @@ public class TrafficLight
     int innerCounter;                                           // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
     int outterCounter;                                          //Counter For the pair of each Traffic light;
     public Boolean isGreen;
+    private TrafficColor CurrentColor;
 
     // Properties
     public Point[] TrafficCordinates { get { return trafficCordinates; } set { trafficCordinates = value; } }
@@ -56,7 +57,7 @@ public class TrafficLight
     // Methods
     public TrafficColor GetColor()
     {
-       
+        return CurrentColor;
     }
 
     public void SetInnerCounter(int Seconds)
