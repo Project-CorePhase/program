@@ -21,6 +21,7 @@ namespace TrafficLightSimulator
         private Simulator simulator;
         private Grid myGrid;
         private Graphics g;
+        TextBox[] textboxes;
         Brush brush;
         Pen pen;
 
@@ -182,7 +183,34 @@ namespace TrafficLightSimulator
         /*Menu Item */
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            simulator.SetTimerInterval(100);
+            bool start = false;
+            int i = 0;
+            simulator.amount = new int[textboxes.Count()];
+            //simulator.textboxes = textboxes;
+            foreach (TextBox Tb in textboxes)
+            {                
+                simulator.amount[i] = Convert.ToInt32(Tb.Text);
+                simulator.counter += Convert.ToInt32(Tb.Text);
+                i++;
+            }
+            foreach (TextBox box in textboxes)
+            {
+                if (box.Text != "")
+                {
+                    start = true;
+                }
+
+            }
+            if (start)
+            {
+                simulator.SetTimerInterval(100);
+            }
+            else
+            {
+                MessageBox.Show("Please enter The amount of cars you want!");
+            }
+            //timer1.Enabled = false;
+            //simulator.SetTimerInterval(100);
         }
         /* Form Load Event */
         private void TrafficLightSimulator_Load(object sender, EventArgs e)
@@ -250,6 +278,46 @@ namespace TrafficLightSimulator
         private void openSimulatorToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+        private void addCarAmountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTextBox();
+        }
+        public void AddTextBox()
+        {
+            textboxes = new TextBox[simulator.RoadObjects.Count];
+            int i = 0;
+            foreach (RoadObject obj in simulator.RoadObjects)
+            {
+                TextBox txtBx = new TextBox();
+                txtBx.MaxLength = 2;
+                txtBx.BackColor = Color.White;
+                txtBx.Size = new Size(25, 25);
+                txtBx.KeyPress += txtBx_KeyPress;
+                txtBx.TextChanged += txtBx_TextChanged;
+                txtBx.Text = "0";
+                txtBx.Location = new Point(obj.Coordinate.X + 65, obj.Coordinate.Y);
+                textboxes[i] = txtBx;
+
+                i++;
+            }
+            foreach (TextBox box in textboxes)
+            {
+                pictureBoxGrid.Controls.Add(box);
+            }
+        }
+        void txtBx_TextChanged(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text == "0")
+            {
+                ((TextBox)sender).Clear();
+            }
+        }
+
+        void txtBx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+            e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete;
         }
     }
 }

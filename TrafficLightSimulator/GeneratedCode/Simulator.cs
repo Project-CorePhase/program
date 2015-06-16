@@ -17,6 +17,8 @@ namespace TrafficLightSimulator
         int SquareSize = 150;
         TrafficLightSimulator onform;
         List<roadPiece> carStartPoints = null;
+        public int counter = 0;
+        public int[] amount;
         public Simulator(TrafficLightSimulator form)
         {
             onform = form;
@@ -37,44 +39,49 @@ namespace TrafficLightSimulator
         [MethodImpl(MethodImplOptions.Synchronized)]
         private void timerTicks(object sender, ElapsedEventArgs e)
         {
-            
-                Random rd = new Random();
-                // Create moving object here, we have to look on the startpoint of the system
-                foreach (roadPiece rp in carStartPoints)
+            // Create moving object here, we have to look on the startpoint of the system
+
+            foreach (roadPiece rp in carStartPoints)
+            {
+                if (rp != null && MovingObjects.Count <= counter)
                 {
-                    if (rp != null && rd.Next(100) > 70 && MovingObjects.Count < 30)
+                    for (int i = 0; i < amount[0] - 1; i++)
                     {
                         this.addMovingObject(rp, false);
                     }
+
                 }
 
-                if (MovingObjects == null) { return; }
-                List<MovingObject> tmp = new List<MovingObject>();
 
-                foreach (MovingObject mo in MovingObjects)
+            }
+
+            if (MovingObjects == null) { return; }
+            List<MovingObject> tmp = new List<MovingObject>();
+
+            foreach (MovingObject mo in MovingObjects)
+            {
+                try
                 {
-                    try
-                    {
-                        mo.Update();
-                        tmp.Add(mo);
-                    }
-                    catch (Exception ex)
-                    {
-                        tmp.Remove(mo);
-                        // The car is out of the grid
-
-                    }
+                    mo.Update();
+                    tmp.Add(mo);
                 }
-                MovingObjects = tmp;
+                catch (Exception ex)
+                {
+                    tmp.Remove(mo);
+                    // The car is out of the grid
 
-   
-                onform.clear();
-                onform.drawGrid();
-                onform.drawRoadObjects(this.RoadObjects);
-                onform.drawMovingObject(this.MovingObjects);
-                onform.render();
+                }
+            }
+            MovingObjects = tmp;
 
-            
+
+            onform.clear();
+            onform.drawGrid();
+            onform.drawRoadObjects(this.RoadObjects);
+            onform.drawMovingObject(this.MovingObjects);
+            onform.render();
+
+
         }
 
         public List<MovingObject> MovingObjects = null;
@@ -82,6 +89,7 @@ namespace TrafficLightSimulator
         public List<RoadObject> RoadObjects = null;
 
         public System.Timers.Timer UpdateTimer;
+        
 
 
 
