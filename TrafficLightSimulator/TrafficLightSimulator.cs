@@ -103,6 +103,7 @@ namespace TrafficLightSimulator
             foreach (MovingObject moving in mo)
             {
                 RoadObject roadObject = moving.Path.RoadObject;
+                roadObject.TrafficController.Update();  // Abdullah Added The code here
                 roadPiece rp = moving.Path;
                 int x = roadObject.Coordinate.X + rp.coordinate.X + moving.CoordinateInRoadPiece.X;
                 int y = roadObject.Coordinate.Y + rp.coordinate.Y + moving.CoordinateInRoadPiece.Y;
@@ -115,12 +116,6 @@ namespace TrafficLightSimulator
         public void clear()
         {
             myGraphics.Clear(Color.White);
-        }
-
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public void render()
-        {
-            myBuffer.Render();
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -137,6 +132,12 @@ namespace TrafficLightSimulator
             drawRoadObjects(simulator.RoadObjects);
             timer1.Enabled = true;
             render();
+        }
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void render()
+        {
+            myBuffer.Render();
         }
 
         #region Drag Drop Events Method

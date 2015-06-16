@@ -22,6 +22,7 @@ public class TrafficController
 
     public TrafficController()
     {
+        innerCounter = 6; // Every 6 seconds the timer will change the value By setting
         TrafficGroupList = new List<TrafficLight>();
     }
 
@@ -37,8 +38,13 @@ public class TrafficController
         // Called at each timer tick 
         // Update Values By changeing the colors of each Cordinate in the traffic light 
         // The update Happens by the inner Counter and Outter Counter 
+        innerCounter--;
         foreach (TrafficLight item in TrafficGroupList)
         {
+            if (innerCounter <0 )
+            {
+                item.SetColor(TrafficColor.Green);
+            }
             // Update all the values
         }
 	}
