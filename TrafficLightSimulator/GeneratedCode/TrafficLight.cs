@@ -15,6 +15,7 @@ using System.Windows.Forms;
 public class TrafficLight
 {
     // Fields 
+    //****************************************************************************************************************************************
     Point[] trafficCordinates = new Point[4];                   // Car Traffic Cordinates
     Point[] pedstrianTrafficCordinates = new Point[4];          // Pedstrian With Two Colors
     Rectangle[] TrafficLightMachine;                            // The rectangle will hold the cordinate of the all traffic light
@@ -23,8 +24,10 @@ public class TrafficLight
     private TrafficColor CurrentColor;
 
     // Properties
+    //*****************************************************************************************************************************************
     public Point[] TrafficCordinates { get { return trafficCordinates; } set { trafficCordinates = value; } }
     public Point[] PedstrianTrafficCordinates { get { return pedstrianTrafficCordinates; } set { pedstrianTrafficCordinates = value; } }
+    //*****************************************************************************************************************************************
     // Constructor
     public TrafficLight(CrossingType ct)
     {
@@ -53,13 +56,8 @@ public class TrafficLight
         }
     }
 
-
+    //*****************************************************************************************************************************************
     // Methods
-    public void LightLogic()
-    {
-
-    }
-
     public void SetInnerCounter(int Seconds)
     {
         innerCounter = Seconds;
@@ -89,6 +87,6 @@ public class TrafficLight
     {
         return CurrentColor;
     }
-
+    //*****************************************************************************************************************************************
 }
 

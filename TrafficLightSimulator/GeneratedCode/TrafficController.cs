@@ -11,9 +11,13 @@ using System.Text;
 [Serializable]
 public class TrafficController
 {
+    //******************************************************************************************************************************
     // Feilds & properties
 	private  List<TrafficLight> TrafficGroupList{ get; set;}
+    int innerCounter;                                       // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
+    int outterCounter;                                      //Counter For the pair of each Traffic light;
 
+    //******************************************************************************************************************************
     // constructor
 
     public TrafficController()
@@ -21,7 +25,8 @@ public class TrafficController
         TrafficGroupList = new List<TrafficLight>();
     }
 
-
+    //******************************************************************************************************************************
+    //Methods
 	public void SetSensor()
 	{
         
