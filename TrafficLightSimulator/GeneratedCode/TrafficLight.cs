@@ -17,9 +17,7 @@ public class TrafficLight
     // Fields 
     Point[] trafficCordinates = new Point[4];                   // Car Traffic Cordinates
     Point[] pedstrianTrafficCordinates = new Point[4];          // Pedstrian With Two Colors
-    Size colorSize = new Size(4, 4);                            // Size of the Rectangle
-    Color[] Colors = { Color.Red, Color.Yellow, Color.Green }; // All Possible Colors
-    Rectangle[] TrafficLightMachine;                           // The rectangle will hold the cordinate of the all traffic light
+    Rectangle[] TrafficLightMachine;                            // The rectangle will hold the cordinate of the all traffic light
     int innerCounter;                                           // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
     int outterCounter;                                          //Counter For the pair of each Traffic light;
     private TrafficColor CurrentColor;
@@ -30,6 +28,7 @@ public class TrafficLight
     // Constructor
     public TrafficLight(CrossingType ct)
     {
+        // initilization
         CurrentColor = new TrafficColor();
 
         switch (ct)
@@ -56,7 +55,10 @@ public class TrafficLight
 
 
     // Methods
- 
+    public void LightLogic()
+    {
+
+    }
 
     public void SetInnerCounter(int Seconds)
     {

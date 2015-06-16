@@ -20,7 +20,7 @@ namespace TrafficLightSimulator
     {
         private Simulator simulator;
         private Grid myGrid;
-        private Graphics g;
+        private Graphics myGraphics;
         private string lastSave;
         private string filename;
         private bool isSaved;
@@ -36,7 +36,7 @@ namespace TrafficLightSimulator
             simulator = new Simulator(this);
             myGrid = new Grid(24);
             this.DoubleBuffered = true;
-            //g = pictureBoxGrid.CreateGraphics();
+            //myGraphics = pictureBoxGrid.CreateGraphics();
             brush = new SolidBrush(Color.Blue);
             pen = new Pen(brush);
 
@@ -46,17 +46,17 @@ namespace TrafficLightSimulator
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void drawRoadObjects(List<RoadObject> ros)
         {
-           
+            int indexEnumrator = 0;
             foreach (RoadObject roadObject in ros)
             {
                 Point draggedPointer = roadObject.Coordinate;
-                g.DrawImage(roadObject.bitmap, draggedPointer);
+                myGraphics.DrawImage(roadObject.bitmap, draggedPointer);
                 // Drawing Trafficlight
                 foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight())
                 {
-                    //Point trafficLightC = new Point(tl.coordinate.X + roadObject.Coordinate.X)
-                    //g.DrawImage(tl.imagen tl.coordinate)
-                    g.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficCordinates[1].X, item.PedstrianTrafficCordinates[1].Y, 10, 10);
+                    myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficCordinates[indexEnumrator].X, item.PedstrianTrafficCordinates[indexEnumrator].Y, 10, 10);
+                    
+                    indexEnumrator++;
                   
                 }
             }
@@ -88,11 +88,11 @@ namespace TrafficLightSimulator
             int SquareSize = 150;
             for (int i = 0; i < 4; i++)
             {
-                g.DrawLine(Pens.Black, 0, i * SquareSize, 6 * SquareSize, i * SquareSize);
+                myGraphics.DrawLine(Pens.Black, 0, i * SquareSize, 6 * SquareSize, i * SquareSize);
             }
             for (int j = 0; j < 7; j++)
             {
-                g.DrawLine(Pens.LightGray, j * SquareSize, 0, j * SquareSize, 4 * SquareSize);
+                myGraphics.DrawLine(Pens.LightGray, j * SquareSize, 0, j * SquareSize, 4 * SquareSize);
             }
         }
 
@@ -106,7 +106,7 @@ namespace TrafficLightSimulator
                 roadPiece rp = moving.Path;
                 int x = roadObject.Coordinate.X + rp.coordinate.X + moving.CoordinateInRoadPiece.X;
                 int y = roadObject.Coordinate.Y + rp.coordinate.Y + moving.CoordinateInRoadPiece.Y;
-                g.DrawEllipse(pen, x, y, 4, 4);
+                myGraphics.DrawEllipse(pen, x, y, 4, 4);
             }
 
         }
@@ -114,7 +114,7 @@ namespace TrafficLightSimulator
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void clear()
         {
-            g.Clear(Color.White);
+            myGraphics.Clear(Color.White);
         }
 
         [MethodImpl(MethodImplOptions.Synchronized)]
@@ -194,7 +194,7 @@ namespace TrafficLightSimulator
             currentContext = BufferedGraphicsManager.Current;
             myBuffer = currentContext.Allocate(pictureBoxGrid.CreateGraphics(),
             pictureBoxGrid.DisplayRectangle);
-            g = myBuffer.Graphics;
+            myGraphics = myBuffer.Graphics;
         }
 
 
@@ -379,7 +379,7 @@ namespace TrafficLightSimulator
             
             if ( MessageBox.Show("Are you sure that u want to clear the workspace","",MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                g.Clear(Color.White);
+                myGraphics.Clear(Color.White);
                 this.simulator.RoadObjects = new List<RoadObject>();
                 DrawAll();
             }      
