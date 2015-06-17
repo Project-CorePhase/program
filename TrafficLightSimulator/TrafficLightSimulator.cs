@@ -180,6 +180,14 @@ namespace TrafficLightSimulator
                 Console.WriteLine("Crossing B was Drawn");
                 isSaved = false;
             }
+            else if (draggedImage == pictureBox_StrightLane.Image)
+            {
+                roadObject = new Crossing(draggedPointer, CrossingType.Straigh, draggedImage);
+                roadObject.bitmap = new Bitmap(draggedImage);
+                simulator.AddCrossing(roadObject);
+                Console.WriteLine("Straigh Lane was Drawn");
+                isSaved = false;
+            }
             else
             {
                 MessageBox.Show("Non of the crossings");
@@ -235,6 +243,7 @@ namespace TrafficLightSimulator
             pictureBoxGrid.AllowDrop = true;
             pictureBox_CrossingA.AllowDrop = true;
             pictureBox_CrossingB.AllowDrop = true;
+            pictureBox_StrightLane.AllowDrop = true;
             Console.WriteLine("Form Loaded With all Working componets");
         }
         /* Easter Egg*/
@@ -418,6 +427,11 @@ namespace TrafficLightSimulator
                 this.simulator.RoadObjects = new List<RoadObject>();
                 DrawAll();
             }
+        }
+
+        private void pictureBox_StrightLane_MouseMove(object sender, MouseEventArgs e)
+        {
+            label_MouseLocation.Text = e.Location.X + "," + e.Location.Y;
         }
 
     }
