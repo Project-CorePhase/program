@@ -172,22 +172,22 @@ namespace TrafficLightSimulator
                 }
                 foreach (RoadObject top in RoadObjects)
                 {
-                    if (ro.Coordinate.X == top.Coordinate.X - SquareSize)
+                    if (ro.Coordinate.X == top.Coordinate.X - SquareSize && ro.Coordinate.Y == top.Coordinate.Y)
                     {
                         top.EndPoints[(int)Orientation.Degree0].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree270] };
                         ro.ReferencePathLinked[(int)Orientation.Degree270] = true;
                     }
-                    else if (ro.Coordinate.Y == top.Coordinate.Y + SquareSize)
+                    else if (ro.Coordinate.Y == top.Coordinate.Y + SquareSize && ro.Coordinate.X == top.Coordinate.X)
                     {
                         top.EndPoints[(int)Orientation.Degree270].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree180] };
                         ro.ReferencePathLinked[(int)Orientation.Degree180] = true;
                     }
-                    else if (ro.Coordinate.X == top.Coordinate.X + SquareSize)
+                    else if (ro.Coordinate.X == top.Coordinate.X + SquareSize && ro.Coordinate.Y == top.Coordinate.Y)
                     {
                         top.EndPoints[(int)Orientation.Degree180].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree90] };
                         ro.ReferencePathLinked[(int)Orientation.Degree90] = true;
                     }
-                    else if (ro.Coordinate.Y == top.Coordinate.Y - SquareSize)
+                    else if (ro.Coordinate.Y == top.Coordinate.Y - SquareSize && ro.Coordinate.X == top.Coordinate.X)
                     {
                         top.EndPoints[(int)Orientation.Degree90].NextArray = new roadPiece[] { ro.ReferencePath[(int)Orientation.Degree0] };
                         ro.ReferencePathLinked[(int)Orientation.Degree0] = true;
@@ -206,6 +206,8 @@ namespace TrafficLightSimulator
                     }
                 }
             }
+            Console.WriteLine("Car startPoint : " + carStartPoints.Count);
+            Console.WriteLine("Pedestrian startPoint : " + PedestrianStartPoints.Count);
         }
     }
 
