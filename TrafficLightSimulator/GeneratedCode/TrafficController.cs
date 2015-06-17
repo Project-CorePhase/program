@@ -8,12 +8,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 [Serializable]
 public class TrafficController
 {
     //******************************************************************************************************************************
     // Feilds & properties
 	private  List<TrafficLight> TrafficGroupList{ get; set;}
+    
     int innerCounter;                                       // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
     int outterCounter;                                      //Counter For the pair of each Traffic light;
 
@@ -63,6 +65,16 @@ public class TrafficController
 	{
         return this.TrafficGroupList;
 	}
+    public void AddTrafficLightToRoadPiece(CrossingType ct , Point xy)
+    {
+        TrafficLight tf = new TrafficLight(ct, xy);
+        TrafficGroupList.Add(tf);
+    }
+
+    public void ResetTraffic()
+    {
+        TrafficGroupList.Clear();
+    }
 
 }
 
