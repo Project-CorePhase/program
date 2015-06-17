@@ -185,32 +185,47 @@ namespace TrafficLightSimulator
         {
             bool start = false;
             int i = 0;
-            simulator.amount = new int[textboxes.Count()];
-            //simulator.textboxes = textboxes;
-            foreach (TextBox Tb in textboxes)
-            {                
-                simulator.amount[i] = Convert.ToInt32(Tb.Text);
-                simulator.counter += Convert.ToInt32(Tb.Text);
-                i++;
-            }
-            foreach (TextBox box in textboxes)
+            if (textboxes != null )
             {
-                if (box.Text != "")
+                foreach (TextBox box in textboxes)
                 {
-                    start = true;
-                }
+                    if (box.Text != "")
+                    {
+                        start = true;
+                    }
+                    else
+                    {
+                        start = false;
+                    }
 
+                }
             }
+            else if (simulator.RoadObjects != null)
+            {
+                AddTextBox();
+            }
+            else
+            {
+                MessageBox.Show("Please add a Road Object first!");
+            }
+            
             if (start)
             {
+                simulator.amount = new int[textboxes.Count()];
+                foreach (TextBox Tb in textboxes)
+                {
+                    simulator.amount[i] = Convert.ToInt32(Tb.Text);
+                    simulator.counter += Convert.ToInt32(Tb.Text);
+                    i++;
+                }
                 simulator.SetTimerInterval(100);
+                toolStripButton3.Enabled = false;
             }
             else
             {
                 MessageBox.Show("Please enter The amount of cars you want!");
             }
-            //timer1.Enabled = false;
-            //simulator.SetTimerInterval(100);
+            
         }
         /* Form Load Event */
         private void TrafficLightSimulator_Load(object sender, EventArgs e)
@@ -318,6 +333,31 @@ namespace TrafficLightSimulator
         {
             const char Delete = (char)8;
             e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete;
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            if (!simulator.pause)
+            {
+                simulator.SetTimerInterval(0);
+                simulator.pause = true;
+            }
+            else if (simulator.pause)
+            {
+                simulator.SetTimerInterval(100);
+                simulator.pause = false;
+            }
+
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            simulator.SetTimerInterval(0);
+            simulator.Reset();
+            clear();
+            render();
+            //Add DrawAll() method here!
+            toolStripButton3.Enabled = true;
         }
     }
 }

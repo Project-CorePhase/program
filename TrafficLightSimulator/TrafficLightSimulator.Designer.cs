@@ -39,6 +39,7 @@
             this.MenuItem_Utilities = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Utilities_Undo = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Utilities_Redo = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCarAmountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.type3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.subTypeToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +64,6 @@
             this.pictureBox_CrossingA = new System.Windows.Forms.PictureBox();
             this.label_MouseLocation = new System.Windows.Forms.Label();
             this.pictureBoxGrid = new System.Windows.Forms.PictureBox();
-            this.addCarAmountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -145,14 +145,21 @@
             // MenuItem_Utilities_Undo
             // 
             this.MenuItem_Utilities_Undo.Name = "MenuItem_Utilities_Undo";
-            this.MenuItem_Utilities_Undo.Size = new System.Drawing.Size(152, 22);
+            this.MenuItem_Utilities_Undo.Size = new System.Drawing.Size(159, 22);
             this.MenuItem_Utilities_Undo.Text = "Undo";
             // 
             // MenuItem_Utilities_Redo
             // 
             this.MenuItem_Utilities_Redo.Name = "MenuItem_Utilities_Redo";
-            this.MenuItem_Utilities_Redo.Size = new System.Drawing.Size(152, 22);
+            this.MenuItem_Utilities_Redo.Size = new System.Drawing.Size(159, 22);
             this.MenuItem_Utilities_Redo.Text = "Redo";
+            // 
+            // addCarAmountToolStripMenuItem
+            // 
+            this.addCarAmountToolStripMenuItem.Name = "addCarAmountToolStripMenuItem";
+            this.addCarAmountToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.addCarAmountToolStripMenuItem.Text = "Add car amount";
+            this.addCarAmountToolStripMenuItem.Click += new System.EventHandler(this.addCarAmountToolStripMenuItem_Click);
             // 
             // type3ToolStripMenuItem
             // 
@@ -224,6 +231,7 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripButton5
             // 
@@ -233,6 +241,7 @@
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton5.Text = "toolStripButton5";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // toolStripButton6
             // 
@@ -378,13 +387,6 @@
             this.pictureBoxGrid.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxGrid_DragEnter);
             this.pictureBoxGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Grid_Paint);
             this.pictureBoxGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxGrid_MouseMove);
-            // 
-            // addCarAmountToolStripMenuItem
-            // 
-            this.addCarAmountToolStripMenuItem.Name = "addCarAmountToolStripMenuItem";
-            this.addCarAmountToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.addCarAmountToolStripMenuItem.Text = "Add car amount";
-            this.addCarAmountToolStripMenuItem.Click += new System.EventHandler(this.addCarAmountToolStripMenuItem_Click);
             // 
             // TrafficLightSimulator
             // 

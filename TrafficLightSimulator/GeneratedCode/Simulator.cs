@@ -18,6 +18,7 @@ namespace TrafficLightSimulator
         TrafficLightSimulator onform;
         List<roadPiece> carStartPoints = null;
         public int counter = 0;
+        public bool pause = false;
         public int[] amount;
         public Simulator(TrafficLightSimulator form)
         {
@@ -45,7 +46,7 @@ namespace TrafficLightSimulator
             {
                 if (rp != null && MovingObjects.Count <= counter)
                 {
-                    for (int i = 0; i < amount[0] - 1; i++)
+                    for (int i = 0; i < amount.Count(); i++)
                     {
                         this.addMovingObject(rp, false);
                     }
@@ -109,7 +110,11 @@ namespace TrafficLightSimulator
             }
             else
             {
-                Reset();
+                if (!pause)
+                {
+                    Reset();
+                }
+                
                 UpdateTimer.Interval = duration;
                 UpdateTimer.Start();
             }
@@ -144,6 +149,7 @@ namespace TrafficLightSimulator
 
             // Seconds we have to create cars
             MovingObjects = new List<MovingObject>();
+            
 
 
 
