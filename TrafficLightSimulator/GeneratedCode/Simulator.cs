@@ -17,6 +17,7 @@ namespace TrafficLightSimulator
         int SquareSize = 150;
         TrafficLightSimulator onform;
         List<roadPiece> carStartPoints = null;
+        List<roadPiece> PedestrianStartPoints = null;
         public Simulator(TrafficLightSimulator form)
         {
             onform = form;
@@ -45,6 +46,15 @@ namespace TrafficLightSimulator
                     if (rp != null && rd.Next(10) > 7 && MovingObjects.Count < 30)
                     {
                         this.addMovingObject(rp, false);
+                    }
+                }
+
+                // Add some pedestrian
+                foreach (roadPiece rp in PedestrianStartPoints)
+                {
+                    if (rp != null && rd.Next(10) > 7 && MovingObjects.Count < 30)
+                    {
+                        this.addMovingObject(rp, true);
                     }
                 }
 
@@ -149,9 +159,16 @@ namespace TrafficLightSimulator
         private void addConnections()
         {
             carStartPoints = new List<roadPiece>(); // reset the list
+            PedestrianStartPoints = new List<roadPiece>();
+
             Console.WriteLine("Adding connections");
             foreach (RoadObject ro in RoadObjects)
             {
+                // Add the pedestrian start point
+                if (ro.PedestrianStartPoint != null)
+                {
+                    PedestrianStartPoints.AddRange(ro.PedestrianStartPoint);
+                }
                 foreach (RoadObject top in RoadObjects)
                 {
                     if (ro.Coordinate.X == top.Coordinate.X - SquareSize)
