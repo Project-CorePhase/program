@@ -67,7 +67,8 @@ public class TrafficController
 	}
     public void AddTrafficLightToRoadPiece(CrossingType ct , Point xy)
     {
-        TrafficLight tf = new TrafficLight(ct, xy);
+        TrafficLight tf = new TrafficLight();
+        tf.TrafficlightCordinate = xy;
         TrafficGroupList.Add(tf);
     }
 
