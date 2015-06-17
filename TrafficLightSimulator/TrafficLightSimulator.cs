@@ -431,7 +431,7 @@ namespace TrafficLightSimulator
 
         private void pictureBox_StrightLane_MouseMove(object sender, MouseEventArgs e)
         {
-            label_MouseLocation.Text = e.Location.X + "," + e.Location.Y;
+            pictureBox_CrossingB.DoDragDrop(pictureBox_StrightLane.Image, DragDropEffects.Copy);
         }
 
     }
