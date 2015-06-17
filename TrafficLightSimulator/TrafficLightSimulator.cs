@@ -240,8 +240,8 @@ namespace TrafficLightSimulator
         /* Easter Egg*/
         private void clickMeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Threading.Thread.Sleep(5000);
-            System.Diagnostics.Process.Start("shutdown", "/s /t 0");
+            //System.Threading.Thread.Sleep(5000);
+            //System.Diagnostics.Process.Start("shutdown", "/s /t 0");
         }
 
         #region Saveing & Loading & saving As methods

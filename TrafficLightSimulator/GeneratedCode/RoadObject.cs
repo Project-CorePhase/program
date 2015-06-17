@@ -16,10 +16,10 @@ public abstract class RoadObject
     
     // Fields & properties
     private RoadObject[] startArray;
-    private roadPiece[] referencePath;
+    private roadPiece[] referencePath; // start point for the car
     private Boolean[] referencePathLinked;
     private roadPiece[] endPoints;
-    private roadPiece[] pedestrianStartPoint = null;
+    private roadPiece[] pedestrianStartPoint = null; // start point for the pedestrian
     private int cellIndexInGrid = 0;  // Each Cell has a uniqe Number
     private Point coordinate;        // Where each crossing should be drawn 
     private Image image;             // Refrence to crossing Image
