@@ -16,8 +16,8 @@ public class TrafficController
     // Feilds & properties
 	private  List<TrafficLight> TrafficGroupList{ get; set;}
     
-    int innerCounter;                                       // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
-    int outterCounter;                                      //Counter For the pair of each Traffic light;
+    private int innerCounter;                                       // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
+    private int outterCounter;                                      //Counter For the pair of each Traffic light;
 
     //******************************************************************************************************************************
     // constructor
@@ -44,9 +44,9 @@ public class TrafficController
         foreach (TrafficLight item in TrafficGroupList)
         {
             // TO DO : Form static set color to dynamic set color
-            if (innerCounter <0 )
+            if (innerCounter < 0 )
             {
-                item.SetColor(TrafficColor.Green);
+               item.SetColor();
             }
             // Update all the values
         }

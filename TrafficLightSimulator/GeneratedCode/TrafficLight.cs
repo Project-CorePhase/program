@@ -18,8 +18,15 @@ public class TrafficLight
     private TrafficColor CurrentColor;
     private Point trafficlightCordinate;
 
+
+
     // Properties
     //*****************************************************************************************************************************************
+        public Point TrafficlightCordinate
+    {
+        get { return trafficlightCordinate; }
+        set { trafficlightCordinate = value; }
+    }
     // Constructor
     public TrafficLight(CrossingType ct , Point tlc)
     {

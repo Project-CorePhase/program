@@ -42,11 +42,10 @@ namespace TrafficLightSimulator
 
             timer1.Enabled = true;
         }
-        
+
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void drawRoadObjects(List<RoadObject> ros)
         {
-            int indexEnumrator = 0;
             foreach (RoadObject roadObject in ros)
             {
                 Point draggedPointer = roadObject.Coordinate;
@@ -55,10 +54,9 @@ namespace TrafficLightSimulator
                 roadObject.TrafficController.Update();  // Abdullah Added The code here
                 foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight())
                 {
-                    myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficCordinates[indexEnumrator].X, item.PedstrianTrafficCordinates[indexEnumrator].Y, 10, 10);
-                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())), item.TrafficCordinates[indexEnumrator].X, item.TrafficCordinates[indexEnumrator].Y, 10, 10);
-                    indexEnumrator++;
-                  
+                    myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10);
+                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10);
+
                 }
             }
         }
@@ -256,7 +254,7 @@ namespace TrafficLightSimulator
             saveFileDialog.Filter = "TrafficSimulation Extension files (*.trf)|*.trf";
             saveFileDialog.FilterIndex = 1;
             saveFileDialog.RestoreDirectory = true;
-            
+
             if (lastSave != null)
             {
                 Stream stream = File.Open(lastSave, FileMode.Create);
@@ -269,47 +267,48 @@ namespace TrafficLightSimulator
             else
             {
                 DialogResult res = saveFileDialog.ShowDialog();
-               if( !(res == DialogResult.Cancel || res == DialogResult.Abort ||
-                   res == DialogResult.No || res == DialogResult.No)){
-
-               
-                if (lastSave == null)
-                {
-                    string fileName = saveFileDialog.FileName;
-                    lastSave = fileName;
-                }
-                try
+                if (!(res == DialogResult.Cancel || res == DialogResult.Abort ||
+                    res == DialogResult.No || res == DialogResult.No))
                 {
 
-                    if ((saveStream = saveFileDialog.OpenFile()) != null)
+
+                    if (lastSave == null)
                     {
-                        IFormatter formater = new BinaryFormatter();
-
-                        formater.Serialize(saveStream, simulator.RoadObjects);
-
+                        string fileName = saveFileDialog.FileName;
+                        lastSave = fileName;
                     }
+                    try
+                    {
 
-                    return true;
+                        if ((saveStream = saveFileDialog.OpenFile()) != null)
+                        {
+                            IFormatter formater = new BinaryFormatter();
+
+                            formater.Serialize(saveStream, simulator.RoadObjects);
+
+                        }
+
+                        return true;
+                    }
+                    catch (SerializationException e)
+                    {
+                        MessageBox.Show("A problem occurred, please try again.\n" + e.Message);
+                        return false;
+                    }
+                    catch (IOException x)
+                    {
+                        MessageBox.Show(x.Message);
+                        return false;
+                    }
+                    finally
+                    {
+                        if (saveStream != null) saveStream.Close();
+                    }
                 }
-                catch (SerializationException e)
+                else
                 {
-                    MessageBox.Show("A problem occurred, please try again.\n" + e.Message);
                     return false;
                 }
-                catch (IOException x)
-                {
-                    MessageBox.Show(x.Message);
-                    return false;
-                }
-                finally
-                {
-                    if (saveStream != null) saveStream.Close();
-                }
-               }
-               else
-               {
-                   return false;
-               }
             }
         }
 
@@ -407,20 +406,20 @@ namespace TrafficLightSimulator
         }
         private void saveAsSimulatorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           isSaved = SaveAs();
+            isSaved = SaveAs();
         }
 
         private void MenuItem_File_ClearSimulator_Click(object sender, EventArgs e)
         {
-            
-            if ( MessageBox.Show("Are you sure that u want to clear the workspace","",MessageBoxButtons.YesNo) == DialogResult.Yes)
+
+            if (MessageBox.Show("Are you sure that u want to clear the workspace", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 myGraphics.Clear(Color.White);
                 this.simulator.RoadObjects = new List<RoadObject>();
                 DrawAll();
-            }      
+            }
         }
-       
+
     }
 }
 
