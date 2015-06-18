@@ -17,9 +17,10 @@ public class TrafficLight
     //****************************************************************************************************************************************
     private TrafficColor CurrentColor;
     private Point trafficlightCordinate;
+    private int Synchronizer; // To return which Traffic light Gruop it should return // 1 without pedstrian // with pedstrian
     // Properties
     //*****************************************************************************************************************************************
-        public Point TrafficlightCordinate
+    public Point TrafficlightCordinate
     {
         get { return trafficlightCordinate; }
         set { trafficlightCordinate = value; }

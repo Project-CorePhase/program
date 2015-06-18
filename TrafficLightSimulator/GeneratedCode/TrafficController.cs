@@ -14,67 +14,100 @@ public class TrafficController
 {
     //******************************************************************************************************************************
     // Feilds & properties
-	private  List<TrafficLight> TrafficGroupList{ get; set;}
-    
+    private List<TrafficLight> TrafficGroupListWithPedstrian { get; set; }
+    private List<TrafficLight> TrafficGroupListWithoutPedstrian { get; set; }
+
     private int innerCounter;                                       // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
     private int outterCounter;                                      //Counter For the pair of each Traffic light;
-
     //******************************************************************************************************************************
     // constructor
 
     public TrafficController()
     {
         innerCounter = 6; // Every 6 seconds the timer will change the value By setting
-        TrafficGroupList = new List<TrafficLight>();
+        int ColorPicker;
+        TrafficGroupListWithPedstrian = new List<TrafficLight>();   //  Array with 6 corrdinates 
+        TrafficGroupListWithoutPedstrian = new List<TrafficLight>();// Array with 4 corrdinates
     }
 
     //******************************************************************************************************************************
     //Methods
-	public void SetSensor()
-	{
+    public void SetSensor()
+    {
         // TODO
-	}
+    }
 
-	public  void Update()
-	{
+    public void Update()
+    {
         // Called at each timer tick 
         // Update Values By changeing the colors of each Cordinate in the traffic light 
         // The update Happens by the inner Counter and Outter Counter 
         innerCounter--;
-        foreach (TrafficLight item in TrafficGroupList)
+        foreach (TrafficLight item in TrafficGroupListWithoutPedstrian)
         {
             // TO DO : Form static set color to dynamic set color
-            if (innerCounter < 0 )
+            if (innerCounter < 0)
             {
-               
+
             }
             // Update all the values
         }
-	}
-    
+
+    }
+
     public void SetInnerCounter(int Seconds)
     {
         innerCounter = Seconds;
-    } 
+    }
     public void SetOutterCounter(int Seconds)
     {
         outterCounter = Seconds;
     }
 
-	public  List<TrafficLight> GetTrafficLight()
-	{
-        return this.TrafficGroupList;
-	}
-    public void AddTrafficLightToRoadPiece(CrossingType ct , Point xy)
+    public List<TrafficLight> GetTrafficLight(CrossingType ct)
     {
-        TrafficLight tf = new TrafficLight();
-        tf.TrafficlightCordinate = xy;
-        TrafficGroupList.Add(tf);
+        List<TrafficLight> temp = null;
+        switch (ct)
+        {
+            case CrossingType.CrossingWithPedestrian:
+                temp = this.TrafficGroupListWithPedstrian;
+                break;
+            case CrossingType.CrossingWithoutPedestrian:
+                temp = this.TrafficGroupListWithoutPedstrian;
+                break;
+        }
+        return temp;
+    }
+    public void AddTrafficLightToRoadPiece(CrossingType ct, Point xy)
+    {
+        switch (ct)
+        {
+            case CrossingType.CrossingWithPedestrian:
+
+                foreach (TrafficLight item in TrafficGroupListWithPedstrian)
+                {
+                    TrafficLight tf = new TrafficLight();
+                    tf.TrafficlightCordinate = xy;
+                    TrafficGroupListWithPedstrian.Add(tf);
+                }
+                break;
+
+            case CrossingType.CrossingWithoutPedestrian:
+                foreach (TrafficLight item in TrafficGroupListWithoutPedstrian)
+                {
+                    TrafficLight tf = new TrafficLight();
+                    tf.TrafficlightCordinate = xy;
+                    TrafficGroupListWithoutPedstrian.Add(tf);
+                }
+                break;
+        }
+
+
     }
 
     public void ResetTraffic()
     {
-        TrafficGroupList.Clear();
+        innerCounter = 6;
     }
 
 }

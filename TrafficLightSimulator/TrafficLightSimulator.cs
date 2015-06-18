@@ -52,11 +52,15 @@ namespace TrafficLightSimulator
                 myGraphics.DrawImage(roadObject.bitmap, draggedPointer);
                 // Drawing Trafficlight
                 roadObject.TrafficController.Update();  // Abdullah Added The code here
-                foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight())
+                foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight(CrossingType.CrossingWithPedestrian))
                 {
                     myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10);
-                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10);
-
+                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10); ;
+                }
+                foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight(CrossingType.CrossingWithoutPedestrian))
+                {
+                    myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10);
+                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10); ;
                 }
             }
         }
