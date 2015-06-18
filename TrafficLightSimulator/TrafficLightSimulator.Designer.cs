@@ -385,10 +385,7 @@
             this.label_MouseLocation.Size = new System.Drawing.Size(17, 17);
             this.label_MouseLocation.TabIndex = 13;
             this.label_MouseLocation.Text = ":-";
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+
             // 
             // pictureBoxGrid
             // 

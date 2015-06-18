@@ -12,8 +12,10 @@ using System.Timers;
 namespace TrafficLightSimulator
 {
     [Serializable]
+    
     public class Simulator
     {
+        private bool isDrawing = false;
         int SquareSize = 150;
         TrafficLightSimulator onform;
         List<roadPiece> carStartPoints = null;
@@ -76,16 +78,16 @@ namespace TrafficLightSimulator
                     }
                 }
                 MovingObjects = tmp;
-
-   
-                onform.clear();
-                onform.drawGrid();
-                onform.drawRoadObjects(this.RoadObjects);
-                onform.drawMovingObject(this.MovingObjects);
-                onform.render();
-
-
-            
+                
+                if (this.isDrawing == false) {
+                    isDrawing = true;
+                    onform.clear();
+                    onform.drawGrid();
+                    onform.drawRoadObjects(this.RoadObjects);
+                    onform.drawMovingObject(this.MovingObjects);
+                    onform.render();
+                    isDrawing = false;
+                }
         }
 
         public List<MovingObject> MovingObjects = null;

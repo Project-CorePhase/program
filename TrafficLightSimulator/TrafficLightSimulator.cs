@@ -40,7 +40,6 @@ namespace TrafficLightSimulator
             brush = new SolidBrush(Color.Blue);
             pen = new Pen(brush);
 
-            timer1.Enabled = true;
         }
 
         [MethodImpl(MethodImplOptions.Synchronized)]
@@ -143,20 +142,13 @@ namespace TrafficLightSimulator
         {
             myGraphics.Clear(Color.White);
         }
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (simulator.RoadObjects != null)
-            {
-                DrawAll();
-            }
-        }
+
 
         private void DrawAll()
         {
             clear();
             drawGrid();
             drawRoadObjects(simulator.RoadObjects);
-            timer1.Enabled = true;
             render();
         }
 
@@ -269,7 +261,6 @@ namespace TrafficLightSimulator
         /*Menu Item */
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
             simulator.SetTimerInterval(100);
         }
         /* Form Load Event */
