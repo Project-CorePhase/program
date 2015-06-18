@@ -56,12 +56,40 @@ public class Crossing : RoadObject
                 Image = TrafficLightSimulator.Properties.Resources.crossingB;
                 crossingWithPedestrian();
                 break;
+            case CrossingType.Straigh:
+                Image = TrafficLightSimulator.Properties.Resources.lane;
+                Straigh();
+                break;
                 
             default :
             System.Windows.Forms.MessageBox.Show("Error From the Crossing class");
                 break;
 
         }
+    }
+
+    private void Straigh()
+    {
+        this.Image = TrafficLightSimulator.Properties.Resources.lane;
+        // For all direction, we're making the graph
+        // First, we need the global direction of this direction
+        Orientation o = this.Oriention;
+        roadPiece rp0StartPoint = new roadPiece(this, new roadPiece[] { EndPoints[(int)getGlobalOrientationFromLocal(Orientation.Degree270, o)] }); 
+        rp0StartPoint.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree270, o);
+        rp0StartPoint.coordinate = rotatePoint(o, new System.Drawing.Point(56, 0));
+        rp0StartPoint.size = rotatePoint(o, new System.Drawing.Point(140, 140));
+
+        roadPiece rp1StartPoint = new roadPiece(this, new roadPiece[] { EndPoints[(int)getGlobalOrientationFromLocal(Orientation.Degree90, o)] });
+        rp1StartPoint.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
+        rp1StartPoint.coordinate = rotatePoint(o, new System.Drawing.Point(84, 150));
+        rp1StartPoint.size = rotatePoint(o, new System.Drawing.Point(140, 140));
+
+        //  assign the start point
+        this.ReferencePath[(int)o] = rp0StartPoint;
+        this.ReferencePath[(int)getGlobalOrientationFromLocal(Orientation.Degree180, o)] = rp0StartPoint;
+
+        this.ReferencePath[(int)o] = rp1StartPoint;
+        this.ReferencePath[(int)getGlobalOrientationFromLocal(Orientation.Degree0, o)] = rp1StartPoint;
     }
 
     public System.Drawing.Point rotatePoint(Orientation o, System.Drawing.Point p)
@@ -192,7 +220,11 @@ public class Crossing : RoadObject
             roadPiece rp1 = new roadPiece(this, rp3deg0EndPoint);
             rp1.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
             rp1.size = new System.Drawing.Point(23, 23);
+<<<<<<< HEAD
             rp1.trafficlightRefrence = new TrafficLight(); // Emeric change the point her
+=======
+            //rp1.trafficlightRefrence = new TrafficLight(CrossingType.CrossingWithoutPedestrian,new Point(0,0)); // Emeric change the point here
+>>>>>>> origin/trafficlight
             rp1.coordinate = rotatePoint(o, new System.Drawing.Point(100, 133));
 
 
@@ -246,7 +278,11 @@ public class Crossing : RoadObject
             roadPiece rp1 = new roadPiece(this, rp3deg0EndPoint);
             rp1.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
             rp1.size = new System.Drawing.Point(23, 23);
+<<<<<<< HEAD
             rp1.trafficlightRefrence = new TrafficLight(); // Emeric change the Point here plz
+=======
+           // rp1.trafficlightRefrence = new TrafficLight(CrossingType.CrossingWithoutPedestrian, new Point(0,0)); // Emeric change the Point here plz
+>>>>>>> origin/trafficlight
             rp1.coordinate = rotatePoint(o, new System.Drawing.Point(100, 133));
 
 

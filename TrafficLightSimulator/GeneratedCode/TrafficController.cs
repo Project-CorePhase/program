@@ -48,7 +48,11 @@ public class TrafficController
             // TO DO : Form static set color to dynamic set color
             if (innerCounter < 0)
             {
+<<<<<<< HEAD
 
+=======
+                //  item.SetColor();
+>>>>>>> origin/trafficlight
             }
             // Update all the values
         }
