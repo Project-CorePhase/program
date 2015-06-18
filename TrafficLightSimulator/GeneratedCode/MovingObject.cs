@@ -14,7 +14,6 @@ namespace TrafficLightSimulator
     {
         // Feilds;
         // the size in pixel for calculate the coordinate
-        private int roadPieceSize = 10;
         private Point coordinateInRoadPiece;
         private Boolean isPedestrian;
         private Boolean isAlive;
@@ -100,10 +99,6 @@ namespace TrafficLightSimulator
             return coordinateInRoadPiece;
         }
 
-        public void DrawMovingObject(System.Drawing.Graphics graphics, Boolean isPedstrian)
-        {
-
-        }
 
     }
 

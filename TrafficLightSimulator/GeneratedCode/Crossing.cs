@@ -29,7 +29,6 @@ public class Crossing : RoadObject
     }
 
  public void setRoadPiece() {
-     Console.WriteLine("Reseting");
         this.ReferencePath = new roadPiece[4];
         this.ReferencePathLinked = new Boolean[4];
 

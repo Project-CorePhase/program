@@ -154,10 +154,6 @@ namespace TrafficLightSimulator
 
         }
 
-        public void updateGraphic()
-        {
-            throw new System.NotImplementedException();
-        }
 
         private void addConnections()
         {
