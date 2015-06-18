@@ -220,11 +220,11 @@ public class Crossing : RoadObject
             roadPiece rp1 = new roadPiece(this, rp3deg0EndPoint);
             rp1.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
             rp1.size = new System.Drawing.Point(23, 23);
-<<<<<<< HEAD
+
             rp1.trafficlightRefrence = new TrafficLight(); // Emeric change the point her
-=======
+
             //rp1.trafficlightRefrence = new TrafficLight(CrossingType.CrossingWithoutPedestrian,new Point(0,0)); // Emeric change the point here
->>>>>>> origin/trafficlight
+
             rp1.coordinate = rotatePoint(o, new System.Drawing.Point(100, 133));
 
 
@@ -278,11 +278,11 @@ public class Crossing : RoadObject
             roadPiece rp1 = new roadPiece(this, rp3deg0EndPoint);
             rp1.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
             rp1.size = new System.Drawing.Point(23, 23);
-<<<<<<< HEAD
+
             rp1.trafficlightRefrence = new TrafficLight(); // Emeric change the Point here plz
-=======
+
            // rp1.trafficlightRefrence = new TrafficLight(CrossingType.CrossingWithoutPedestrian, new Point(0,0)); // Emeric change the Point here plz
->>>>>>> origin/trafficlight
+
             rp1.coordinate = rotatePoint(o, new System.Drawing.Point(100, 133));
 
 
