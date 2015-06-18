@@ -14,8 +14,8 @@ public class TrafficController
 {
     //******************************************************************************************************************************
     // Feilds & properties
+    private List<TrafficLight> TrafficGroupList { get; set; }
     private List<TrafficLight> TrafficGroupListWithPedstrian { get; set; }
-    private List<TrafficLight> TrafficGroupListWithoutPedstrian { get; set; }
 
     private int innerCounter;                                       // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
     private int outterCounter;                                      //Counter For the pair of each Traffic light;
@@ -26,8 +26,8 @@ public class TrafficController
     {
         innerCounter = 6; // Every 6 seconds the timer will change the value By setting
         int ColorPicker;
-        TrafficGroupListWithPedstrian = new List<TrafficLight>();   //  Array with 6 corrdinates 
-        TrafficGroupListWithoutPedstrian = new List<TrafficLight>();// Array with 4 corrdinates
+        TrafficGroupList = new List<TrafficLight>();   //  Array with 6 corrdinates 
+        TrafficGroupListWithPedstrian = new List<TrafficLight>();// Array with 4 corrdinates
     }
 
     //******************************************************************************************************************************
@@ -43,17 +43,18 @@ public class TrafficController
         // Update Values By changeing the colors of each Cordinate in the traffic light 
         // The update Happens by the inner Counter and Outter Counter 
         innerCounter--;
-        foreach (TrafficLight item in TrafficGroupListWithoutPedstrian)
+        foreach (TrafficLight item in TrafficGroupList)
         {
             // TO DO : Form static set color to dynamic set color
             if (innerCounter < 0)
             {
-
-
-                //  item.SetColor();
-
+                //  item.SetColor();]
             }
             // Update all the values
+        }
+        foreach (TrafficLight item in TrafficGroupListWithPedstrian)
+        {
+            
         }
 
     }
@@ -67,16 +68,16 @@ public class TrafficController
         outterCounter = Seconds;
     }
 
-    public List<TrafficLight> GetTrafficLight(CrossingType ct)
+    public List<TrafficLight> GetTrafficLight(int index)
     {
         List<TrafficLight> temp = null;
-        switch (ct)
+        switch (index)
         {
-            case CrossingType.CrossingWithPedestrian:
-                temp = this.TrafficGroupListWithPedstrian;
+            case 1 :
+                temp = this.TrafficGroupList;
                 break;
-            case CrossingType.CrossingWithoutPedestrian:
-                temp = this.TrafficGroupListWithoutPedstrian;
+            case 2 :
+                temp = this.TrafficGroupListWithPedstrian;
                 break;
         }
         return temp;
@@ -87,20 +88,20 @@ public class TrafficController
         {
             case CrossingType.CrossingWithPedestrian:
 
+                foreach (TrafficLight item in TrafficGroupList)
+                {
+                    TrafficLight tf = new TrafficLight();
+                    tf.TrafficlightCordinate = xy;
+                    TrafficGroupList.Add(tf);
+                }
+                break;
+
+            case CrossingType.CrossingWithoutPedestrian:
                 foreach (TrafficLight item in TrafficGroupListWithPedstrian)
                 {
                     TrafficLight tf = new TrafficLight();
                     tf.TrafficlightCordinate = xy;
                     TrafficGroupListWithPedstrian.Add(tf);
-                }
-                break;
-
-            case CrossingType.CrossingWithoutPedestrian:
-                foreach (TrafficLight item in TrafficGroupListWithoutPedstrian)
-                {
-                    TrafficLight tf = new TrafficLight();
-                    tf.TrafficlightCordinate = xy;
-                    TrafficGroupListWithoutPedstrian.Add(tf);
                 }
                 break;
         }
