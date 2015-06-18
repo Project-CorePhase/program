@@ -25,6 +25,7 @@ public class TrafficController
     public TrafficController()
     {
         innerCounter = 6; // Every 6 seconds the timer will change the value By setting
+        outterCounter = 0;
         int ColorPicker;
         TrafficGroupList = new List<TrafficLight>();   //  Array with 6 corrdinates 
         TrafficGroupListWithPedstrian = new List<TrafficLight>();// Array with 4 corrdinates
@@ -48,9 +49,9 @@ public class TrafficController
             // TO DO : Form static set color to dynamic set color
             if (innerCounter < 0)
             {
-                //  item.SetColor();]
+                item.SetColor((int)TrafficColor.Red);
             }
-            // Update all the values
+          
         }
         foreach (TrafficLight item in TrafficGroupListWithPedstrian)
         {
@@ -101,6 +102,12 @@ public class TrafficController
     public void ResetTraffic()
     {
         innerCounter = 6;
+    }
+    public int IncrementListener()
+    {
+        int holder = outterCounter++;
+        holder = holder + 1 % 3;
+        return holder;
     }
 
 }
