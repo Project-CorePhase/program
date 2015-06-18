@@ -60,6 +60,10 @@ public class Crossing : RoadObject
                 Image = TrafficLightSimulator.Properties.Resources.lane;
                 Straigh();
                 break;
+            case CrossingType.Curved:
+                Image = TrafficLightSimulator.Properties.Resources.curve;
+                Curved();
+                break;
                 
             default :
             System.Windows.Forms.MessageBox.Show("Error From the Crossing class");
@@ -91,6 +95,45 @@ public class Crossing : RoadObject
         this.ReferencePath[(int)o] = rp1StartPoint;
         this.ReferencePath[(int)getGlobalOrientationFromLocal(Orientation.Degree0, o)] = rp1StartPoint;
     }
+
+
+    private void Curved()
+    {
+        this.Image = TrafficLightSimulator.Properties.Resources.lane;
+        // For all direction, we're making the graph
+        // First, we need the global direction of this direction
+        Orientation o = this.Oriention;
+
+        // First direction
+        roadPiece rp0endPoint = new roadPiece(this, new roadPiece[] { EndPoints[(int)getGlobalOrientationFromLocal(Orientation.Degree180, o)] });
+        rp0endPoint.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree180, o);
+        rp0endPoint.coordinate = rotatePoint(o, new System.Drawing.Point(59, 95));
+        rp0endPoint.size = rotatePoint(o, new System.Drawing.Point(75, 75));
+
+        roadPiece rp0StartPoint = new roadPiece(this, rp0endPoint);
+        rp0StartPoint.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree270, o);
+        rp0StartPoint.coordinate = rotatePoint(o, new System.Drawing.Point(56, 0));
+        rp0StartPoint.size = rotatePoint(o, new System.Drawing.Point(90, 90));
+        // Second direction
+
+        roadPiece rp1endPoint = new roadPiece(this, new roadPiece[] { EndPoints[(int)getGlobalOrientationFromLocal(Orientation.Degree90, o)] });
+        rp1endPoint.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
+        rp1endPoint.coordinate = rotatePoint(o, new System.Drawing.Point(96, 66));
+        rp1endPoint.size = rotatePoint(o, new System.Drawing.Point(50, 50));
+
+        roadPiece rp1StartPoint = new roadPiece(this, new roadPiece[] { rp1endPoint });
+        rp1StartPoint.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree0, o);
+        rp1StartPoint.coordinate = rotatePoint(o, new System.Drawing.Point(147, 65));
+        rp1StartPoint.size = rotatePoint(o, new System.Drawing.Point(50, 50));
+
+        //  assign the start point
+        this.ReferencePath[(int)o] = rp0StartPoint;
+        this.ReferencePath[(int)getGlobalOrientationFromLocal(Orientation.Degree180, o)] = rp0StartPoint;
+
+        this.ReferencePath[(int)o] = rp1StartPoint;
+        this.ReferencePath[(int)getGlobalOrientationFromLocal(Orientation.Degree0, o)] = rp1StartPoint;
+    }
+
 
     public System.Drawing.Point rotatePoint(Orientation o, System.Drawing.Point p)
     {

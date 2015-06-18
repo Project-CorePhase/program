@@ -227,9 +227,9 @@
             this.groupBox2.Controls.Add(this.pictureBox_CrossingB);
             this.groupBox2.Controls.Add(this.pictureBox_CrossingA);
             this.groupBox2.Location = new System.Drawing.Point(16, 64);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(167, 655);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
@@ -288,7 +288,7 @@
             // textBox_InputCars
             // 
             this.textBox_InputCars.Location = new System.Drawing.Point(13, 625);
-            this.textBox_InputCars.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_InputCars.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_InputCars.Name = "textBox_InputCars";
             this.textBox_InputCars.Size = new System.Drawing.Size(137, 22);
             this.textBox_InputCars.TabIndex = 5;
@@ -324,12 +324,14 @@
             // 
             // pictureBox_CurvedLane
             // 
+            this.pictureBox_CurvedLane.Image = global::TrafficLightSimulator.Properties.Resources.curve;
             this.pictureBox_CurvedLane.Location = new System.Drawing.Point(8, 484);
             this.pictureBox_CurvedLane.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox_CurvedLane.Name = "pictureBox_CurvedLane";
             this.pictureBox_CurvedLane.Size = new System.Drawing.Size(143, 118);
             this.pictureBox_CurvedLane.TabIndex = 7;
             this.pictureBox_CurvedLane.TabStop = false;
+            this.pictureBox_CurvedLane.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_CurvedLane_MouseMove);
             // 
             // pictureBox_StrightLane
             // 
@@ -414,7 +416,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TrafficLightSimulator";
             this.Text = "Traffic Light Simulator";
             this.Load += new System.EventHandler(this.TrafficLightSimulator_Load);
