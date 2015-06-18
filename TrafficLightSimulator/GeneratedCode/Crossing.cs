@@ -327,7 +327,7 @@ public class Crossing : RoadObject
             rp3deg0EndPoint.size = new System.Drawing.Point(30, 30);
             // Traffic Related
             rp3deg0EndPoint.trafficlightRefrence = new TrafficLight();
-            rp3deg0EndPoint.trafficlightRefrence.SetCorrdinates(new Point(120, 30));
+            rp3deg0EndPoint.trafficlightRefrence.SetCorrdinates(rotatePoint(o, new System.Drawing.Point(120, 30)));
             TrafficController.AddTrafficLightToRoadPiece(CrossingType.CrossingWithoutPedestrian, rp3deg0EndPoint.trafficlightRefrence);
 
             roadPiece rp1 = new roadPiece(this, rp3deg0EndPoint);
