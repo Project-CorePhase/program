@@ -27,7 +27,7 @@ public class TrafficLight
     // Constructor
     public TrafficLight()
     {
-        CurrentColor = new TrafficColor();
+        TrafficlightCordinate = new Point(0, 0);
     }
 
     //*****************************************************************************************************************************************

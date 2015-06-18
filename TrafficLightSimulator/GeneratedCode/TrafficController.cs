@@ -50,7 +50,8 @@ public class TrafficController
             // TO DO : Form static set color to dynamic set color
             if (innerCounter < 0)
             {
-                item.SetColor(IncrementListener());
+                int temp = IncrementListener();
+                item.SetColor(temp);
                 ResetTraffic();
                 Console.WriteLine("Color should change " + item.GetColor());
             }
@@ -68,19 +69,13 @@ public class TrafficController
         innerCounter = Seconds;
     }
 
-    public List<TrafficLight> GetTrafficLight(int index)
+    public List<TrafficLight> GetTrafficLight()
     {
-        List<TrafficLight> temp = null;
-        switch (index)
-        {
-            case 1 :
-                temp = this.TrafficGroupList;
-                break;
-            case 2 :
-                temp = this.TrafficGroupListWithPedstrian;
-                break;
-        }
-        return temp;
+        return TrafficGroupList;       
+    }
+    public List<TrafficLight> GetTrafficLightWithPedstrian()
+    {
+        return TrafficGroupListWithPedstrian;
     }
     public void AddTrafficLightToRoadPiece(CrossingType ct, TrafficLight obj)
     {
@@ -104,9 +99,10 @@ public class TrafficController
     }
     public int IncrementListener()
     {
-        int holder = outterCounter++;
-        holder = holder + 1 % 3;
-        Console.WriteLine("Holder Of logic is : " + holder);
+       int holder;
+       holder = (outterCounter) % 3;
+       outterCounter += 1;
+        Console.WriteLine("Holder Of logic is : " + holder + " Outtercounter is :" + outterCounter);
         return holder;
     }
 
