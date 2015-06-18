@@ -261,7 +261,6 @@ public class Crossing : RoadObject
             // Now generating the good coordinate from 84, 125 which is the point on the picture of Abdullah
             rp3deg0EndPoint.coordinate = rotatePoint(o, new System.Drawing.Point(100, 90));
             rp3deg0EndPoint.size = new System.Drawing.Point(30, 30);
-            rp3deg0EndPoint.trafficlightRefrence.TrafficlightCordinate = new Point(100, 90);
 
             roadPiece rp1 = new roadPiece(this, rp3deg0EndPoint);
             rp1.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
@@ -315,6 +314,10 @@ public class Crossing : RoadObject
             // Now generating the good coordinate from 84, 125 which is the point on the picture of Abdullah
             rp3deg0EndPoint.coordinate = rotatePoint(o, new System.Drawing.Point(100, 90));
             rp3deg0EndPoint.size = new System.Drawing.Point(30, 30);
+            // Traffic Related
+            rp3deg0EndPoint.trafficlightRefrence = new TrafficLight();
+            rp3deg0EndPoint.trafficlightRefrence.SetCorrdinates(new Point(120, 30));
+            TrafficController.AddTrafficLightToRoadPiece(CrossingType.CrossingWithoutPedestrian, rp3deg0EndPoint.trafficlightRefrence);
 
             roadPiece rp1 = new roadPiece(this, rp3deg0EndPoint);
             rp1.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);

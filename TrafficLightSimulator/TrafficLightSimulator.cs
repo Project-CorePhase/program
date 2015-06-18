@@ -54,14 +54,17 @@ namespace TrafficLightSimulator
                 roadObject.TrafficController.Update();  // Abdullah Added The code here
                 foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight(1))
                 {
-                    myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10);
-                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10); ;
+                    myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 5, 5);
+                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 5, 5);
+                    Console.WriteLine("Traffic Light Type 1 - line 59 Traffic Light Simulator");
                 }
                 foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight(2))
                 {
                     myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10);
-                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10); ;
+                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10);
+                    Console.WriteLine("Traffic Light Type 2 - line 65 Traffic Light Simulator");
                 }
+
             }
         }
 
