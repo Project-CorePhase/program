@@ -17,7 +17,6 @@ public class TrafficLight
     //****************************************************************************************************************************************
     private TrafficColor CurrentColor;
     private Point trafficlightCordinate;
-    private int Synchronizer; // To return which Traffic light Gruop it should return // 1 without pedstrian // with pedstrian
     // Properties
     //*****************************************************************************************************************************************
     public Point TrafficlightCordinate
@@ -33,17 +32,17 @@ public class TrafficLight
 
     //*****************************************************************************************************************************************
     // Methods
-    public void SetColor(TrafficColor color)
+    public void SetColor(int color)
     {
         switch (color)
         {
-            case TrafficColor.Red:
+            case 0:
                 CurrentColor = TrafficColor.Red;
                 break;
-            case TrafficColor.Yellow:
+            case 1:
                 CurrentColor = TrafficColor.Yellow;
                 break;
-            case TrafficColor.Green:
+            case 2:
                 CurrentColor = TrafficColor.Green;
                 break;
 

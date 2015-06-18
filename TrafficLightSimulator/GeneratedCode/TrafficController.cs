@@ -19,14 +19,15 @@ public class TrafficController
 
     private int innerCounter;                                       // Counter For How many Seconds each traffic - "Stand Alone" - can be set for
     private int outterCounter;                                      //Counter For the pair of each Traffic light;
+    private const int constatntTimerDown = 60;
     //******************************************************************************************************************************
     // constructor
 
     public TrafficController()
     {
-        innerCounter = 6; // Every 6 seconds the timer will change the value By setting
+
+        innerCounter = constatntTimerDown; // Every 6 seconds the timer will change the value By setting
         outterCounter = 0;
-        int ColorPicker;
         TrafficGroupList = new List<TrafficLight>();   //  Array with 6 corrdinates 
         TrafficGroupListWithPedstrian = new List<TrafficLight>();// Array with 4 corrdinates
     }
@@ -49,7 +50,9 @@ public class TrafficController
             // TO DO : Form static set color to dynamic set color
             if (innerCounter < 0)
             {
-                item.SetColor((int)TrafficColor.Red);
+                item.SetColor(IncrementListener());
+                ResetTraffic();
+                Console.WriteLine("Color should change " + item.GetColor());
             }
           
         }
@@ -63,10 +66,6 @@ public class TrafficController
     public void SetInnerCounter(int Seconds)
     {
         innerCounter = Seconds;
-    }
-    public void SetOutterCounter(int Seconds)
-    {
-        outterCounter = Seconds;
     }
 
     public List<TrafficLight> GetTrafficLight(int index)
@@ -101,14 +100,16 @@ public class TrafficController
 
     public void ResetTraffic()
     {
-        innerCounter = 6;
+        innerCounter = constatntTimerDown;
     }
     public int IncrementListener()
     {
         int holder = outterCounter++;
         holder = holder + 1 % 3;
+        Console.WriteLine("Holder Of logic is : " + holder);
         return holder;
     }
+
 
 }
 

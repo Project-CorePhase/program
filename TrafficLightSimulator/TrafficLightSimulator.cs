@@ -18,6 +18,7 @@ namespace TrafficLightSimulator
     [Serializable]
     public partial class TrafficLightSimulator : Form
     {
+        private int TEST = 0;
         private Simulator simulator;
         private Grid myGrid;
         private Graphics myGraphics;
@@ -54,13 +55,18 @@ namespace TrafficLightSimulator
                 roadObject.TrafficController.Update();  // Abdullah Added The code here
                 foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight(1))
                 {
-                    myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 5, 5);
-                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 5, 5);
+                    int x = roadObject.Coordinate.X + item.TrafficlightCordinate.X;
+                    int y = roadObject.Coordinate.Y + item.TrafficlightCordinate.Y;
+                    myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))),x,y, 5, 5);
+                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())),x,y, 5, 5);
+
                 }
                 foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight(2))
                 {
-                    myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10);
-                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())), item.TrafficlightCordinate.X, item.TrafficlightCordinate.Y, 10, 10);
+                    int x = roadObject.Coordinate.X + item.TrafficlightCordinate.X;
+                    int y = roadObject.Coordinate.Y + item.TrafficlightCordinate.Y;
+                    myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))),x, y, 10, 10);
+                    myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())),x,y, 10, 10);
                 }
 
             }
