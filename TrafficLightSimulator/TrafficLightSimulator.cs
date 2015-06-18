@@ -58,7 +58,6 @@ namespace TrafficLightSimulator
                     int y = roadObject.Coordinate.Y + item.TrafficlightCordinate.Y;
                     myGraphics.DrawEllipse(new Pen(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor()))),x,y, 5, 5);
                     myGraphics.FillEllipse(new SolidBrush(DetermineColorOfTrafficLight(item.GetColor())),x,y, 5, 5);
-                    Console.WriteLine(item.GetColor());
 
                 }
                 foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLightWithPedstrian())

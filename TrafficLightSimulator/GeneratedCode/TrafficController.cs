@@ -45,17 +45,14 @@ public class TrafficController
         // Update Values By changeing the colors of each Cordinate in the traffic light 
         // The update Happens by the inner Counter and Outter Counter 
         innerCounter--;
-        foreach (TrafficLight item in TrafficGroupList)
+        if (innerCounter < 0)
         {
-            // TO DO : Form static set color to dynamic set color
-            if (innerCounter < 0)
+            int temp = IncrementListener();
+            ResetTraffic();
+            foreach (TrafficLight item in TrafficGroupList)
             {
-                int temp = IncrementListener();
                 item.SetColor(temp);
-                ResetTraffic();
-                Console.WriteLine("Color should change " + item.GetColor());
             }
-          
         }
         foreach (TrafficLight item in TrafficGroupListWithPedstrian)
         {
