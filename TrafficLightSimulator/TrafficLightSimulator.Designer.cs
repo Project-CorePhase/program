@@ -46,6 +46,10 @@
             this.MenuItem_AboutUS = new System.Windows.Forms.ToolStripMenuItem();
             this.clickMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labelCurvedLane = new System.Windows.Forms.Label();
@@ -54,25 +58,21 @@
             this.label_CrossingType1 = new System.Windows.Forms.Label();
             this.label_HowManyCars = new System.Windows.Forms.Label();
             this.textBox_InputCars = new System.Windows.Forms.TextBox();
-            this.label_MouseLocation = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBoxGrid = new System.Windows.Forms.PictureBox();
             this.pictureBox_CurvedLane = new System.Windows.Forms.PictureBox();
             this.pictureBox_StrightLane = new System.Windows.Forms.PictureBox();
             this.pictureBox_CrossingB = new System.Windows.Forms.PictureBox();
             this.pictureBox_CrossingA = new System.Windows.Forms.PictureBox();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.label_MouseLocation = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBoxGrid = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CurvedLane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_StrightLane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CrossingB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CrossingA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -209,6 +209,44 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = global::TrafficLightSimulator.Properties.Resources.play105;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = global::TrafficLightSimulator.Properties.Resources.pause15;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton4.Text = "toolStripButton4";
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = global::TrafficLightSimulator.Properties.Resources.track4;
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton5.Text = "toolStripButton5";
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = global::TrafficLightSimulator.Properties.Resources.fast13;
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton6.Text = "toolStripButton6";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -294,34 +332,6 @@
             this.textBox_InputCars.TabIndex = 5;
             this.textBox_InputCars.Text = "77";
             // 
-            // label_MouseLocation
-            // 
-            this.label_MouseLocation.AutoSize = true;
-            this.label_MouseLocation.Location = new System.Drawing.Point(16, 753);
-            this.label_MouseLocation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_MouseLocation.Name = "label_MouseLocation";
-            this.label_MouseLocation.Size = new System.Drawing.Size(17, 17);
-            this.label_MouseLocation.TabIndex = 13;
-            this.label_MouseLocation.Text = ":-";
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // pictureBoxGrid
-            // 
-            this.pictureBoxGrid.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBoxGrid.Location = new System.Drawing.Point(191, 30);
-            this.pictureBoxGrid.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxGrid.Name = "pictureBoxGrid";
-            this.pictureBoxGrid.Size = new System.Drawing.Size(1201, 740);
-            this.pictureBoxGrid.TabIndex = 12;
-            this.pictureBoxGrid.TabStop = false;
-            this.pictureBoxGrid.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxGrid_DragDrop);
-            this.pictureBoxGrid.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxGrid_DragEnter);
-            this.pictureBoxGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Grid_Paint);
-            this.pictureBoxGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxGrid_MouseMove);
-            // 
             // pictureBox_CurvedLane
             // 
             this.pictureBox_CurvedLane.Image = global::TrafficLightSimulator.Properties.Resources.curve;
@@ -366,43 +376,34 @@
             this.pictureBox_CrossingA.TabStop = false;
             this.pictureBox_CrossingA.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_CrossingA_MouseMove);
             // 
-            // toolStripButton3
+            // label_MouseLocation
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::TrafficLightSimulator.Properties.Resources.play105;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton3.Text = "toolStripButton3";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.label_MouseLocation.AutoSize = true;
+            this.label_MouseLocation.Location = new System.Drawing.Point(16, 753);
+            this.label_MouseLocation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_MouseLocation.Name = "label_MouseLocation";
+            this.label_MouseLocation.Size = new System.Drawing.Size(17, 17);
+            this.label_MouseLocation.TabIndex = 13;
+            this.label_MouseLocation.Text = ":-";
             // 
-            // toolStripButton4
+            // timer1
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = global::TrafficLightSimulator.Properties.Resources.pause15;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // toolStripButton5
+            // pictureBoxGrid
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = global::TrafficLightSimulator.Properties.Resources.track4;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton5.Text = "toolStripButton5";
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = global::TrafficLightSimulator.Properties.Resources.fast13;
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton6.Text = "toolStripButton6";
-            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+            this.pictureBoxGrid.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBoxGrid.Location = new System.Drawing.Point(191, 30);
+            this.pictureBoxGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxGrid.Name = "pictureBoxGrid";
+            this.pictureBoxGrid.Size = new System.Drawing.Size(1201, 740);
+            this.pictureBoxGrid.TabIndex = 12;
+            this.pictureBoxGrid.TabStop = false;
+            this.pictureBoxGrid.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxGrid_DragDrop);
+            this.pictureBoxGrid.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxGrid_DragEnter);
+            this.pictureBoxGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Grid_Paint);
+            this.pictureBoxGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxGrid_MouseDown);
+            this.pictureBoxGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxGrid_MouseMove);
             // 
             // TrafficLightSimulator
             // 
@@ -427,11 +428,11 @@
             this.toolStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CurvedLane)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_StrightLane)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CrossingB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CrossingA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

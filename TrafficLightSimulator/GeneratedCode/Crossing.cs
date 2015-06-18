@@ -19,36 +19,48 @@ public class Crossing : RoadObject
     // Constrcutor
     public Crossing(Point pp,CrossingType ct, Image img) : base(pp)
     {
+        
         this.Image = img;
         this.Coordinate = pp;
-        
+        this.CrossingType = ct;
+
+        setRoadPiece();
+
+    }
+
+ public void setRoadPiece() {
+     Console.WriteLine("Reseting");
         this.ReferencePath = new roadPiece[4];
         this.ReferencePathLinked = new Boolean[4];
+
         // Create all the end point needed by the crossing, those will be connected by the simulator to the other crossing
         // The direction is relative to the crossing, 
         // Deg0 Done
         EndPoints = new roadPiece[4];
-        EndPoints[(int)Orientation.Degree0] = new roadPiece(this, (roadPiece)null);
-        EndPoints[(int)Orientation.Degree0].orientation = getGlobalOrientationFromLocal(global::Orientation.Degree0, this.Oriention);
-        EndPoints[(int)Orientation.Degree0].coordinate = new System.Drawing.Point(10, 55);
+        int endpointOrientation = (int)getGlobalOrientationFromLocal(Orientation.Degree0, this.orientation);
+        EndPoints[endpointOrientation] = new roadPiece(this, (roadPiece)null);
+        EndPoints[endpointOrientation].orientation = getGlobalOrientationFromLocal(global::Orientation.Degree0, this.Oriention);
+        EndPoints[endpointOrientation].coordinate = new System.Drawing.Point(10, 55);
 
         // Deg90 Done
-        EndPoints[(int)Orientation.Degree90] = new roadPiece(this, (roadPiece)null);
-        EndPoints[(int)Orientation.Degree90].orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, this.Oriention);
-        EndPoints[(int)Orientation.Degree90].coordinate = new System.Drawing.Point(84, 10);
+        endpointOrientation = (int)getGlobalOrientationFromLocal(Orientation.Degree90, this.orientation);
+        EndPoints[endpointOrientation] = new roadPiece(this, (roadPiece)null);
+        EndPoints[endpointOrientation].orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, this.Oriention);
+        EndPoints[endpointOrientation].coordinate = new System.Drawing.Point(84, 10);
 
         // Deg180 Done
-        EndPoints[(int)Orientation.Degree180] = new roadPiece(this, (roadPiece)null);
-        EndPoints[(int)Orientation.Degree180].orientation = getGlobalOrientationFromLocal(global::Orientation.Degree180, this.Oriention);
-        EndPoints[(int)Orientation.Degree180].coordinate = new System.Drawing.Point(135, 85);
+        endpointOrientation = (int)getGlobalOrientationFromLocal(Orientation.Degree180, this.orientation);
+        EndPoints[endpointOrientation] = new roadPiece(this, (roadPiece)null);
+        EndPoints[endpointOrientation].orientation = getGlobalOrientationFromLocal(global::Orientation.Degree180, this.Oriention);
+        EndPoints[endpointOrientation].coordinate = new System.Drawing.Point(135, 85);
 
         // Deg270 Done
-        EndPoints[(int)Orientation.Degree270] = new roadPiece(this, (roadPiece)null);
-        EndPoints[(int)Orientation.Degree270].orientation = getGlobalOrientationFromLocal(global::Orientation.Degree270, this.Oriention);
-        EndPoints[(int)Orientation.Degree270].coordinate = new System.Drawing.Point(56, 135);
+        endpointOrientation = (int)getGlobalOrientationFromLocal(Orientation.Degree270, this.orientation);
+        EndPoints[endpointOrientation] = new roadPiece(this, (roadPiece)null);
+        EndPoints[endpointOrientation].orientation = getGlobalOrientationFromLocal(global::Orientation.Degree270, this.Oriention);
+        EndPoints[endpointOrientation].coordinate = new System.Drawing.Point(56, 135);
 
-
-        switch (ct)
+        switch (this.CrossingType)
         {
             case CrossingType.CrossingWithoutPedestrian:
                 Image = TrafficLightSimulator.Properties.Resources.crossingA;
@@ -66,9 +78,9 @@ public class Crossing : RoadObject
                 Image = TrafficLightSimulator.Properties.Resources.curve;
                 Curved();
                 break;
-                
-            default :
-            System.Windows.Forms.MessageBox.Show("Error From the Crossing class");
+
+            default:
+                System.Windows.Forms.MessageBox.Show("Error From the Crossing class");
                 break;
 
         }
@@ -359,5 +371,7 @@ public class Crossing : RoadObject
         }
 
     }
+
+
 }
 

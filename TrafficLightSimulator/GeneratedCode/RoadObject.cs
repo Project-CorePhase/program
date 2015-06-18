@@ -25,7 +25,7 @@ public abstract class RoadObject
     private Image image;             // Refrence to crossing Image
     public Orientation orientation;     // How to orintate : Default by 0 deggres
     private TrafficController trafficController;
-
+    public CrossingType CrossingType { get; set; }
  
     //Adding a list with all the connections (from 2 to 4)
     private List<RoadObject> connections = null;
@@ -74,6 +74,7 @@ public abstract class RoadObject
     {
         throw new System.NotImplementedException();
     }
+
 
 }
 

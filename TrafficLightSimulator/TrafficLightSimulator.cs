@@ -49,7 +49,25 @@ namespace TrafficLightSimulator
             foreach (RoadObject roadObject in ros)
             {
                 Point draggedPointer = roadObject.Coordinate;
-                myGraphics.DrawImage(roadObject.bitmap, draggedPointer);
+                Bitmap image = (Bitmap)roadObject.bitmap.Clone();
+                // Rotation ?
+                switch (roadObject.orientation)
+                {
+                    case Orientation.Degree0:
+
+                        break;
+                    case Orientation.Degree90:
+                        image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                        break;
+                    case Orientation.Degree180:
+                        image.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                        break;
+                    case Orientation.Degree270:
+                        image.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                        break;
+                }
+
+                myGraphics.DrawImage(image, draggedPointer);
                 // Drawing Trafficlight
                 roadObject.TrafficController.Update();  // Abdullah Added The code here
                 foreach (TrafficLight item in roadObject.TrafficController.GetTrafficLight())
@@ -457,6 +475,43 @@ namespace TrafficLightSimulator
         {
             pictureBox_CurvedLane.DoDragDrop(pictureBox_CurvedLane.Image, DragDropEffects.Copy);
 
+        }
+
+        private void pictureBoxGrid_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                List<RoadObject> mo = simulator.RoadObjects;
+                foreach (RoadObject road in mo)
+                {
+                    // Check if we are in that coordoonate
+                    if (e.X > road.Coordinate.X && e.X < road.Coordinate.X + 150 &&
+                        e.Y > road.Coordinate.Y && e.Y < road.Coordinate.Y + 150) {
+                            Orientation newOrientation = road.Oriention;
+                            switch (road.orientation)
+                            {
+                                case Orientation.Degree0:
+                                    newOrientation = Orientation.Degree90;
+                                    break;
+                                case Orientation.Degree90:
+                                    newOrientation = Orientation.Degree180;
+                                    break;
+                                case Orientation.Degree180:
+                                    newOrientation = Orientation.Degree270;
+                                    break;
+                                case Orientation.Degree270:
+                                    newOrientation = Orientation.Degree0;
+                                    break;
+                            }
+                            // We have to redo the roadObject with the new configuration
+                            road.orientation = newOrientation;
+                            ((Crossing)road).setRoadPiece();
+                            DrawAll();
+                            break;
+                    }
+                }
+
+            }
         }
 
     }
