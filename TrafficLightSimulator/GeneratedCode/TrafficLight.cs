@@ -53,6 +53,10 @@ public class TrafficLight
     {
         return CurrentColor;
     }
+    public void SetCorrdinates(Point xyz)
+    {
+        TrafficlightCordinate = xyz;
+    }
     //*****************************************************************************************************************************************
 }
 

@@ -13,6 +13,8 @@ using System.Text;
 [Serializable]
 public class Crossing : RoadObject
 {
+
+    private TrafficController tc = new TrafficController();
     private System.Drawing.Point centerPoint = new System.Drawing.Point(71, 71);
     // Constrcutor
     public Crossing(Point pp,CrossingType ct, Image img) : base(pp)
@@ -259,15 +261,11 @@ public class Crossing : RoadObject
             // Now generating the good coordinate from 84, 125 which is the point on the picture of Abdullah
             rp3deg0EndPoint.coordinate = rotatePoint(o, new System.Drawing.Point(100, 90));
             rp3deg0EndPoint.size = new System.Drawing.Point(30, 30);
+            rp3deg0EndPoint.trafficlightRefrence.TrafficlightCordinate = new Point(100, 90);
 
             roadPiece rp1 = new roadPiece(this, rp3deg0EndPoint);
             rp1.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
             rp1.size = new System.Drawing.Point(23, 23);
-
-            rp1.trafficlightRefrence = new TrafficLight(); // Emeric change the point her
-
-            //rp1.trafficlightRefrence = new TrafficLight(CrossingType.CrossingWithoutPedestrian,new Point(0,0)); // Emeric change the point here
-
             rp1.coordinate = rotatePoint(o, new System.Drawing.Point(100, 133));
 
 

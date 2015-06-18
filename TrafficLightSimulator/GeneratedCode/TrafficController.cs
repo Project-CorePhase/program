@@ -82,27 +82,16 @@ public class TrafficController
         }
         return temp;
     }
-    public void AddTrafficLightToRoadPiece(CrossingType ct, Point xy)
+    public void AddTrafficLightToRoadPiece(CrossingType ct, TrafficLight obj)
     {
         switch (ct)
         {
             case CrossingType.CrossingWithPedestrian:
-
-                foreach (TrafficLight item in TrafficGroupList)
-                {
-                    TrafficLight tf = new TrafficLight();
-                    tf.TrafficlightCordinate = xy;
-                    TrafficGroupList.Add(tf);
-                }
+                TrafficGroupListWithPedstrian.Add(obj);
                 break;
 
             case CrossingType.CrossingWithoutPedestrian:
-                foreach (TrafficLight item in TrafficGroupListWithPedstrian)
-                {
-                    TrafficLight tf = new TrafficLight();
-                    tf.TrafficlightCordinate = xy;
-                    TrafficGroupListWithPedstrian.Add(tf);
-                }
+                TrafficGroupList.Add(obj);
                 break;
         }
 
