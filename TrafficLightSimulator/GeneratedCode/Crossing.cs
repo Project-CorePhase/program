@@ -257,6 +257,22 @@ public class Crossing : RoadObject
         PedestrianStartPoint[3].coordinate = rotatePoint(getGlobalOrientationFromLocal(global::Orientation.Degree90, this.orientation), new System.Drawing.Point(20, 27 + 75));
         PedestrianStartPoint[3].size = new System.Drawing.Point(75, 75);
 
+        PedestrianStartPoint[0].trafficlightRefrence = new TrafficLight();
+        PedestrianStartPoint[0].trafficlightRefrence.SetCorrdinates(rotatePoint(getGlobalOrientationFromLocal(global::Orientation.Degree90, this.orientation), new System.Drawing.Point(5, 30)));
+        TrafficController.AddTrafficLightToRoadPiece(CrossingType.CrossingWithoutPedestrian, PedestrianStartPoint[0].trafficlightRefrence);
+
+        PedestrianStartPoint[1].trafficlightRefrence = new TrafficLight();
+        PedestrianStartPoint[1].trafficlightRefrence.SetCorrdinates(rotatePoint(getGlobalOrientationFromLocal(global::Orientation.Degree0, this.orientation), new System.Drawing.Point(30, 20)));
+        TrafficController.AddTrafficLightToRoadPiece(CrossingType.CrossingWithoutPedestrian, PedestrianStartPoint[1].trafficlightRefrence);
+
+        PedestrianStartPoint[2].trafficlightRefrence = new TrafficLight();
+        PedestrianStartPoint[2].trafficlightRefrence.SetCorrdinates(rotatePoint(getGlobalOrientationFromLocal(global::Orientation.Degree90, this.orientation), new System.Drawing.Point(120+5, 28)));
+        TrafficController.AddTrafficLightToRoadPiece(CrossingType.CrossingWithoutPedestrian, PedestrianStartPoint[2].trafficlightRefrence);
+
+        PedestrianStartPoint[3].trafficlightRefrence = new TrafficLight();
+        PedestrianStartPoint[3].trafficlightRefrence.SetCorrdinates(rotatePoint(getGlobalOrientationFromLocal(global::Orientation.Degree0, this.orientation), new System.Drawing.Point(30, 120+20)));
+        TrafficController.AddTrafficLightToRoadPiece(CrossingType.CrossingWithoutPedestrian, PedestrianStartPoint[3].trafficlightRefrence);
+
         // List of all direction
         Orientation[] todo = { Orientation.Degree0, Orientation.Degree90, Orientation.Degree180, Orientation.Degree270 };
         // For all direction, we're making the graph
@@ -272,6 +288,7 @@ public class Crossing : RoadObject
             // Now generating the good coordinate from 84, 125 which is the point on the picture of Abdullah
             rp3deg0EndPoint.coordinate = rotatePoint(o, new System.Drawing.Point(100, 90));
             rp3deg0EndPoint.size = new System.Drawing.Point(30, 30);
+
 
             roadPiece rp1 = new roadPiece(this, rp3deg0EndPoint);
             rp1.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
@@ -301,6 +318,15 @@ public class Crossing : RoadObject
             roadPiece rp0StartPoint = new roadPiece(this, new roadPiece[] { rp2, rp1 }); // manque rp1 rp2
             rp0StartPoint.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
             rp0StartPoint.coordinate = rotatePoint(o, new System.Drawing.Point(90, 150));
+
+            // Traffic Related
+            if (o == Orientation.Degree90 || o == Orientation.Degree270)
+            {
+                rp3deg0EndPoint.trafficlightRefrence = new TrafficLight();
+                rp3deg0EndPoint.trafficlightRefrence.SetCorrdinates(rotatePoint(o, new System.Drawing.Point(30, 30)));
+                TrafficController.AddTrafficLightToRoadPiece(CrossingType.CrossingWithoutPedestrian, rp3deg0EndPoint.trafficlightRefrence);
+                rp4.trafficlightRefrence = rp3deg0EndPoint.trafficlightRefrence;
+            }
 
             //  assign the start point
             this.ReferencePath[(int)localO] = rp0StartPoint;
@@ -355,9 +381,10 @@ public class Crossing : RoadObject
             rp4.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
             rp4.coordinate = rotatePoint(o, new System.Drawing.Point(84, 115));
             rp4.size = new System.Drawing.Point(75, 75);
-
+            rp4.trafficlightRefrence = rp3deg0EndPoint.trafficlightRefrence;
             roadPiece rp2 = new roadPiece(this, rp4);
             rp2.orientation = getGlobalOrientationFromLocal(global::Orientation.Degree90, o);
+            
             rp2.coordinate = rotatePoint(o, new System.Drawing.Point(84, 140));
             rp2.size = new System.Drawing.Point(25, 25);
             roadPiece rp0StartPoint = new roadPiece(this, new roadPiece[] {   rp2 , rp1}); // manque rp1 rp2

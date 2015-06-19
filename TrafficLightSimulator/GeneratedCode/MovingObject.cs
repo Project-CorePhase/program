@@ -82,7 +82,7 @@ namespace TrafficLightSimulator
                 }
                 else
                 {
-                    if (Path.trafficlightRefrence == null || Path.trafficlightRefrence.GetColor() == TrafficColor.Green)
+                    if (Path.getNext().trafficlightRefrence == null || Path.getNext().trafficlightRefrence.GetColor() == TrafficColor.Green)
                     {
                         // We check if there is a traffic light and if i we can continue
                         Path = Path.getNext();

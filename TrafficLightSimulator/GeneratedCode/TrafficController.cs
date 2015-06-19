@@ -48,6 +48,7 @@ public class TrafficController
         if (innerCounter < 0)
         {
             int temp = IncrementListener();
+            
             ResetTraffic();
             foreach (TrafficLight item in TrafficGroupList)
             {

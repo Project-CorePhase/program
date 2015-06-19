@@ -45,7 +45,7 @@ namespace TrafficLightSimulator
                 // Create moving object here, we have to look on the startpoint of the system
                 foreach (roadPiece rp in carStartPoints)
                 {
-                    if (rp != null && rd.Next(10) > 7 && MovingObjects.Count < 30)
+                    if (rp != null && rd.Next(10) > 7 && MovingObjects.Count < 30 && (rp.trafficlightRefrence == null || rp.trafficlightRefrence.GetColor() == TrafficColor.Green))
                     {
                         this.addMovingObject(rp, false);
                     }
@@ -54,7 +54,7 @@ namespace TrafficLightSimulator
                 // Add some pedestrian
                 foreach (roadPiece rp in PedestrianStartPoints)
                 {
-                    if (rp != null && rd.Next(10) > 7 && MovingObjects.Count < 30)
+                    if (rp != null && rd.Next(10) > 7 && MovingObjects.Count < 30 && (rp.trafficlightRefrence == null || rp.trafficlightRefrence.GetColor() == TrafficColor.Green))
                     {
                         this.addMovingObject(rp, true);
                     }
